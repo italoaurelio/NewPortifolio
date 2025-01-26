@@ -1,0 +1,37 @@
+[
+    {
+        "photo": "../assets/salexpress.jpg",
+        "date": "Jan 2024 - Present",
+        "name": "SalExpress",
+        "ocupation": "Fullstack Developer Junior",
+        "description": "Web Design; Web Development; Backend Development; React + PHP + MySql."
+    },
+    {
+        "photo": "../assets/velio.jpg",
+        "date": "Jun 2021 - Dez 2022",
+        "name": "Vel.IO",
+        "ocupation": "Fullstack Developer | Art Director",
+        "description": "Project ideation; Research and validation; Graphical interface<br> validation creation; Prototyping; Development; HTML + CSS + JavaScript + PHP."
+    },
+    {
+        "photo": "../assets/promove.jpg",
+        "date": "Fev 2020 - Dez 2020",
+        "name": "Promove",
+        "ocupation": "Graphic Designer",
+        "description": "Creation of designs for banners and print materials, including layout<br> and visual composition; Preparation of files for production, and ensuring<br> alignment with brand guidelines and marketing objectives."
+    },
+    {
+        "photo": "../assets/ram.jpg",
+        "date": "Jan 2019 - Jan 2020",
+        "name": "RAM",
+        "ocupation": "Graphic Designer",
+        "description": "Creation of creatives for social media; Video editing and commercials;<br>Creation of captions; Analysis of statistics, and marketing strategy planning."
+    },
+    {
+        "photo": "../assets/unimed.jpg",
+        "date": "Jan 2019 - Dez 2019",
+        "name": "Unimed",
+        "ocupation": "Administration Iternship",
+        "description": "Assistance with HR functions; Management of physical and digital documents;<br>Creation of storage solutions, and logic for data input."
+    }
+]

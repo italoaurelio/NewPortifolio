@@ -1,0 +1,51 @@
+[
+    {
+        "photo": "/assets/salromaneioSite.jpg",
+        "name": "Waybill app",
+        "date": "Platform for analysis, recognition, editing, storage, and consultation of waybill documents.",
+        "ocupation": "For SalExpress",
+        "descricao": [
+            { "text": "React" },
+            { "text": "Tailwind" },
+            { "text": "MySQL" },
+            { "text": "Php" },
+            { "text": "Drive API" }
+        ]
+    },
+    {
+        "photo": "/assets/italoportifolioSite.jpg",
+        "name": "Personal Portifolio",
+        "date": "My personal portifolio, where i showcase my projects and skills",
+        "ocupation": "For Ítalo Aurélio",
+        "descricao": [
+            { "text": "Html" },
+            { "text": "Css" },
+            { "text": "JavaScript" }
+        ]
+    },
+    {
+        "photo": "/assets/salreactSite.jpg",
+        "name": "Route management app",
+        "date": "Platform for creating new routes and comparing them with current routes, aimed at improving transportation processes.",
+        "ocupation": "For SalExpress",
+        "descricao": [
+            { "text": "React" },
+            { "text": "Tailwind" },
+            { "text": "MySQL" },
+            { "text": "Php" },
+            { "text": "Maps API" }
+        ]
+    },
+    {
+        "photo": "/assets/velioSite.jpg",
+        "name": "Vel.IO",
+        "date": "A project aimed at simplifying the digital life of elderly people and individuals with motor disabilities, through an easy-to-use interface.",
+        "ocupation": "For Vel.IO",
+        "descricao": [
+            { "text": "Html" },
+            { "text": "Css" },
+            { "text": "JavaScript" },
+            { "text": "Php" }
+        ]
+    }
+]

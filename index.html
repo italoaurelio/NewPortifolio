@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Ítalo Aurélio</title>
+</head>
+
+<body class="animated-background">
+    <div id="menu">
+        <span id="hover-bg"></span>
+        <a href="#presentation" id="one">Home</a>
+        <a href="#experience" id="two">Experience</a>
+        <a href="#techstack" id="three">TeschStack</a>
+        <a href="#projects" id="four">Projects</a>
+    </div>
+    <div id="presentation">
+        <div id="me">
+            <img src="assets/foto_italo.jpg" alt="Eu" id="photo">
+            <div id="name">
+                <h1 id="name-title">Ítalo Aurélio.</h1>
+                <div id="based">
+                    <!-- Ícone Brasil -->
+                    <svg id="br-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
+                        <path fill="#009b3a" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4z" />
+                        <path fill="#fedf01" d="M32.728 18L18 29.124L3.272 18L18 6.875z" />
+                        <circle cx="17.976" cy="17.924" r="6.458" fill="#002776" />
+                        <path fill="#cbe9d4" d="M12.277 14.887a6.4 6.4 0 0 0-.672 2.023c3.995-.29 9.417 1.891 11.744 4.595c.402-.604.7-1.28.883-2.004c-2.872-2.808-7.917-4.63-11.955-4.614" />
+                        <path fill="#88c9f9" d="M12 18.233h1v1h-1zm1 2h1v1h-1z" />
+                        <path fill="#55acee" d="M15 18.233h1v1h-1zm2 1h1v1h-1zm4 2h1v1h-1zm-3 1h1v1h-1zm3-6h1v1h-1z" />
+                        <path fill="#3b88c3" d="M19 20.233h1v1h-1z" />
+                    </svg>
+                    <!-- Ícone Play (Iconify) que será exibido após a foto ser clicada -->
+                    <iconify-icon icon="line-md:play-filled" id="play-icon" style="display: none;"></iconify-icon>
+                    <p id="music-title">Based in Brazil</p>
+                </div>
+            </div>
+        </div>
+
+        <audio id="audio-player" preload="auto">
+            <source id="audio-source" src="" type="audio/mp3">
+        </audio>
+
+        <h2>FULLSTACK</h2>
+        <div id="dev">
+            <h3>DEVELOPER</h3>
+            <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcNHVWGwXNrfvrPsbhsKcvzBmmwvHhvFKfgJhsntVngNwWGMbWBzZKJNBrCXdWgnVFGV" id="contact">
+                <i class="ph ph-chat-circle-dots"></i>
+                <p>Contact me</p>
+            </a>
+        </div>
+        <div id="socials">
+            <!-- Linkedin -->
+            <a href="https://www.linkedin.com/in/italoaurelio/" target="_blank"><iconify-icon icon="line-md:linkedin" class="icon"></iconify-icon></a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/italoaurelio.png/" target="_blank"><iconify-icon icon="line-md:instagram" class="icon"></iconify-icon></a>
+            <!-- GitHub -->
+            <a href="https://github.com/italoaurelio" target="_blank"><iconify-icon icon="line-md:github" class="icon"></iconify-icon></a>
+            <!-- Telephone -->
+            <a href="https://api.whatsapp.com/send/?phone=32999200455&text&type=phone_number&app_absent=0" target="_blank"><iconify-icon icon="line-md:phone" class="icon"></iconify-icon></a>
+            <!-- Curriculum -->
+            <a href="https://drive.google.com/file/d/1WVFzQyXcepJy4VwnRyCzn2_PjaTRJdgZ/view" target="_blank"><iconify-icon icon="line-md:file-document" class="icon"></iconify-icon></a>
+        </div>
+    </div>
+    <div id="arrow_down">
+        <iconify-icon icon="ep:arrow-down-bold" class="icon"></iconify-icon>
+    </div>
+    <div id="portifolio">
+        <div id="experience">
+            <h4>Experience</h4>
+            <div id="button">
+                <button id="buttonWS1" class="active">Work</button>
+                <button id="buttonWS2">Studies</button>
+            </div>
+            <div id="experienceTable">
+                <div id="line"></div>
+                <div id="container">
+                    <!-- Lógica no Script 👌 -->
+                </div>
+            </div>
+        </div>
+        <div id="techstack">
+            <h4>Tech Stack</h4><br>
+            <div id="techIcons">
+                <div class="techIcons"><iconify-icon icon="ri:javascript-fill" class="icon"></iconify-icon>
+                    <p>Javascript</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="icon-park-solid:html-five" class="icon"></iconify-icon>
+                    <p>Html</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="streamline:css-three-solid" class="icon"></iconify-icon>
+                    <p>Css</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="flowbite:react-solid" class="icon"></iconify-icon>
+                    <p>React</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="ri:tailwind-css-fill" class="icon"></iconify-icon>
+                    <p>Tailwind</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="carbon:mysql" class="icon"></iconify-icon>
+                    <p>MySQL</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="mdi:sql-query" class="icon"></iconify-icon>
+                    <p>SQL</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="devicon-plain:neovim" class="icon"></iconify-icon>
+                    <p>Neovim</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="mingcute:linux-fill" class="icon"></iconify-icon>
+                    <p>Linux</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="akar-icons:python-fill" class="icon"></iconify-icon>
+                    <p>Python</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="simple-icons:c" class="icon"></iconify-icon>
+                    <p>C</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="mage:photoshop" class="icon"></iconify-icon>
+                    <p>Photoshop</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="mage:illustrator" class="icon"></iconify-icon>
+                    <p>Illustrator</p>
+                </div>
+            </div>
+        </div>
+        <div id="projects">
+            <h4>Projects</h4>
+            <div id="projectContainer">
+                <!-- Lógica no Script 😁 -->
+            </div>
+        </div>
+        <footer>
+            <div id="footerBox">
+                <div class="footerName">
+                    <div>Ítalo</div>
+                    <div>Aurélio.</div>
+                </div>
+                <div id="footerText">
+                    <div class="footerElement">
+                        <h6>Explore</h6>
+                        <a href="#presentation" id="one">Home</a>
+                    <a href="#experience" id="two">Experience</a>
+                    <a href="#techstack" id="three">TeschStack</a>
+                    <a href="#projects" id="four">Projects</a>
+                    </div>
+                    <div class="footerElement">
+                        <h6>Let's Connect</h6>
+                        <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcNHVWGwXNrfvrPsbhsKcvzBmmwvHhvFKfgJhsntVngNwWGMbWBzZKJNBrCXdWgnVFGV">Email</a>
+                        <a href="https://www.linkedin.com/in/italoaurelio/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/italoaurelio" target="_blank">GitHub</a>
+                        <a href="https://www.instagram.com/italoaurelio.png/" target="_blank">Instagram</a>
+                        <a href="https://api.whatsapp.com/send/?phone=32999200455&text&type=phone_number&app_absent=0" target="_blank">Phone</a>
+                    </div>
+                </div>
+            </div>
+            <div id="footerSignature">
+                <p>© 2025</p>
+                <p>Ítalo Aurélio.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,26 @@
+[
+    {
+        "photo": "../assets/cefet.jpg",
+        "date": "Jun 2022 - Present",
+        "name": "Computer Engineering",
+        "ocupation": "Cefet-MG (Leopoldina Campus)"
+    },
+    {
+        "photo": "../assets/senai.jpg",
+        "date": "October 2024 - Present",
+        "name": "Technical Course in Fullstack Development<br>('Rio Pomba Valley')",
+        "ocupation": "SENAI Cataguases"
+    },
+    {
+        "photo": "../assets/uninter.jpg",
+        "date": "Jan 2022 - Dez 2024 (Deferred)",
+        "name": "Bachelor's Degree in Visual Arts",
+        "ocupation": "Uninter"
+    },
+    {
+        "photo": "../assets/efg.jpg",
+        "date": "Fev 2018 - Dez 2020",
+        "name": "Technical Course in Business Administration and High School",
+        "ocupation": "EFG - Cataguases"
+    }
+]
