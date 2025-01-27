@@ -102,7 +102,7 @@ body{
 
 #presentation{
     width: 100vw;
-    height: 700px;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -443,6 +443,12 @@ h4{
             width: 35px;
             height: 35px;
             font-size: 35px;
+        }
+        .icon:before{
+            display: none;
+        }
+        .icon:hover{
+            transform: none;
         }
     }
     .techIcons:hover{
