@@ -244,7 +244,6 @@ h3{
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.493), transparent);
     transition: left 0.7s ease;
-    z-index: 1; /* Fica por cima do botão */
 }
 
 #contact:hover::before {
@@ -284,7 +283,6 @@ h3{
     border-radius: 50%;
     transition: transform 0.7s ease;
     position: relative;
-    z-index: 10;
     overflow: hidden;
 }
 
