@@ -239,7 +239,7 @@ h3{
     content: "";
     position: absolute;
     top: 0;
-    left: 100%;
+    left: -100%;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.493), transparent);
@@ -247,7 +247,7 @@ h3{
 }
 
 #contact:hover::before {
-    left: -140px; /* Quando passar o mouse, o brilho vai do lado direito para o esquerdo */
+    left: 100%; /* Quando passar o mouse, o brilho vai do lado direito para o esquerdo */
 }
 
 #contact span {
@@ -659,6 +659,8 @@ h4{
     }
     #menu{
         width: 95vw;
+        position: fixed;
+        left: 50vw;
         a{
             font-size: 14px;
         }
