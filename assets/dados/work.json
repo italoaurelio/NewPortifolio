@@ -33,5 +33,12 @@
         "name": "Unimed",
         "ocupation": "Administration Iternship",
         "description": "Assistance with HR functions; Management of physical and digital documents;<br>Creation of storage solutions, and logic for data input."
+    },
+    {
+        "photo": "../assets/cefet.jpg",
+        "date": "Jan 2019 - Dez 2019",
+        "name": "Cefet",
+        "ocupation": "Administration Iternship",
+        "description": "Assistance with HR functions; Management of physical and digital documents;<br>Creation of storage solutions, and logic for data input."
     }
 ]

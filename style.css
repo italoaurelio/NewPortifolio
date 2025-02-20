@@ -318,6 +318,12 @@ h3{
     .icon{
         border: none;
     }
+    .icon:before{
+        display: none;
+    }
+    .icon:hover{
+        transform: none;
+    }
     padding-bottom: 60px;
 }
 
