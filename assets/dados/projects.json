@@ -10,6 +10,12 @@
             { "text": "MySQL" },
             { "text": "Php" },
             { "text": "Drive API" }
+        ],
+        "bigDescription": "Waybill App is a full-featured system to upload, OCR, validate and store waybill documents, with search and history features. I worked on the frontend using React and Tailwind and integrated backend APIs for storage and Drive integrations.",
+        "gallery": [
+            "/assets/salromaneioSite.jpg",
+            "/assets/salreactSite.jpg",
+            "/assets/italoportifolioSite.jpg"
         ]
     },
     {
@@ -21,6 +27,12 @@
             { "text": "Html" },
             { "text": "Css" },
             { "text": "JavaScript" }
+        ],
+        "bigDescription": "This is my personal portfolio site where I present projects, experience and technical skills. Built with responsive design in mind and lightweight interactions to keep navigation fast.",
+        "gallery": [
+            "/assets/italoportifolioSite.jpg",
+            "/assets/velioSite.jpg",
+            "/assets/salromaneioSite.jpg"
         ]
     },
     {
@@ -34,6 +46,12 @@
             { "text": "MySQL" },
             { "text": "Php" },
             { "text": "Maps API" }
+        ],
+        "bigDescription": "Route management app helps planners create and compare routes to optimize delivery times and costs. I contributed to the interface and mapping integration using Maps APIs and visualization components.",
+        "gallery": [
+            "/assets/salreactSite.jpg",
+            "/assets/salromaneioSite.jpg",
+            "/assets/italoportifolioSite.jpg"
         ]
     },
     {
@@ -46,6 +64,12 @@
             { "text": "Css" },
             { "text": "JavaScript" },
             { "text": "Php" }
+        ],
+        "bigDescription": "Vel.IO focuses on accessibility and simplicity: large controls, clear contrast and straightforward flows to help elderly and motor-impaired users achieve daily tasks online. I worked on UI improvements and accessibility fixes.",
+        "gallery": [
+            "/assets/velioSite.jpg",
+            "/assets/italoportifolioSite.jpg",
+            "/assets/salreactSite.jpg"
         ]
     }
 ]
