@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -19,10 +19,14 @@
 <body class="animated-background">
     <div id="menu">
         <span id="hover-bg"></span>
-        <a href="#presentation" id="one">Home</a>
-        <a href="#experience" id="two">Experience</a>
-        <a href="#techstack" id="three">TechStack</a>
-        <a href="#projects" id="four">Projects</a>
+        <a href="#presentation" id="one" data-i18n="menu.home">Home</a>
+        <a href="#experience" id="two" data-i18n="menu.experience">Experience</a>
+        <a href="#techstack" id="three" data-i18n="menu.techstack">TechStack</a>
+        <a href="#projects" id="four" data-i18n="menu.projects">Projects</a>
+        <!-- Botãozinho de idioma 🌎 -->
+        <button id="lang-toggle" aria-label="Switch language / Trocar idioma">
+            <span data-lang-opt="en">EN</span><span class="lang-sep">/</span><span data-lang-opt="pt">PT</span>
+        </button>
     </div>
     <div id="presentation">
         <div id="me">
@@ -45,7 +49,7 @@
                     </svg>
                     <!-- Ícone Play (Iconify) que será exibido após a foto ser clicada -->
                     <iconify-icon icon="line-md:play-filled" id="play-icon" style="display: none;"></iconify-icon>
-                    <p id="music-title">Based in Brazil</p>
+                    <p id="music-title" data-i18n="hero.basedIn">Based in Brazil</p>
                 </div>
             </div>
         </div>
@@ -66,7 +70,7 @@
                     <path
                         d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z" />
                 </svg>
-                <p>Contact me</p>
+                <p data-i18n="hero.contact">Contact me</p>
             </a>
         </div>
         <div id="socials">
@@ -92,10 +96,10 @@
     </div>
     <div id="portifolio">
         <div id="experience">
-            <h4>Experience</h4>
+            <h4 data-i18n="experience.title">Experience</h4>
             <div id="button">
-                <button id="buttonWS1" class="active">Work</button>
-                <button id="buttonWS2">Studies</button>
+                <button id="buttonWS1" class="active" data-i18n="experience.work">Work</button>
+                <button id="buttonWS2" data-i18n="experience.studies">Studies</button>
             </div>
             <div id="experienceTable">
                 <div id="line"></div>
@@ -105,7 +109,7 @@
             </div>
         </div>
         <div id="techstack">
-            <h4>Tech Stack</h4><br>
+            <h4 data-i18n="techstack.title">Tech Stack</h4><br>
             <div id="techIcons">
                 <div class="techIcons"><iconify-icon icon="ri:javascript-fill" class="icon"></iconify-icon>
                     <p>Javascript</p>
@@ -153,9 +157,9 @@
         </div>
         <div id="projects">
             <div class="projects-header">
-                <h4>Projects</h4>
+                <h4 data-i18n="projects.title">Projects</h4>
                 <div class="project-hint-inline">
-                    <span class="project-hint-text">Clique em um projeto para expandir</span>
+                    <span class="project-hint-text" data-i18n="projects.hint">Click a project to expand</span>
                     <iconify-icon icon="mingcute:finger-press-fill" class="project-hint-icon-inline"></iconify-icon>
                 </div>
             </div>
@@ -171,21 +175,22 @@
                 </div>
                 <div id="footerText">
                     <div class="footerElement">
-                        <h6>Explore</h6>
-                        <a href="#presentation">Home</a>
-                        <a href="#experience">Experience</a>
-                        <a href="#techstack">TechStack</a>
-                        <a href="#projects">Projects</a>
+                        <h6 data-i18n="footer.explore">Explore</h6>
+                        <a href="#presentation" data-i18n="menu.home">Home</a>
+                        <a href="#experience" data-i18n="menu.experience">Experience</a>
+                        <a href="#techstack" data-i18n="menu.techstack">TechStack</a>
+                        <a href="#projects" data-i18n="menu.projects">Projects</a>
                     </div>
                     <div class="footerElement">
-                        <h6>Let's Connect</h6>
+                        <h6 data-i18n="footer.connect">Let's Connect</h6>
                         <a target="_blank"
-                            href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcNHVWGwXNrfvrPsbhsKcvzBmmwvHhvFKfgJhsntVngNwWGMbWBzZKJNBrCXdWgnVFGV">Email</a>
+                            href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcNHVWGwXNrfvrPsbhsKcvzBmmwvHhvFKfgJhsntVngNwWGMbWBzZKJNBrCXdWgnVFGV"
+                            data-i18n="footer.email">Email</a>
                         <a href="https://www.linkedin.com/in/italoaurelio/" target="_blank">LinkedIn</a>
                         <a href="https://github.com/italoaurelio" target="_blank">GitHub</a>
                         <a href="https://www.instagram.com/italoaurelio.png/" target="_blank">Instagram</a>
                         <a href="https://api.whatsapp.com/send/?phone=32999200455&text&type=phone_number&app_absent=0"
-                            target="_blank">Phone</a>
+                            target="_blank" data-i18n="footer.phone">Phone</a>
                     </div>
                 </div>
             </div>
@@ -223,6 +228,7 @@
         </div>
     </div>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 

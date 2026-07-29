@@ -1,26 +1,32 @@
 [
     {
         "photo": "assets/cefet.jpg",
-        "date": "Jun 2022 - Present",
-        "name": "Computer Engineering",
-        "ocupation": "Cefet-MG (Leopoldina Campus)"
+        "date": { "en": "Jun 2022 - Present", "pt": "Jun 2022 - Presente" },
+        "name": { "en": "Computer Engineering", "pt": "Engenharia de Computação" },
+        "ocupation": { "en": "Cefet-MG (Leopoldina Campus)", "pt": "Cefet-MG (Campus Leopoldina)" }
     },
     {
         "photo": "assets/senai.jpg",
-        "date": "October 2024 - Present",
-        "name": "Technical Course in Fullstack Development<br>('Rio Pomba Valley')",
+        "date": { "en": "October 2024 - Present", "pt": "Outubro 2024 - Presente" },
+        "name": {
+            "en": "Technical Course in Fullstack Development<br>('Rio Pomba Valley')",
+            "pt": "Curso Técnico em Desenvolvimento Fullstack<br>('Rio Pomba Valley')"
+        },
         "ocupation": "SENAI Cataguases"
     },
     {
         "photo": "assets/uninter.jpg",
-        "date": "Jan 2022 - Dez 2024 (Deferred)",
-        "name": "Bachelor's Degree in Visual Arts",
+        "date": { "en": "Jan 2022 - Dec 2024 (Deferred)", "pt": "Jan 2022 - Dez 2024 (Trancado)" },
+        "name": { "en": "Bachelor's Degree in Visual Arts", "pt": "Bacharelado em Artes Visuais" },
         "ocupation": "Uninter"
     },
     {
         "photo": "assets/efg.jpg",
-        "date": "Fev 2018 - Dez 2020",
-        "name": "Technical Course in Business Administration and High School",
+        "date": { "en": "Feb 2018 - Dec 2020", "pt": "Fev 2018 - Dez 2020" },
+        "name": {
+            "en": "Technical Course in Business Administration and High School",
+            "pt": "Curso Técnico em Administração integrado ao Ensino Médio"
+        },
         "ocupation": "EFG - Cataguases"
     }
 ]

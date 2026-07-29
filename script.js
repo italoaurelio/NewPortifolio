@@ -57,7 +57,10 @@ function playMusic() {
         if(playIcon) playIcon.style.display = 'none';
         musicTitle?.classList.remove("clicked");
         if(nameTitle) nameTitle.textContent = "Ítalo Aurélio.";
-        if(musicTitle) musicTitle.textContent = "Based in Brazil";
+        if(musicTitle) {
+            musicTitle.textContent = i18n.t("hero.basedIn");
+            delete musicTitle.dataset.i18nSkip; // liberou pro i18n traduzir de novo
+        }
         if(audioSource) audioSource.src = "";
         isPlaying = false;
     } else {
@@ -70,8 +73,11 @@ function playMusic() {
         if(brIcon) brIcon.style.display = 'none';
         if(playIcon) playIcon.style.display = 'block';
         musicTitle?.classList.add("clicked");
-        if(nameTitle) nameTitle.textContent = "Now Playing";
-        if(musicTitle) musicTitle.textContent = randomSong.name;
+        if(nameTitle) nameTitle.textContent = i18n.t("hero.nowPlaying");
+        if(musicTitle) {
+            musicTitle.textContent = randomSong.name;
+            musicTitle.dataset.i18nSkip = ""; // nome de música não se traduz 🎵
+        }
         isPlaying = true;
     }
 }
@@ -127,10 +133,10 @@ async function loadAndRenderJSON(filePath) {
                 <div class="work">
                     <img src="${item.photo}" alt="" width="60" height="60" loading="lazy" decoding="async">
                     <div class="workText">
-                        <div class="t2">${item.date}</div>
-                        <div class="t1">${item.name}</div>
-                        <div class="t2">${item.ocupation}</div>
-                        ${item.description ? `<p>${item.description}</p>` : ''}
+                        <div class="t2">${i18n.field(item.date)}</div>
+                        <div class="t1">${i18n.field(item.name)}</div>
+                        <div class="t2">${i18n.field(item.ocupation)}</div>
+                        ${item.description ? `<p>${i18n.field(item.description)}</p>` : ''}
                     </div>
                 </div>
             `;
@@ -350,15 +356,32 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if(btnNext) btnNext.addEventListener('click', (e)=>{ e.stopPropagation(); showSlide(currentGalleryIndex + 1); resetAutoplay(); });
 });
 
-loadAndRenderJSON('assets/dados/work.json');
+// Guarda qual aba (Work/Studies) está aberta pro i18n saber o que re-renderizar
+let currentExperienceFile = 'assets/dados/work.json';
+
+loadAndRenderJSON(currentExperienceFile);
 
 if(buttonWS1) buttonWS1.addEventListener('click', () =>{
     toggleClass(buttonWS1,buttonWS2)
-    loadAndRenderJSON('assets/dados/work.json');
+    currentExperienceFile = 'assets/dados/work.json';
+    loadAndRenderJSON(currentExperienceFile);
 });
 if(buttonWS2) buttonWS2.addEventListener('click', () =>{
     toggleClass(buttonWS2,buttonWS1)
-    loadAndRenderJSON('assets/dados/studies.json');
+    currentExperienceFile = 'assets/dados/studies.json';
+    loadAndRenderJSON(currentExperienceFile);
+});
+
+// Alterna EN/PT 🔁
+document.getElementById("lang-toggle")?.addEventListener("click", () => {
+    i18n.setLang(i18n.lang === "en" ? "pt" : "en");
+});
+
+// Se trocar de língua, re-renderiza o que estiver na tela 🔄
+document.addEventListener("langchange", () => {
+    loadAndRenderJSON(currentExperienceFile);
+    loadAndRenderProjectsJSON();
+    if (isPlaying && nameTitle) nameTitle.textContent = i18n.t("hero.nowPlaying");
 });
 
 loadAndRenderProjectsJSON();

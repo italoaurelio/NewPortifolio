@@ -1,37 +1,52 @@
 [
     {
         "photo": "assets/salexpress.jpg",
-        "date": "Jan 2024 - Present",
+        "date": { "en": "Jan 2024 - Present", "pt": "Jan 2024 - Presente" },
         "name": "SalExpress",
-        "ocupation": "Fullstack Developer Junior",
-        "description": "Web Design; Web Development; Backend Development; React + PHP + MySql."
+        "ocupation": { "en": "Fullstack Developer Junior", "pt": "Desenvolvedor Fullstack Júnior" },
+        "description": {
+            "en": "Web Design; Web Development; Backend Development; React + PHP + MySql.",
+            "pt": "Web Design; Desenvolvimento Web; Desenvolvimento Backend; React + PHP + MySql."
+        }
     },
     {
         "photo": "assets/velio.jpg",
-        "date": "Jun 2021 - Dez 2022",
+        "date": { "en": "Jun 2021 - Dec 2022", "pt": "Jun 2021 - Dez 2022" },
         "name": "Vel.IO",
-        "ocupation": "Fullstack Developer | Art Director",
-        "description": "Project ideation; Research and validation; Graphical interface<br> validation creation; Prototyping; Development; HTML + CSS + JavaScript + PHP."
+        "ocupation": { "en": "Fullstack Developer | Art Director", "pt": "Desenvolvedor Fullstack | Diretor de Arte" },
+        "description": {
+            "en": "Project ideation; Research and validation; Graphical interface validation and creation; Prototyping; Development; HTML + CSS + JavaScript + PHP.",
+            "pt": "Ideação do projeto; Pesquisa e validação; Validação e criação de interface gráfica; Prototipagem; Desenvolvimento; HTML + CSS + JavaScript + PHP."
+        }
     },
     {
         "photo": "assets/promove.jpg",
-        "date": "Fev 2020 - Dez 2020",
+        "date": { "en": "Feb 2020 - Dec 2020", "pt": "Fev 2020 - Dez 2020" },
         "name": "Promove",
-        "ocupation": "Graphic Designer",
-        "description": "Creation of designs for banners and print materials, including layout<br> and visual composition; Preparation of files for production, and ensuring<br> alignment with brand guidelines and marketing objectives."
+        "ocupation": { "en": "Graphic Designer", "pt": "Designer Gráfico" },
+        "description": {
+            "en": "Creation of designs for banners and print materials, including layout and visual composition; Preparation of files for production, and ensuring alignment with brand guidelines and marketing objectives.",
+            "pt": "Criação de artes para banners e materiais impressos, incluindo diagramação e composição visual; Preparação de arquivos para produção, garantindo alinhamento com a identidade da marca e os objetivos de marketing."
+        }
     },
     {
         "photo": "assets/ram.jpg",
-        "date": "Jan 2019 - Jan 2020",
+        "date": { "en": "Jan 2019 - Jan 2020", "pt": "Jan 2019 - Jan 2020" },
         "name": "RAM",
-        "ocupation": "Graphic Designer",
-        "description": "Creation of creatives for social media; Video editing and commercials;<br>Creation of captions; Analysis of statistics, and marketing strategy planning."
+        "ocupation": { "en": "Graphic Designer", "pt": "Designer Gráfico" },
+        "description": {
+            "en": "Creation of creatives for social media; Video editing and commercials; Creation of captions; Analysis of statistics, and marketing strategy planning.",
+            "pt": "Criação de criativos para redes sociais; Edição de vídeos e comerciais; Criação de legendas; Análise de estatísticas e planejamento de estratégia de marketing."
+        }
     },
     {
         "photo": "assets/unimed.jpg",
-        "date": "Jan 2019 - Dez 2019",
+        "date": { "en": "Jan 2019 - Dec 2019", "pt": "Jan 2019 - Dez 2019" },
         "name": "Unimed",
-        "ocupation": "Administration Internship",
-        "description": "Assistance with HR functions; Management of physical and digital documents;<br>Creation of storage solutions, and logic for data input."
+        "ocupation": { "en": "Administration Internship", "pt": "Estágio em Administração" },
+        "description": {
+            "en": "Assistance with HR functions; Management of physical and digital documents; Creation of storage solutions, and logic for data input.",
+            "pt": "Apoio às funções de RH; Gestão de documentos físicos e digitais; Criação de soluções de armazenamento e lógica para entrada de dados."
+        }
     }
 ]
