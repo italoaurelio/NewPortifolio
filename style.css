@@ -872,13 +872,13 @@ body {
     }
 
     #one {
-        margin-left: 15px;
+        margin-left: 10px;
     }
 
     #lang-toggle {
         margin-right: 8px;
-        padding: 15px 4px;
-        padding-left: 10px;
+        padding: 15px 2px;
+        padding-left: 8px;
         font-size: 12px;
     }
 
@@ -909,7 +909,8 @@ body {
         left: 50vw;
 
         a {
-            font-size: 14px;
+            font-size: 13px;
+            padding: 15px 4px;
         }
 
         gap: 0;
