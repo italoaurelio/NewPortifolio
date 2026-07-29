@@ -125,7 +125,7 @@ async function loadAndRenderJSON(filePath) {
             div.classList.add('card');
             div.innerHTML = `
                 <div class="work">
-                    <img src="${item.photo}" alt="">
+                    <img src="${item.photo}" alt="" width="60" height="60" loading="lazy" decoding="async">
                     <div class="workText">
                         <div class="t2">${item.date}</div>
                         <div class="t1">${item.name}</div>

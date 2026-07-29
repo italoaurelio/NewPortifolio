@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#000000">
-    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="assets/italoaurelio.ico" type="image/x-icon">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <!-- Só os pesos que o CSS usa de verdade (adeus 13 Poppins fantasmas 👻) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Ítalo Aurélio</title>
@@ -27,7 +26,8 @@
     </div>
     <div id="presentation">
         <div id="me">
-            <img src="assets/foto_italo.jpg" alt="Eu" id="photo">
+            <img src="assets/foto_italo.jpg" alt="Eu" id="photo" width="90" height="90" decoding="async"
+                fetchpriority="high">
             <div id="name">
                 <h1 id="name-title">Ítalo Aurélio.</h1>
                 <div id="based">
@@ -60,7 +60,12 @@
             <a target="_blank"
                 href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcNHVWGwXNrfvrPsbhsKcvzBmmwvHhvFKfgJhsntVngNwWGMbWBzZKJNBrCXdWgnVFGV"
                 id="contact">
-                <i class="ph ph-chat-circle-dots"></i>
+                <!-- SVG inline: era a única coisa que usava a lib inteira do Phosphor 🪶 -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="16"
+                    height="16" aria-hidden="true">
+                    <path
+                        d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z" />
+                </svg>
                 <p>Contact me</p>
             </a>
         </div>
