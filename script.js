@@ -15,7 +15,7 @@ const brIcon = document.getElementById("br-icon");
 
 const songs = [
     { name: "Mario Remix", file: "assets/music/marioremix.mp3" },
-    { name: "Geruldo Valley", file: "assets/music/gereudovalley.mp3" },
+    { name: "Gerudo Valley", file: "assets/music/gereudovalley.mp3" },
     { name: "Plantera Remix", file: "assets/music/terraria.mp3" }
 ];
 
@@ -79,6 +79,11 @@ function playMusic() {
 // Toggle music on photo click
 photo?.addEventListener("click", playMusic);
 
+// Quando a música acaba sozinha, volta tudo pro normal (a foto não é um beyblade ♾️)
+audioPlayer?.addEventListener("ended", () => {
+    if (isPlaying) playMusic();
+});
+
 // Menu hover background movement
 links.forEach((link) => {
     link.addEventListener("mouseenter", () => {
@@ -119,9 +124,9 @@ async function loadAndRenderJSON(filePath) {
             const div = document.createElement('div');
             div.classList.add('card');
             div.innerHTML = `
-                <div id="work">
+                <div class="work">
                     <img src="${item.photo}" alt="">
-                    <div id="workText">
+                    <div class="workText">
                         <div class="t2">${item.date}</div>
                         <div class="t1">${item.name}</div>
                         <div class="t2">${item.ocupation}</div>
@@ -138,7 +143,7 @@ async function loadAndRenderJSON(filePath) {
 
 async function loadAndRenderProjectsJSON() {
     try {
-        const response = await fetch("/assets/dados/projects.json");
+        const response = await fetch("assets/dados/projects.json");
         const data = await response.json();
 
         let container = document.querySelector("#projectContainer");
