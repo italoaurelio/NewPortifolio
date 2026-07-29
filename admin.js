@@ -3,9 +3,24 @@
    100% client-side. Rascunho salvo no localStorage.
    ============================================================ */
 
-const STORAGE_KEY = 'portfolio_projects_draft_v1';
+const STORAGE_KEY = 'portfolio_projects_draft_v2'; // v2 = schema bilíngue {en, pt}
 const JSON_PATH = 'assets/dados/projects.json';
 const MAX_IMPACT = 4;
+
+let formLang = 'en'; // qual idioma o formulário está mostrando (os dois são salvos)
+
+// Campo pode ser string (legado) ou {en, pt} — pega o idioma pedido 🤝
+function pickLang(v, lang) {
+    if (v == null) return '';
+    if (typeof v === 'string') return lang === 'en' ? v : '';
+    if (Array.isArray(v)) return lang === 'en' ? v : [];
+    return v[lang] ?? (lang === 'en' ? '' : '');
+}
+
+function pickLangArr(v, lang) {
+    const out = pickLang(v, lang);
+    return Array.isArray(out) ? out : [];
+}
 
 let projects = [];        // lista atual
 let editingIndex = null;  // null = criando novo
@@ -113,7 +128,7 @@ function renderList() {
             ${thumb}
             <div class="pi-body">
                 <div class="pi-name">${p.name || '(sem nome)'}</div>
-                <div class="pi-meta">${[p.client, p.period].filter(Boolean).join(' · ')}</div>
+                <div class="pi-meta">${[p.client, pickLang(p.period, formLang) || pickLang(p.period, 'en')].filter(Boolean).join(' · ')}</div>
             </div>
             <iconify-icon icon="mdi:drag" class="drag-handle"></iconify-icon>
         `;
@@ -165,7 +180,8 @@ function addImpactRow(label = '', value = '') {
     const row = document.createElement('div');
     row.className = 'impact-row';
     row.innerHTML = `
-        <input type="text" class="impact-label" placeholder="Rótulo (ex.: Usuários)" value="${escapeAttr(label)}">
+        <input type="text" class="impact-label lang-en" placeholder="Label EN (ex.: Users)" value="${escapeAttr(pickLang(label, 'en'))}">
+        <input type="text" class="impact-label-pt lang-pt" placeholder="Rótulo PT (ex.: Usuários)" value="${escapeAttr(pickLang(label, 'pt'))}">
         <input type="text" class="impact-value" placeholder="Valor (ex.: ~5.770)" value="${escapeAttr(value)}">
         <button type="button" title="Remover"><iconify-icon icon="mdi:close"></iconify-icon></button>
     `;
@@ -176,9 +192,12 @@ function addImpactRow(label = '', value = '') {
 
 function getImpactRows() {
     return Array.from(document.querySelectorAll('.impact-row')).map(r => ({
-        label: r.querySelector('.impact-label').value.trim(),
+        label: {
+            en: r.querySelector('.impact-label').value.trim(),
+            pt: r.querySelector('.impact-label-pt').value.trim()
+        },
         value: r.querySelector('.impact-value').value.trim()
-    })).filter(m => m.label || m.value);
+    })).filter(m => m.label.en || m.label.pt || m.value);
 }
 
 function escapeAttr(s) { return String(s).replace(/"/g, '&quot;'); }
@@ -213,26 +232,30 @@ function collectProject() {
     const fd = new FormData(form);
     const get = (k) => (fd.get(k) || '').toString().trim();
 
+    // Campos de texto viram {en, pt} — o site resolve com fallback
+    const bi = (k) => ({ en: get(`${k}_en`), pt: get(`${k}_pt`) });
+    const biLines = (k) => ({ en: linesToArray(get(`${k}_en`)), pt: linesToArray(get(`${k}_pt`)) });
+
     return {
         id: get('id') || slugify(get('name')),
         name: get('name'),
-        tagline: get('tagline'),
+        tagline: bi('tagline'),
         client: get('client'),
-        period: get('period'),
-        role: get('role'),
+        period: bi('period'),
+        role: bi('role'),
         thumbnail: thumbData || '',
-        shortDescription: get('shortDescription'),
-        longDescription: get('longDescription'),
+        shortDescription: bi('shortDescription'),
+        longDescription: bi('longDescription'),
         stack: csvToArray(get('stack')),
-        highlights: linesToArray(get('highlights')),
+        highlights: biLines('highlights'),
         infraInfo: {
-            frontend: { title: 'Frontend', desc: get('infra_frontend') },
-            backend: { title: 'Backend', desc: get('infra_backend') },
-            server: { title: 'Server', desc: get('infra_server') },
+            frontend: { title: 'Frontend', desc: bi('infra_frontend') },
+            backend: { title: 'Backend', desc: bi('infra_backend') },
+            server: { title: 'Server', desc: bi('infra_server') },
             dataSources: linesToArray(get('infra_sources'))
         },
         impact: getImpactRows(),
-        usageExample: linesToArray(get('usageExample')),
+        usageExample: biLines('usageExample'),
         screenshots: shotsData.slice(),
         links: {
             repo: get('link_repo'),
@@ -245,18 +268,21 @@ function collectProject() {
 function fillForm(p) {
     form.name.value = p.name || '';
     form.id.value = p.id || '';
-    form.tagline.value = p.tagline || '';
+    // aceita string legada OU {en, pt} — retrocompat com JSON velho importado
+    for (const lang of ['en', 'pt']) {
+        form[`tagline_${lang}`].value = pickLang(p.tagline, lang);
+        form[`period_${lang}`].value = pickLang(p.period, lang);
+        form[`role_${lang}`].value = pickLang(p.role, lang);
+        form[`shortDescription_${lang}`].value = pickLang(p.shortDescription, lang);
+        form[`longDescription_${lang}`].value = pickLang(p.longDescription, lang);
+        form[`highlights_${lang}`].value = pickLangArr(p.highlights, lang).join('\n');
+        form[`usageExample_${lang}`].value = pickLangArr(p.usageExample, lang).join('\n');
+        form[`infra_frontend_${lang}`].value = pickLang(p.infraInfo?.frontend?.desc, lang);
+        form[`infra_backend_${lang}`].value = pickLang(p.infraInfo?.backend?.desc, lang);
+        form[`infra_server_${lang}`].value = pickLang(p.infraInfo?.server?.desc, lang);
+    }
     form.client.value = p.client || '';
-    form.period.value = p.period || '';
-    form.role.value = p.role || '';
-    form.shortDescription.value = p.shortDescription || '';
-    form.longDescription.value = p.longDescription || '';
     form.stack.value = (p.stack || []).join(', ');
-    form.highlights.value = (p.highlights || []).join('\n');
-    form.usageExample.value = (p.usageExample || []).join('\n');
-    form.infra_frontend.value = p.infraInfo?.frontend?.desc || '';
-    form.infra_backend.value = p.infraInfo?.backend?.desc || '';
-    form.infra_server.value = p.infraInfo?.server?.desc || '';
     form.infra_sources.value = (p.infraInfo?.dataSources || []).join('\n');
     form.link_repo.value = p.links?.repo || '';
     form.link_demo.value = p.links?.demo || '';
@@ -297,23 +323,33 @@ function editProject(i) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ---------------- Preview do card ---------------- */
+/* ---------------- Preview do card (espelha o card real do site) ---------------- */
 function updatePreview() {
     const p = collectProject();
+    const L = (v) => pickLang(v, formLang) || pickLang(v, formLang === 'en' ? 'pt' : 'en');
     const media = p.thumbnail
         ? `<img src="${p.thumbnail}" alt="">`
         : `<div class="pv-empty">Sem thumbnail</div>`;
-    const chips = (p.stack || []).map(t => `<span class="pv-chip">${escapeHtml(t)}</span>`).join('');
+    const chips = (p.stack || []).slice(0, 5).map(t => `<span class="pv-chip">${escapeHtml(t)}</span>`).join('')
+        + ((p.stack || []).length > 5 ? `<span class="pv-chip pv-chip-more">+${p.stack.length - 5}</span>` : '');
+
+    const firstImpact = (p.impact || [])[0];
+    const metric = firstImpact && firstImpact.value
+        ? `<div class="pv-metric"><strong>${escapeHtml(firstImpact.value)}</strong><small>${escapeHtml(L(firstImpact.label))}</small></div>`
+        : `<div class="pv-metric"><small>${escapeHtml(L(p.role))}</small></div>`;
 
     $('#cardPreview').innerHTML = `
         <div class="pv-card">
             <div class="pv-media">${media}</div>
             <div class="pv-body">
-                <p class="pv-meta">${escapeHtml([p.client, p.period].filter(Boolean).join(' • '))}</p>
+                <p class="pv-meta">${escapeHtml([p.client, L(p.period)].filter(Boolean).join(' · '))}</p>
                 <h5>${escapeHtml(p.name || 'Nome do projeto')}</h5>
-                <p class="pv-tagline">${escapeHtml(p.tagline || '')}</p>
-                <p class="pv-summary">${escapeHtml(p.shortDescription || '')}</p>
+                <p class="pv-tagline">${escapeHtml(L(p.tagline) || L(p.shortDescription))}</p>
                 <div class="pv-chips">${chips}</div>
+                <div class="pv-footer">
+                    ${metric}
+                    <span class="pv-cta">${formLang === 'en' ? 'View case ↗' : 'Ver case ↗'}</span>
+                </div>
             </div>
         </div>
     `;
@@ -455,6 +491,18 @@ function initEvents() {
 
     $('#downloadBtn').addEventListener('click', download);
     $('#copyBtn').addEventListener('click', copyJSON);
+
+    // toggle EN/PT do formulário (só muda o que está visível; tudo é salvo) 🌎
+    document.querySelectorAll('#langSwitch button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            formLang = btn.dataset.formLang;
+            document.querySelectorAll('#langSwitch button').forEach(b =>
+                b.classList.toggle('active', b === btn));
+            document.body.classList.toggle('form-lang-pt', formLang === 'pt');
+            renderList();
+            updatePreview();
+        });
+    });
 }
 
 function setupDrop(el, onFiles) {

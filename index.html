@@ -201,30 +201,51 @@
         </footer>
     </div>
 
-    <!-- Modal de detalhes do projeto -->
+    <!-- Modal de detalhes do projeto (agora é um mini case study 📋) -->
     <div id="projectModal" class="modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalProjectName">
-            <button class="modal-close" id="closeModal" aria-label="Fechar">&times;</button>
+            <button class="modal-close" id="closeModal" aria-label="Close" data-i18n-aria="modal.close">&times;</button>
 
-            <div class="modal-grid">
-                <!-- Coluna 1: nome, descrição longa, tecnologias -->
-                <div class="modal-col modal-col--info">
-                    <h2 id="modalProjectName"></h2>
-                    <p id="modalBigDescription" class="modal-description"></p>
-                    <div id="modalTechnologies" class="modal-tech"></div>
+            <header class="modal-header">
+                <p class="modal-meta" id="modalMeta"></p>
+                <h2 id="modalProjectName"></h2>
+                <p class="modal-tagline" id="modalTagline"></p>
+            </header>
+
+            <!-- Números primeiro: é o que segura o olho de quem contrata 👀 -->
+            <div class="modal-impact" id="modalImpact"></div>
+
+            <div class="modal-body">
+                <div class="modal-info">
+                    <section id="modalOverview">
+                        <h5></h5>
+                        <p class="modal-description"></p>
+                    </section>
+                    <section id="modalHighlights">
+                        <h5></h5>
+                        <ul></ul>
+                    </section>
+                    <section id="modalStack">
+                        <h5></h5>
+                        <div class="modal-tech"></div>
+                    </section>
                 </div>
 
-                <!-- Colunas 2 e 3: galeria (main + thumbnails) -->
-                <div class="modal-col modal-col--gallery" id="modalGalleryArea">
+                <div class="modal-gallery-col" id="modalGalleryArea">
                     <div class="gallery-main" id="galleryMain">
-                        <button class="gallery-arrow left" id="galleryPrev" aria-label="Anterior">‹</button>
+                        <button class="gallery-arrow left" id="galleryPrev" aria-label="Previous"
+                            data-i18n-aria="modal.prev">‹</button>
                         <div class="gallery-image-wrap"><!-- imagem principal inserida via JS --></div>
-                        <button class="gallery-arrow right" id="galleryNext" aria-label="Próximo">›</button>
+                        <button class="gallery-arrow right" id="galleryNext" aria-label="Next"
+                            data-i18n-aria="modal.next">›</button>
                     </div>
                     <div class="gallery-dots" id="galleryDots" aria-live="polite"><!-- bolinhas geradas via JS --></div>
                 </div>
             </div>
 
+            <section class="modal-infra" id="modalInfra"></section>
+            <section class="modal-usage" id="modalUsage"></section>
+            <footer class="modal-links" id="modalLinks"></footer>
         </div>
     </div>
 

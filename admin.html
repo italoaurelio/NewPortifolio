@@ -55,6 +55,11 @@
         <section class="panel form-panel">
             <div class="panel-head">
                 <h2 id="formTitle">Novo projeto</h2>
+                <!-- Alterna qual idioma você está preenchendo (os dois são salvos) 🌎 -->
+                <div class="lang-switch" id="langSwitch" title="Idioma dos textos do formulário">
+                    <button type="button" data-form-lang="en" class="active">EN</button>
+                    <button type="button" data-form-lang="pt">PT</button>
+                </div>
                 <button class="danger-btn sm" id="deleteBtn" hidden>
                     <iconify-icon icon="mdi:trash-can-outline"></iconify-icon> Excluir
                 </button>
@@ -72,9 +77,13 @@
                     </label>
                 </div>
 
-                <label class="field">
-                    <span>Tagline (frase curta)</span>
-                    <input type="text" name="tagline" placeholder="Uma linha que resume o projeto">
+                <label class="field lang-en">
+                    <span>Tagline (frase curta) · EN</span>
+                    <input type="text" name="tagline_en" placeholder="One line that sums up the project">
+                </label>
+                <label class="field lang-pt">
+                    <span>Tagline (frase curta) · PT</span>
+                    <input type="text" name="tagline_pt" placeholder="Uma linha que resume o projeto">
                 </label>
 
                 <div class="grid-3">
@@ -82,39 +91,63 @@
                         <span>Cliente / Contexto</span>
                         <input type="text" name="client" placeholder="Ex.: Sal Express">
                     </label>
-                    <label class="field">
-                        <span>Período</span>
-                        <input type="text" name="period" placeholder="Ex.: 2024 - Present">
+                    <label class="field lang-en">
+                        <span>Período · EN</span>
+                        <input type="text" name="period_en" placeholder="Ex.: 2024 — Present">
                     </label>
-                    <label class="field">
-                        <span>Seu papel</span>
-                        <input type="text" name="role" placeholder="Ex.: Full Stack Developer">
+                    <label class="field lang-pt">
+                        <span>Período · PT</span>
+                        <input type="text" name="period_pt" placeholder="Ex.: 2024 — Presente">
+                    </label>
+                    <label class="field lang-en">
+                        <span>Seu papel · EN</span>
+                        <input type="text" name="role_en" placeholder="Ex.: Fullstack Developer">
+                    </label>
+                    <label class="field lang-pt">
+                        <span>Seu papel · PT</span>
+                        <input type="text" name="role_pt" placeholder="Ex.: Desenvolvedor Fullstack">
                     </label>
                 </div>
 
-                <label class="field">
-                    <span>Descrição curta (aparece no card)</span>
-                    <textarea name="shortDescription" rows="2" placeholder="Resumo objetivo mostrado no card do projeto."></textarea>
+                <label class="field lang-en">
+                    <span>Descrição curta (aparece no card) · EN</span>
+                    <textarea name="shortDescription_en" rows="2" placeholder="Short summary shown on the project card."></textarea>
+                </label>
+                <label class="field lang-pt">
+                    <span>Descrição curta (aparece no card) · PT</span>
+                    <textarea name="shortDescription_pt" rows="2" placeholder="Resumo objetivo mostrado no card do projeto."></textarea>
+                </label>
+
+                <label class="field lang-en">
+                    <span>Descrição longa (aparece no popup) · EN</span>
+                    <textarea name="longDescription_en" rows="4" placeholder="Full description: what you built, architecture, impact."></textarea>
+                </label>
+                <label class="field lang-pt">
+                    <span>Descrição longa (aparece no popup) · PT</span>
+                    <textarea name="longDescription_pt" rows="4" placeholder="Descrição completa: o que você construiu, arquitetura, impacto."></textarea>
                 </label>
 
                 <label class="field">
-                    <span>Descrição longa (aparece no popup)</span>
-                    <textarea name="longDescription" rows="4" placeholder="Descrição completa: o que você construiu, arquitetura, impacto."></textarea>
-                </label>
-
-                <label class="field">
-                    <span>Stack / Tecnologias <em>(separe por vírgula)</em></span>
+                    <span>Stack / Tecnologias <em>(separe por vírgula — não traduz)</em></span>
                     <input type="text" name="stack" placeholder="Laravel, React, PostgreSQL, Docker">
                 </label>
 
-                <label class="field">
-                    <span>Destaques — "O que eu construí" <em>(uma linha cada)</em></span>
-                    <textarea name="highlights" rows="4" placeholder="Fluxo completo de upload e validação&#10;Controle de acesso por papéis&#10;APIs REST integradas"></textarea>
+                <label class="field lang-en">
+                    <span>Destaques — "What I built" <em>(uma linha cada)</em> · EN</span>
+                    <textarea name="highlights_en" rows="4" placeholder="Full upload and validation flow&#10;Role-based access control&#10;Integrated REST APIs"></textarea>
+                </label>
+                <label class="field lang-pt">
+                    <span>Destaques — "O que eu construí" <em>(uma linha cada)</em> · PT</span>
+                    <textarea name="highlights_pt" rows="4" placeholder="Fluxo completo de upload e validação&#10;Controle de acesso por papéis&#10;APIs REST integradas"></textarea>
                 </label>
 
-                <label class="field">
-                    <span>Exemplo de uso — passo a passo <em>(uma linha cada)</em></span>
-                    <textarea name="usageExample" rows="4" placeholder="Usuário faz login&#10;Sistema processa os dados&#10;Resultado é salvo com histórico"></textarea>
+                <label class="field lang-en">
+                    <span>Exemplo de uso — passo a passo <em>(uma linha cada)</em> · EN</span>
+                    <textarea name="usageExample_en" rows="4" placeholder="User logs in&#10;System processes the data&#10;Result is saved with history"></textarea>
+                </label>
+                <label class="field lang-pt">
+                    <span>Exemplo de uso — passo a passo <em>(uma linha cada)</em> · PT</span>
+                    <textarea name="usageExample_pt" rows="4" placeholder="Usuário faz login&#10;Sistema processa os dados&#10;Resultado é salvo com histórico"></textarea>
                 </label>
 
                 <fieldset class="field-group">
@@ -127,18 +160,32 @@
 
                 <fieldset class="field-group">
                     <legend>Infraestrutura (infográfico do popup)</legend>
-                    <div class="grid-3">
+                    <div class="grid-3 lang-en">
                         <label class="field">
-                            <span>Frontend</span>
-                            <textarea name="infra_frontend" rows="3" placeholder="Descreva a camada de interface."></textarea>
+                            <span>Frontend · EN</span>
+                            <textarea name="infra_frontend_en" rows="3" placeholder="Describe the interface layer."></textarea>
                         </label>
                         <label class="field">
-                            <span>Backend</span>
-                            <textarea name="infra_backend" rows="3" placeholder="Descreva a camada de regras e APIs."></textarea>
+                            <span>Backend · EN</span>
+                            <textarea name="infra_backend_en" rows="3" placeholder="Describe the rules/APIs layer."></textarea>
                         </label>
                         <label class="field">
-                            <span>Servidor</span>
-                            <textarea name="infra_server" rows="3" placeholder="Descreva a hospedagem/execução."></textarea>
+                            <span>Server · EN</span>
+                            <textarea name="infra_server_en" rows="3" placeholder="Describe hosting/runtime."></textarea>
+                        </label>
+                    </div>
+                    <div class="grid-3 lang-pt">
+                        <label class="field">
+                            <span>Frontend · PT</span>
+                            <textarea name="infra_frontend_pt" rows="3" placeholder="Descreva a camada de interface."></textarea>
+                        </label>
+                        <label class="field">
+                            <span>Backend · PT</span>
+                            <textarea name="infra_backend_pt" rows="3" placeholder="Descreva a camada de regras e APIs."></textarea>
+                        </label>
+                        <label class="field">
+                            <span>Servidor · PT</span>
+                            <textarea name="infra_server_pt" rows="3" placeholder="Descreva a hospedagem/execução."></textarea>
                         </label>
                     </div>
                     <label class="field">

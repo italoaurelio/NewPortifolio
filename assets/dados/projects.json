@@ -1,75 +1,292 @@
 [
     {
-        "photo": "assets/salromaneioSite.jpg",
-        "name": "Waybill app",
-        "date": "Platform for analysis, recognition, editing, storage, and consultation of waybill documents.",
-        "ocupation": "For SalExpress",
-        "descricao": [
-            { "text": "React" },
-            { "text": "Tailwind" },
-            { "text": "MySQL" },
-            { "text": "Php" },
-            { "text": "Drive API" }
+        "id": "waybill-app",
+        "name": "Waybill App",
+        "tagline": {
+            "en": "OCR-powered waybill processing for a logistics operation",
+            "pt": "Processamento de romaneios com OCR para uma operação logística"
+        },
+        "client": "SalExpress",
+        "period": {
+            "en": "2024 — Present",
+            "pt": "2024 — Presente"
+        },
+        "role": {
+            "en": "Fullstack Developer",
+            "pt": "Desenvolvedor Fullstack"
+        },
+        "thumbnail": "assets/salromaneioSite.jpg",
+        "shortDescription": {
+            "en": "Platform for analysis, recognition, editing, storage and consultation of waybill documents.",
+            "pt": "Plataforma de análise, reconhecimento, edição, armazenamento e consulta de romaneios."
+        },
+        "longDescription": {
+            "en": "Waybill App is a full-featured system to upload, OCR, validate and store waybill documents, with search and history features. I worked on the frontend using React and Tailwind and integrated backend APIs for storage and Drive integrations.",
+            "pt": "O Waybill App é um sistema completo para subir, reconhecer (OCR), validar e armazenar romaneios, com busca e histórico. Trabalhei no frontend com React e Tailwind e integrei as APIs de backend para armazenamento e integração com o Drive."
+        },
+        "stack": [
+            "React",
+            "Tailwind",
+            "MySQL",
+            "PHP",
+            "Drive API"
         ],
-        "bigDescription": "Waybill App is a full-featured system to upload, OCR, validate and store waybill documents, with search and history features. I worked on the frontend using React and Tailwind and integrated backend APIs for storage and Drive integrations.",
-        "gallery": [
-            "assets/salromaneioSite.jpg",
-            "assets/salreactSite.jpg",
-            "assets/italoportifolioSite.jpg"
-        ]
-    },
-    {
-        "photo": "assets/italoportifolioSite.jpg",
-        "name": "Personal Portifolio",
-        "date": "My personal portifolio, where i showcase my projects and skills",
-        "ocupation": "For Ítalo Aurélio",
-        "descricao": [
-            { "text": "Html" },
-            { "text": "Css" },
-            { "text": "JavaScript" }
-        ],
-        "bigDescription": "This is my personal portfolio site where I present projects, experience and technical skills. Built with responsive design in mind and lightweight interactions to keep navigation fast.",
-        "gallery": [
-            "assets/italoportifolioSite.jpg",
-            "assets/velioSite.jpg",
+        "highlights": {
+            "en": [],
+            "pt": []
+        },
+        "infraInfo": {
+            "frontend": {
+                "title": "Frontend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "backend": {
+                "title": "Backend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "server": {
+                "title": "Server",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "dataSources": []
+        },
+        "impact": [],
+        "usageExample": {
+            "en": [],
+            "pt": []
+        },
+        "screenshots": [
             "assets/salromaneioSite.jpg"
-        ]
+        ],
+        "links": {
+            "repo": "",
+            "demo": "",
+            "case": ""
+        }
     },
     {
-        "photo": "assets/salreactSite.jpg",
-        "name": "Route management app",
-        "date": "Platform for creating new routes and comparing them with current routes, aimed at improving transportation processes.",
-        "ocupation": "For SalExpress",
-        "descricao": [
-            { "text": "React" },
-            { "text": "Tailwind" },
-            { "text": "MySQL" },
-            { "text": "Php" },
-            { "text": "Maps API" }
+        "id": "route-management-app",
+        "name": "Route Management App",
+        "tagline": {
+            "en": "Route planning and comparison to cut delivery time and cost",
+            "pt": "Planejamento e comparação de rotas pra reduzir tempo e custo de entrega"
+        },
+        "client": "SalExpress",
+        "period": {
+            "en": "2024 — Present",
+            "pt": "2024 — Presente"
+        },
+        "role": {
+            "en": "Fullstack Developer",
+            "pt": "Desenvolvedor Fullstack"
+        },
+        "thumbnail": "assets/salreactSite.jpg",
+        "shortDescription": {
+            "en": "Platform for creating new routes and comparing them with current ones, improving transportation processes.",
+            "pt": "Plataforma pra criar novas rotas e compará-las com as atuais, melhorando os processos de transporte."
+        },
+        "longDescription": {
+            "en": "Route Management App helps planners create and compare routes to optimize delivery times and costs. I contributed to the interface and mapping integration using Maps APIs and visualization components.",
+            "pt": "O Route Management App ajuda o planejamento a criar e comparar rotas pra otimizar tempos e custos de entrega. Contribuí na interface e na integração de mapas usando Maps APIs e componentes de visualização."
+        },
+        "stack": [
+            "React",
+            "Tailwind",
+            "MySQL",
+            "PHP",
+            "Maps API"
         ],
-        "bigDescription": "Route management app helps planners create and compare routes to optimize delivery times and costs. I contributed to the interface and mapping integration using Maps APIs and visualization components.",
-        "gallery": [
-            "assets/salreactSite.jpg",
-            "assets/salromaneioSite.jpg",
-            "assets/italoportifolioSite.jpg"
-        ]
-    },
-    {
-        "photo": "assets/velioSite.jpg",
-        "name": "Vel.IO",
-        "date": "A project aimed at simplifying the digital life of elderly people and individuals with motor disabilities, through an easy-to-use interface.",
-        "ocupation": "For Vel.IO",
-        "descricao": [
-            { "text": "Html" },
-            { "text": "Css" },
-            { "text": "JavaScript" },
-            { "text": "Php" }
-        ],
-        "bigDescription": "Vel.IO focuses on accessibility and simplicity: large controls, clear contrast and straightforward flows to help elderly and motor-impaired users achieve daily tasks online. I worked on UI improvements and accessibility fixes.",
-        "gallery": [
-            "assets/velioSite.jpg",
-            "assets/italoportifolioSite.jpg",
+        "highlights": {
+            "en": [],
+            "pt": []
+        },
+        "infraInfo": {
+            "frontend": {
+                "title": "Frontend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "backend": {
+                "title": "Backend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "server": {
+                "title": "Server",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "dataSources": []
+        },
+        "impact": [],
+        "usageExample": {
+            "en": [],
+            "pt": []
+        },
+        "screenshots": [
             "assets/salreactSite.jpg"
-        ]
+        ],
+        "links": {
+            "repo": "",
+            "demo": "",
+            "case": ""
+        }
+    },
+    {
+        "id": "vel-io",
+        "name": "Vel.IO",
+        "tagline": {
+            "en": "Accessible web for elderly users and people with motor disabilities",
+            "pt": "Web acessível pra idosos e pessoas com deficiência motora"
+        },
+        "client": "Vel.IO",
+        "period": "2021 — 2022",
+        "role": {
+            "en": "Fullstack Developer | Art Director",
+            "pt": "Desenvolvedor Fullstack | Diretor de Arte"
+        },
+        "thumbnail": "assets/velioSite.jpg",
+        "shortDescription": {
+            "en": "A project aimed at simplifying the digital life of elderly people and individuals with motor disabilities, through an easy-to-use interface.",
+            "pt": "Um projeto pra simplificar a vida digital de idosos e pessoas com deficiência motora, através de uma interface fácil de usar."
+        },
+        "longDescription": {
+            "en": "Vel.IO focuses on accessibility and simplicity: large controls, clear contrast and straightforward flows to help elderly and motor-impaired users achieve daily tasks online. I worked on UI improvements and accessibility fixes.",
+            "pt": "O Vel.IO foca em acessibilidade e simplicidade: controles grandes, contraste claro e fluxos diretos pra ajudar idosos e pessoas com limitações motoras nas tarefas do dia a dia online. Trabalhei em melhorias de UI e correções de acessibilidade."
+        },
+        "stack": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "PHP"
+        ],
+        "highlights": {
+            "en": [],
+            "pt": []
+        },
+        "infraInfo": {
+            "frontend": {
+                "title": "Frontend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "backend": {
+                "title": "Backend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "server": {
+                "title": "Server",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "dataSources": []
+        },
+        "impact": [],
+        "usageExample": {
+            "en": [],
+            "pt": []
+        },
+        "screenshots": [
+            "assets/velioSite.jpg"
+        ],
+        "links": {
+            "repo": "",
+            "demo": "",
+            "case": ""
+        }
+    },
+    {
+        "id": "personal-portfolio",
+        "name": "Personal Portfolio",
+        "tagline": {
+            "en": "Hand-built portfolio with a hidden music player easter egg",
+            "pt": "Portfolio feito à mão com um player de música escondido de easter egg"
+        },
+        "client": "Ítalo Aurélio",
+        "period": {
+            "en": "2024 — Present",
+            "pt": "2024 — Presente"
+        },
+        "role": {
+            "en": "Design & Development",
+            "pt": "Design & Desenvolvimento"
+        },
+        "thumbnail": "assets/italoportifolioSite.jpg",
+        "shortDescription": {
+            "en": "My personal portfolio, where I showcase my projects and skills.",
+            "pt": "Meu portfolio pessoal, onde mostro meus projetos e habilidades."
+        },
+        "longDescription": {
+            "en": "This is my personal portfolio site where I present projects, experience and technical skills. Built with responsive design in mind and lightweight interactions to keep navigation fast.",
+            "pt": "Este é meu site de portfolio pessoal, onde apresento projetos, experiência e habilidades técnicas. Feito com design responsivo em mente e interações leves pra manter a navegação rápida."
+        },
+        "stack": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "highlights": {
+            "en": [],
+            "pt": []
+        },
+        "infraInfo": {
+            "frontend": {
+                "title": "Frontend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "backend": {
+                "title": "Backend",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "server": {
+                "title": "Server",
+                "desc": {
+                    "en": "",
+                    "pt": ""
+                }
+            },
+            "dataSources": []
+        },
+        "impact": [],
+        "usageExample": {
+            "en": [],
+            "pt": []
+        },
+        "screenshots": [
+            "assets/italoportifolioSite.jpg"
+        ],
+        "links": {
+            "repo": "https://github.com/italoaurelio/NewPortifolio",
+            "demo": "https://italo-aurelio-dev.vercel.app",
+            "case": ""
+        }
     }
 ]

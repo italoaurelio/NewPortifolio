@@ -147,6 +147,78 @@ async function loadAndRenderJSON(filePath) {
     }
 }
 
+// ---------- Projetos (schema novo, o mesmo que o admin gera) ----------
+
+// Mini helper pra criar elemento sem innerHTML (dado de JSON não vira HTML aqui 🔒)
+function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null && text !== '') node.textContent = text;
+    return node;
+}
+
+function buildProjectCard(item) {
+    const card = el('article', 'projectCard');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `${item.name} — ${i18n.t('project.viewCase')}`);
+
+    // Crop fixo 16:9 — nunca mais card gigante por causa de screenshot comprida 📐
+    const media = el('div', 'card-media');
+    const img = document.createElement('img');
+    img.src = item.thumbnail || '';
+    img.alt = `${item.name} — screenshot`;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    media.appendChild(img);
+    card.appendChild(media);
+
+    const body = el('div', 'card-body');
+
+    const meta = [item.client, i18n.field(item.period)].filter(Boolean).join(' · ');
+    if (meta) body.appendChild(el('p', 'card-meta', meta));
+
+    body.appendChild(el('h3', 'card-name', item.name));
+
+    const tagline = i18n.field(item.tagline) || i18n.field(item.shortDescription);
+    if (tagline) body.appendChild(el('p', 'card-tagline', tagline));
+
+    const stack = Array.isArray(item.stack) ? item.stack : [];
+    if (stack.length) {
+        const chips = el('div', 'card-stack');
+        stack.slice(0, 5).forEach(t => chips.appendChild(el('p', '', t)));
+        if (stack.length > 5) chips.appendChild(el('p', 'chip-more', `+${stack.length - 5}`));
+        body.appendChild(chips);
+    }
+
+    // Footer do card: métrica de impacto (ou o papel no projeto) + convite pro case
+    const footer = el('div', 'card-footer');
+    const hero = el('div', 'card-metric');
+    const impact = Array.isArray(item.impact) ? item.impact : [];
+    if (impact.length && impact[0].value) {
+        hero.appendChild(el('span', 'metric-value', impact[0].value));
+        hero.appendChild(el('span', 'metric-label', i18n.field(impact[0].label)));
+    } else {
+        hero.appendChild(el('span', 'metric-role', i18n.field(item.role)));
+    }
+    footer.appendChild(hero);
+    footer.appendChild(el('span', 'card-cta', i18n.t('project.viewCase')));
+    body.appendChild(footer);
+
+    card.appendChild(body);
+
+    // Clique OU teclado abrem o case
+    card.addEventListener('click', () => openProjectModal(item));
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openProjectModal(item);
+        }
+    });
+
+    return card;
+}
+
 async function loadAndRenderProjectsJSON() {
     try {
         const response = await fetch("assets/dados/projects.json");
@@ -156,27 +228,7 @@ async function loadAndRenderProjectsJSON() {
         if(!container) return;
         container.innerHTML = '';
 
-        data.forEach(item => {
-            const div = document.createElement('div');
-            div.classList.add('projectBox');
-            div.innerHTML = `
-                <img src="${item.photo}" alt="">
-                <div class="projectText">
-                    <div class="t1">${item.name}</div>
-                    <div class="t2">${item.date}</div>
-                    <div class="t2">${item.ocupation}</div>
-                    <div class="languagues">
-                        ${item.descricao.map(desc => `
-                                <p>${desc.text}</p>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-            // Ao clicar no projeto, abre o modal com mais detalhes
-            div.addEventListener('click', () => openProjectModal(item));
-
-            container.appendChild(div);
-        });
+        data.forEach(item => container.appendChild(buildProjectCard(item)));
     } catch (error) {
         console.log('Erro ao carregar JSON:', error);
     }
@@ -188,45 +240,162 @@ let modalImages = [];
 let modalMainImg = null;
 let modalDots = [];
 let autoplayInterval = null;
+let currentModalItem = null;   // projeto aberto (pro re-render na troca de idioma)
+let lastFocusedElement = null; // devolve o foco pra quem abriu o modal
 
-function openProjectModal(item){
-    const modal = document.getElementById('projectModal');
+// Preenche o case study — seção sem conteúdo é omitida (case vazio não vira esqueleto 👻)
+function renderProjectModal(item){
     const nameEl = document.getElementById('modalProjectName');
-    const techEl = document.getElementById('modalTechnologies');
-    const descEl = document.getElementById('modalBigDescription');
-
     if(nameEl) nameEl.textContent = item.name || '';
-    // tecnologias
-    if(techEl) techEl.innerHTML = '';
-    if(Array.isArray(item.descricao) && techEl){
-        item.descricao.forEach(d => {
-            const p = document.createElement('p'); p.textContent = d.text || d;
-            techEl.appendChild(p);
+
+    const metaEl = document.getElementById('modalMeta');
+    if(metaEl) metaEl.textContent = [item.client, i18n.field(item.period), i18n.field(item.role)]
+        .filter(Boolean).join(' · ');
+
+    const taglineEl = document.getElementById('modalTagline');
+    if(taglineEl) taglineEl.textContent = i18n.field(item.tagline) || '';
+
+    // Números primeiro 📊
+    const impactEl = document.getElementById('modalImpact');
+    if(impactEl){
+        impactEl.innerHTML = '';
+        const impact = (Array.isArray(item.impact) ? item.impact : []).filter(m => m && m.value);
+        impact.slice(0, 4).forEach(m => {
+            const tile = el('div', 'impact-tile');
+            tile.appendChild(el('span', 'impact-value', m.value));
+            tile.appendChild(el('span', 'impact-label', i18n.field(m.label)));
+            impactEl.appendChild(tile);
         });
+        impactEl.style.display = impact.length ? '' : 'none';
     }
-    // descrição longa - tenta usar bigDescription, senão usa date como fallback
-    if(descEl) descEl.textContent = item.bigDescription || item.date || '';
 
-    // galeria - usa item.gallery (array) ou foto principal como fallback
-    modalImages = (Array.isArray(item.gallery) && item.gallery.length) ? item.gallery : [item.photo];
+    const overview = document.getElementById('modalOverview');
+    if(overview){
+        const text = i18n.field(item.longDescription) || i18n.field(item.shortDescription);
+        overview.querySelector('h5').textContent = i18n.t('modal.overview');
+        overview.querySelector('p').textContent = text;
+        overview.style.display = text ? '' : 'none';
+    }
 
-    // main image area
+    const highlights = document.getElementById('modalHighlights');
+    if(highlights){
+        const list = i18n.field(item.highlights);
+        const items = Array.isArray(list) ? list.filter(Boolean) : [];
+        highlights.querySelector('h5').textContent = i18n.t('modal.highlights');
+        const ul = highlights.querySelector('ul');
+        ul.innerHTML = '';
+        items.forEach(h => ul.appendChild(el('li', '', h)));
+        highlights.style.display = items.length ? '' : 'none';
+    }
+
+    const stackSection = document.getElementById('modalStack');
+    if(stackSection){
+        const stack = Array.isArray(item.stack) ? item.stack : [];
+        stackSection.querySelector('h5').textContent = i18n.t('modal.stack');
+        const wrap = stackSection.querySelector('.modal-tech');
+        wrap.innerHTML = '';
+        stack.forEach(t => wrap.appendChild(el('p', '', t)));
+        stackSection.style.display = stack.length ? '' : 'none';
+    }
+
+    // Arquitetura (frontend/backend/server + fontes de dados)
+    const infraEl = document.getElementById('modalInfra');
+    if(infraEl){
+        infraEl.innerHTML = '';
+        const infra = item.infraInfo || {};
+        const blocks = ['frontend', 'backend', 'server']
+            .map(k => infra[k])
+            .filter(b => b && i18n.field(b.desc));
+        const sources = Array.isArray(infra.dataSources) ? infra.dataSources.filter(Boolean) : [];
+        if(blocks.length || sources.length){
+            infraEl.appendChild(el('h5', '', i18n.t('modal.architecture')));
+            if(blocks.length){
+                const grid = el('div', 'infra-grid');
+                blocks.forEach(b => {
+                    const box = el('div', 'infra-card');
+                    box.appendChild(el('strong', '', b.title || ''));
+                    box.appendChild(el('p', '', i18n.field(b.desc)));
+                    grid.appendChild(box);
+                });
+                infraEl.appendChild(grid);
+            }
+            if(sources.length){
+                const src = el('div', 'infra-sources');
+                src.appendChild(el('span', 'infra-sources-label', i18n.t('modal.dataSources')));
+                const chips = el('div', 'modal-tech');
+                sources.forEach(s => chips.appendChild(el('p', '', s)));
+                src.appendChild(chips);
+                infraEl.appendChild(src);
+            }
+            infraEl.style.display = '';
+        } else {
+            infraEl.style.display = 'none';
+        }
+    }
+
+    // Como funciona (passos numerados)
+    const usageEl = document.getElementById('modalUsage');
+    if(usageEl){
+        usageEl.innerHTML = '';
+        const steps = i18n.field(item.usageExample);
+        const list = Array.isArray(steps) ? steps.filter(Boolean) : [];
+        if(list.length){
+            usageEl.appendChild(el('h5', '', i18n.t('modal.usage')));
+            const ol = el('ol', 'usage-steps');
+            list.forEach(s => ol.appendChild(el('li', '', s)));
+            usageEl.appendChild(ol);
+            usageEl.style.display = '';
+        } else {
+            usageEl.style.display = 'none';
+        }
+    }
+
+    // CTAs: só os links preenchidos
+    const linksEl = document.getElementById('modalLinks');
+    if(linksEl){
+        linksEl.innerHTML = '';
+        const links = item.links || {};
+        const defs = [
+            { href: links.demo, label: i18n.t('modal.demo'), cls: 'modal-link primary' },
+            { href: links.repo, label: i18n.t('modal.code'), cls: 'modal-link ghost' },
+            { href: links.case, label: i18n.t('modal.case'), cls: 'modal-link ghost' }
+        ].filter(d => d.href);
+        defs.forEach(d => {
+            const a = el('a', d.cls, d.label);
+            a.href = d.href;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            linksEl.appendChild(a);
+        });
+        linksEl.style.display = defs.length ? '' : 'none';
+    }
+
+    // Galeria — screenshots do próprio projeto (thumbnail de fallback)
+    modalImages = (Array.isArray(item.screenshots) && item.screenshots.length)
+        ? item.screenshots : [item.thumbnail];
+
     const galleryMain = document.getElementById('galleryMain');
     const imageWrap = galleryMain?.querySelector('.gallery-image-wrap');
     if(imageWrap) imageWrap.innerHTML = '';
     modalMainImg = document.createElement('img');
     modalMainImg.src = modalImages[0];
-    modalMainImg.alt = item.name + ' - imagem 1';
+    modalMainImg.alt = `${item.name} — ${i18n.t('modal.image')} 1`;
     if(imageWrap) imageWrap.appendChild(modalMainImg);
 
-    // dots
+    // Setas e dots só quando tem mais de uma imagem
+    const multi = modalImages.length > 1;
+    const btnPrev = document.getElementById('galleryPrev');
+    const btnNext = document.getElementById('galleryNext');
+    if(btnPrev) btnPrev.style.display = multi ? '' : 'none';
+    if(btnNext) btnNext.style.display = multi ? '' : 'none';
+
     const dotsContainer = document.getElementById('galleryDots');
     if(dotsContainer) dotsContainer.innerHTML = '';
     modalDots = [];
-    modalImages.forEach((src, i) => {
+    if(multi) modalImages.forEach((src, i) => {
         const dot = document.createElement('button');
         dot.className = 'dot';
-        dot.setAttribute('aria-label', `Imagem ${i+1}`);
+        dot.setAttribute('aria-label', `${i18n.t('modal.image')} ${i+1}`);
         dot.addEventListener('click', ()=>{
             showSlide(i);
             resetAutoplay();
@@ -243,6 +412,20 @@ function openProjectModal(item){
         galleryMain.onmouseenter = stopAutoplay;
         galleryMain.onmouseleave = startAutoplay;
     }
+}
+
+function openProjectModal(item){
+    const modal = document.getElementById('projectModal');
+    currentModalItem = item;
+    lastFocusedElement = document.activeElement;
+
+    renderProjectModal(item);
+
+    // trava teclado e leitor de tela no fundo enquanto o case tá aberto
+    const portifolio = document.getElementById('portifolio');
+    if(portifolio) portifolio.inert = true;
+    const menuEl = document.getElementById('menu');
+    if(menuEl) menuEl.inert = true;
 
     modal?.classList.add('open');
     modal?.setAttribute('aria-hidden','false');
@@ -268,6 +451,7 @@ function openProjectModal(item){
         document.body.classList.add('no-scroll');
     }
     startAutoplay();
+    document.getElementById('closeModal')?.focus();
 }
 
 function showSlide(index){
@@ -275,7 +459,10 @@ function showSlide(index){
     if(index < 0) index = modalImages.length - 1;
     if(index >= modalImages.length) index = 0;
     currentGalleryIndex = index;
-    if(modalMainImg) modalMainImg.src = modalImages[index];
+    if(modalMainImg){
+        modalMainImg.src = modalImages[index];
+        if(currentModalItem) modalMainImg.alt = `${currentModalItem.name} — ${i18n.t('modal.image')} ${index+1}`;
+    }
     updateSlideVisuals();
 }
 
@@ -286,6 +473,8 @@ function updateSlideVisuals(){
 function startAutoplay(){
     stopAutoplay();
     if(!modalImages || modalImages.length <= 1) return;
+    // Quem pediu menos movimento não ganha carrossel automático 🫠
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     autoplayInterval = setInterval(()=>{
         showSlide((currentGalleryIndex + 1) % modalImages.length);
     }, 3500);
@@ -305,8 +494,13 @@ function closeProjectModal(){
     modalImages = [];
     modalMainImg = null;
     modalDots = [];
+    currentModalItem = null;
     // remove blur and re-enable scrolling
-    document.getElementById('portifolio')?.classList.remove('blurred');
+    const portifolio = document.getElementById('portifolio');
+    portifolio?.classList.remove('blurred');
+    if(portifolio) portifolio.inert = false;
+    const menuEl = document.getElementById('menu');
+    if(menuEl) menuEl.inert = false;
     // remove strong scroll-lock: listeners + classes, then restore scroll position
     try {
         // remove handlers
@@ -327,6 +521,9 @@ function closeProjectModal(){
     } catch (e) {
         document.body.classList.remove('no-scroll');
     }
+    // devolve o foco pro card que abriu o case
+    lastFocusedElement?.focus?.();
+    lastFocusedElement = null;
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -347,6 +544,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(e.key === 'Escape') closeProjectModal();
         if(e.key === 'ArrowRight') showSlide(currentGalleryIndex + 1);
         if(e.key === 'ArrowLeft') showSlide(currentGalleryIndex - 1);
+        // Tab fica preso dentro do case (focus trap ⌨️)
+        if(e.key === 'Tab'){
+            const content = document.querySelector('#projectModal .modal-content');
+            if(!content) return;
+            const focusables = [...content.querySelectorAll('button, a[href]')]
+                .filter(f => f.offsetParent !== null);
+            if(!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+            else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+        }
     });
 
     // arrows buttons
@@ -382,6 +591,10 @@ document.addEventListener("langchange", () => {
     loadAndRenderJSON(currentExperienceFile);
     loadAndRenderProjectsJSON();
     if (isPlaying && nameTitle) nameTitle.textContent = i18n.t("hero.nowPlaying");
+    // case aberto também troca de língua na hora
+    if (currentModalItem && document.getElementById('projectModal')?.classList.contains('open')) {
+        renderProjectModal(currentModalItem);
+    }
 });
 
 loadAndRenderProjectsJSON();
