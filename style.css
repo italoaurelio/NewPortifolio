@@ -120,6 +120,13 @@ body {
     color: white;
 }
 
+#lang-toggle .lang-globe {
+    color: white;
+    font-size: 15px;
+    margin-left: 4px;
+    align-self: center;
+}
+
 #hover-bg {
     position: absolute;
     top: 0;
@@ -205,6 +212,25 @@ body {
     position: relative;
 }
 
+/* "Clica em mim" — anel pulsando convidando pro easter egg 💿 */
+#photo:not(.clicked) {
+    animation: clickMe 2.6s ease-out infinite;
+}
+
+@keyframes clickMe {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
 #photo.clicked {
     animation: rotateImage 5s infinite linear;
 }
@@ -285,6 +311,9 @@ body {
     border-radius: 50px;
     gap: 5px;
     transition: transform 0.5s ease;
+    /* prende o brilho DENTRO do botão (antes ele varria a tela inteira 😅) */
+    position: relative;
+    overflow: hidden;
 }
 
 #contact:hover {
@@ -743,7 +772,8 @@ body {
 #footerBox {
     border: 1.5px solid white;
     padding: 20px;
-    height: 200px;
+    /* min-height em vez de height: o PT é mais falante e precisa de espaço 🗣️ */
+    min-height: 200px;
     border-radius: 6px;
     display: flex;
     flex-direction: row;
@@ -772,11 +802,13 @@ body {
             display: flex;
             align-items: baseline;
             flex-direction: column;
-            width: 140px;
+            width: auto;
+            min-width: 140px;
 
             h3 {
                 font-size: 20px;
                 font-weight: 500;
+                white-space: nowrap;
             }
 
             a {
@@ -947,7 +979,7 @@ body {
     #footerBox {
         border: 1.5px solid white;
         padding: 20px;
-        height: 350px;
+        min-height: 350px;
         border-radius: 6px;
         display: flex;
         flex-direction: column;
@@ -976,11 +1008,13 @@ body {
                 display: flex;
                 align-items: baseline;
                 flex-direction: column;
-                width: 140px;
+                width: auto;
+                min-width: 140px;
 
                 h3 {
                     font-size: 20px;
                     font-weight: 500;
+                    white-space: nowrap;
                 }
 
                 a {
@@ -1381,11 +1415,10 @@ body.no-scroll {
 }
 /* ===== A11y ===== */
 
-/* Anel de foco pra quem navega de teclado ⌨️ */
+/* Anel de foco pra quem navega de teclado ⌨️ (o outline acompanha o raio do elemento) */
 :focus-visible {
     outline: 2px solid white;
     outline-offset: 3px;
-    border-radius: 4px;
 }
 
 /* Respeita quem enjoa com movimento 🫠 (a feature continua, só para de girar) */
@@ -1398,7 +1431,8 @@ body.no-scroll {
         animation: none;
     }
 
-    #photo.clicked {
+    #photo.clicked,
+    #photo:not(.clicked) {
         animation: none;
     }
 
