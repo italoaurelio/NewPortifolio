@@ -253,14 +253,14 @@ body {
 
 
 
-h2 {
+.hero-role {
     font-size: 90px;
     font-weight: 600;
     margin-bottom: -50px;
     transform: scaleY(1.1);
 }
 
-h3 {
+.hero-role-2 {
     font-size: 90px;
     font-weight: 600;
 }
@@ -399,7 +399,7 @@ h3 {
     width: 750px;
 }
 
-h4 {
+#portifolio h2 {
     font-size: 26px;
     font-weight: 200;
     padding-bottom: 20px;
@@ -774,7 +774,7 @@ h4 {
             flex-direction: column;
             width: 140px;
 
-            h6 {
+            h3 {
                 font-size: 20px;
                 font-weight: 500;
             }
@@ -804,12 +804,12 @@ h4 {
 }
 
 @media (max-width: 1030px) {
-    h2 {
+    .hero-role {
         font-size: 60px;
         margin-bottom: -35px;
     }
 
-    h3 {
+    .hero-role-2 {
         font-size: 60px;
     }
 
@@ -820,12 +820,12 @@ h4 {
         height: 90vh;
     }
 
-    h2 {
+    .hero-role {
         font-size: 45px;
         margin-bottom: -20px;
     }
 
-    h3 {
+    .hero-role-2 {
         font-size: 36px;
     }
 
@@ -977,7 +977,7 @@ h4 {
                 flex-direction: column;
                 width: 140px;
 
-                h6 {
+                h3 {
                     font-size: 20px;
                     font-weight: 500;
                 }
@@ -1377,4 +1377,43 @@ body.no-scroll {
     overflow: hidden;
     touch-action: none;
     height: 100%;
+}
+/* ===== A11y ===== */
+
+/* Anel de foco pra quem navega de teclado ⌨️ */
+:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Respeita quem enjoa com movimento 🫠 (a feature continua, só para de girar) */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .animated-background {
+        animation: none;
+    }
+
+    #photo.clicked {
+        animation: none;
+    }
+
+    #music-title.clicked {
+        animation: none;
+    }
+
+    .techIcons:hover,
+    .projectCard:hover,
+    #contact:hover,
+    .icon:hover,
+    .modal-link:hover {
+        transform: none;
+    }
+
+    .projectCard:hover .card-media img {
+        transform: none;
+    }
 }

@@ -80,10 +80,19 @@ function playMusic() {
         }
         isPlaying = true;
     }
+    photo?.setAttribute("aria-pressed", String(isPlaying));
 }
 
 // Toggle music on photo click
 photo?.addEventListener("click", playMusic);
+
+// Teclado também toca música 🎹
+photo?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        playMusic();
+    }
+});
 
 // Quando a música acaba sozinha, volta tudo pro normal (a foto não é um beyblade ♾️)
 audioPlayer?.addEventListener("ended", () => {
@@ -131,7 +140,7 @@ async function loadAndRenderJSON(filePath) {
             div.classList.add('card');
             div.innerHTML = `
                 <div class="work">
-                    <img src="${item.photo}" alt="" width="60" height="60" loading="lazy" decoding="async">
+                    <img src="${item.photo}" alt="Logo ${i18n.field(item.name)}" width="60" height="60" loading="lazy" decoding="async">
                     <div class="workText">
                         <div class="t2">${i18n.field(item.date)}</div>
                         <div class="t1">${i18n.field(item.name)}</div>
