@@ -223,24 +223,30 @@ body {
 #click-hint {
     position: absolute;
     inset: -24%;
-    width: 148%;
-    height: 148%;
     pointer-events: none;
-    animation: spinHint 18s linear infinite;
     transition: opacity 0.5s ease;
 }
 
-#click-hint textPath {
-    fill: rgba(255, 255, 255, 0.6);
-    font-size: 13px;
-    font-weight: 300;
-    letter-spacing: 1px;
+#click-hint svg {
+    width: 100%;
+    height: 100%;
 }
 
-@keyframes spinHint {
-    to {
-        transform: rotate(360deg);
-    }
+#click-hint textPath {
+    fill: rgba(255, 255, 255, 0.75);
+    font-size: 12.5px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+}
+
+/* o dedinho fica onde o texto termina, apontando pra foto 👆 */
+#click-hint iconify-icon {
+    position: absolute;
+    top: 1%;
+    left: 63%;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    transform: rotate(20deg);
 }
 
 /* música tocando = convite aceito, o aviso sai de cena 🎉 */
@@ -267,23 +273,9 @@ body {
     /* Invertendo o ícone */
 }
 
+/* Aposentamos o letreiro: ele vivia invadindo o play ✋ Agora o nome fica parado. */
 #music-title.clicked {
-    display: inline-block;
     white-space: nowrap;
-    animation: slideText 10s infinite linear;
-}
-
-/* Agora o letreiro dá tempo de ler o nome da música 📜 */
-@keyframes slideText {
-
-    0%,
-    25% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
 }
 
 #br-icon {
@@ -1453,12 +1445,7 @@ body.no-scroll {
         animation: none;
     }
 
-    #photo.clicked,
-    #click-hint {
-        animation: none;
-    }
-
-    #music-title.clicked {
+    #photo.clicked {
         animation: none;
     }
 
