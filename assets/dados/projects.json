@@ -1,292 +1,402 @@
 [
     {
-        "id": "waybill-app",
-        "name": "Waybill App",
+        "id": "ingressos-fojb",
+        "name": "Plataforma de Ingressos FOJB",
         "tagline": {
-            "en": "OCR-powered waybill processing for a logistics operation",
-            "pt": "Processamento de romaneios com OCR para uma operação logística"
+            "en": "Events and free-ticketing platform for the foundation's cultural venues",
+            "pt": "Plataforma de eventos e ingressos gratuitos para os equipamentos culturais da Fundação"
         },
-        "client": "SalExpress",
-        "period": {
-            "en": "2024 — Present",
-            "pt": "2024 — Presente"
-        },
-        "role": {
-            "en": "Fullstack Developer",
-            "pt": "Desenvolvedor Fullstack"
-        },
-        "thumbnail": "assets/salromaneioSite.jpg",
+        "client": "Fundação Ormeu Junqueira Botelho",
+        "period": { "en": "2025 — Present", "pt": "2025 — Presente" },
+        "role": { "en": "Lead Developer (Consultant)", "pt": "Desenvolvedor Principal (Consultor)" },
+        "thumbnail": "",
         "shortDescription": {
-            "en": "Platform for analysis, recognition, editing, storage and consultation of waybill documents.",
-            "pt": "Plataforma de análise, reconhecimento, edição, armazenamento e consulta de romaneios."
+            "en": "Full events and ticketing platform with QR Code check-in, used by the foundation's museums, festivals and cultural spaces.",
+            "pt": "Plataforma completa de eventos e ingressos com check-in por QR Code, usada pelos museus, festivais e espaços culturais da Fundação."
         },
         "longDescription": {
-            "en": "Waybill App is a full-featured system to upload, OCR, validate and store waybill documents, with search and history features. I worked on the frontend using React and Tailwind and integrated backend APIs for storage and Drive integrations.",
-            "pt": "O Waybill App é um sistema completo para subir, reconhecer (OCR), validar e armazenar romaneios, com busca e histórico. Trabalhei no frontend com React e Tailwind e integrei as APIs de backend para armazenamento e integração com o Drive."
+            "en": "I own the platform end to end: architecture, database design, backend, frontend, infrastructure and continuous delivery. The system manages events and free ticket distribution with secure transactional control, duplicate prevention and reliability under concurrent access. Visitors check in through a QR Code read by the staff's phone camera, and the platform also handles role-based admin access and e-mail campaigns to thousands of guests.",
+            "pt": "Cuido da plataforma de ponta a ponta: arquitetura, modelagem de banco, backend, frontend, infraestrutura e evolução contínua. O sistema gerencia eventos e distribuição gratuita de ingressos com controle transacional seguro, prevenção de duplicidade e confiabilidade sob múltiplos acessos simultâneos. A entrada é validada por QR Code lido pela câmera do celular da equipe, e a plataforma ainda cuida de papéis de acesso administrativo e campanhas de e-mail para milhares de convidados."
         },
-        "stack": [
-            "React",
-            "Tailwind",
-            "MySQL",
-            "PHP",
-            "Drive API"
-        ],
+        "stack": ["Laravel", "Next.js", "PostgreSQL", "Tailwind", "Nginx"],
         "highlights": {
-            "en": [],
-            "pt": []
+            "en": [
+                "Check-in via QR Code using the phone camera — fast, practical entry validation",
+                "Full user management with roles and admin access levels",
+                "Transactional integrity: duplicate prevention and safety under concurrent access",
+                "E-mail broadcasts inviting thousands of guests to festivals and events",
+                "Hosted on the foundation's own server, tuned with Nginx"
+            ],
+            "pt": [
+                "Check-in por QR Code usando a câmera do celular — validação de entrada rápida e prática",
+                "Gestão completa de usuários com papéis e níveis de acesso administrativo",
+                "Integridade transacional: prevenção de duplicidade e segurança sob acessos simultâneos",
+                "Disparos de e-mail convidando milhares de pessoas para festivais e eventos",
+                "Hospedada em servidor próprio da Fundação, otimizado com Nginx"
+            ]
         },
         "infraInfo": {
             "frontend": {
                 "title": "Frontend",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Next.js + Tailwind — responsive, accessible on any device",
+                    "pt": "Next.js + Tailwind — responsivo, acessível em qualquer dispositivo"
                 }
             },
             "backend": {
                 "title": "Backend",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Laravel REST APIs with transactional ticket control",
+                    "pt": "APIs REST em Laravel com controle transacional dos ingressos"
                 }
             },
             "server": {
                 "title": "Server",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Foundation's own server with Nginx, high availability",
+                    "pt": "Servidor próprio da Fundação com Nginx, alta disponibilidade"
                 }
             },
-            "dataSources": []
+            "dataSources": ["PostgreSQL"]
         },
-        "impact": [],
-        "usageExample": {
-            "en": [],
-            "pt": []
-        },
-        "screenshots": [
-            "assets/salromaneioSite.jpg"
+        "impact": [
+            { "label": { "en": "Registered users", "pt": "Usuários cadastrados" }, "value": "~5.770" },
+            { "label": { "en": "Check-in", "pt": "Check-in" }, "value": "QR Code" }
         ],
-        "links": {
-            "repo": "",
-            "demo": "",
-            "case": ""
-        }
+        "usageExample": {
+            "en": [
+                "Visitor picks an event and reserves a free ticket",
+                "The platform issues a unique QR Code ticket by e-mail",
+                "At the venue, staff scan the QR Code with a phone camera",
+                "The system validates the ticket transactionally, blocking duplicates"
+            ],
+            "pt": [
+                "O visitante escolhe um evento e reserva o ingresso gratuito",
+                "A plataforma emite o ingresso com QR Code único por e-mail",
+                "Na entrada, a equipe escaneia o QR Code com a câmera do celular",
+                "O sistema valida o ingresso transacionalmente, bloqueando duplicatas"
+            ]
+        },
+        "screenshots": [],
+        "links": { "repo": "", "demo": "", "case": "" }
     },
     {
-        "id": "route-management-app",
-        "name": "Route Management App",
+        "id": "roteirizador-logistico",
+        "name": "Roteirizador Logístico",
         "tagline": {
-            "en": "Route planning and comparison to cut delivery time and cost",
-            "pt": "Planejamento e comparação de rotas pra reduzir tempo e custo de entrega"
+            "en": "Graph-based delivery route planning validated against the real world",
+            "pt": "Planejamento de rotas de entrega com grafos, validado contra o mundo real"
         },
-        "client": "SalExpress",
-        "period": {
-            "en": "2024 — Present",
-            "pt": "2024 — Presente"
-        },
-        "role": {
-            "en": "Fullstack Developer",
-            "pt": "Desenvolvedor Fullstack"
-        },
+        "client": "Sal Express",
+        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
+        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
         "thumbnail": "assets/salreactSite.jpg",
         "shortDescription": {
-            "en": "Platform for creating new routes and comparing them with current ones, improving transportation processes.",
-            "pt": "Plataforma pra criar novas rotas e compará-las com as atuais, melhorando os processos de transporte."
+            "en": "Intelligent routing system that plans daily delivery routes by combining graph algorithms with multiple geographic data sources.",
+            "pt": "Sistema inteligente de roteirização que planeja as rotas diárias de entrega combinando algoritmos de grafos com múltiplas fontes de dados geográficos."
         },
         "longDescription": {
-            "en": "Route Management App helps planners create and compare routes to optimize delivery times and costs. I contributed to the interface and mapping integration using Maps APIs and visualization components.",
-            "pt": "O Route Management App ajuda o planejamento a criar e comparar rotas pra otimizar tempos e custos de entrega. Contribuí na interface e na integração de mapas usando Maps APIs e componentes de visualização."
+            "en": "The router plans delivery routes applying graph concepts over geographic data from Google Maps APIs. I also built the company's own data infrastructure around it: a scraper that collects operational data, an auxiliary database and automated cross-checking between sources, so the planned routes are continuously compared against what actually happened on the street. Daily report cards are generated automatically and sent to the operation's WhatsApp.",
+            "pt": "O roteirizador planeja as rotas de entrega aplicando conceitos de grafos sobre dados geográficos das APIs do Google Maps. Também construí a infraestrutura própria de dados em volta dele: um scraper que coleta os dados operacionais, banco auxiliar e comparação automatizada entre fontes — as rotas planejadas são confrontadas todo dia com o que realmente aconteceu na rua. Cards de relatório são gerados automaticamente e enviados no WhatsApp da operação."
         },
-        "stack": [
-            "React",
-            "Tailwind",
-            "MySQL",
-            "PHP",
-            "Maps API"
-        ],
+        "stack": ["Laravel", "Next.js", "PostgreSQL", "Python", "Google Maps APIs"],
         "highlights": {
-            "en": [],
-            "pt": []
+            "en": [
+                "Graph algorithms to optimize daily delivery planning",
+                "Own geographic data pipeline: scraper, auxiliary database and automated source cross-checking",
+                "Daily planned-vs-real comparison across the company's distribution bases",
+                "Automatic PNG report cards delivered straight to the operation's WhatsApp"
+            ],
+            "pt": [
+                "Algoritmos de grafos para otimizar o planejamento diário de entregas",
+                "Pipeline geográfico próprio: scraper, banco auxiliar e comparação automatizada entre fontes",
+                "Comparativo diário planejado × realizado nas bases de distribuição da empresa",
+                "Cards de relatório em PNG entregues automaticamente no WhatsApp da operação"
+            ]
         },
         "infraInfo": {
             "frontend": {
                 "title": "Frontend",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Next.js dashboard with maps and route comparison",
+                    "pt": "Painel em Next.js com mapas e comparação de rotas"
                 }
             },
             "backend": {
                 "title": "Backend",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Laravel APIs + Python for graphs, scraping and analysis",
+                    "pt": "APIs Laravel + Python para grafos, scraping e análises"
                 }
             },
             "server": {
                 "title": "Server",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Company's own Linux servers with scheduled pipelines",
+                    "pt": "Servidores Linux próprios com pipelines agendados"
                 }
             },
-            "dataSources": []
+            "dataSources": ["PostgreSQL", "Google Maps APIs", "SSW (scraper)"]
         },
-        "impact": [],
-        "usageExample": {
-            "en": [],
-            "pt": []
-        },
-        "screenshots": [
-            "assets/salreactSite.jpg"
+        "impact": [
+            { "label": { "en": "Estimated operational gain", "pt": "Melhoria operacional estimada" }, "value": "~22%" },
+            { "label": { "en": "WhatsApp reports", "pt": "Reports no WhatsApp" }, "value": { "en": "2×/day", "pt": "2×/dia" } }
         ],
-        "links": {
-            "repo": "",
-            "demo": "",
-            "case": ""
-        }
+        "usageExample": {
+            "en": [
+                "Overnight, the scraper ingests the day's operational data",
+                "The router plans optimized routes for each distribution base",
+                "In the morning, the operation receives the route card on WhatsApp",
+                "At closing, planned routes are compared against real deliveries"
+            ],
+            "pt": [
+                "De madrugada, o scraper ingere os dados operacionais do dia",
+                "O roteirizador planeja rotas otimizadas para cada base de distribuição",
+                "De manhã, a operação recebe o card de rotas no WhatsApp",
+                "No fechamento, as rotas planejadas são comparadas com as entregas reais"
+            ]
+        },
+        "screenshots": ["assets/salreactSite.jpg"],
+        "links": { "repo": "", "demo": "", "case": "" }
     },
     {
-        "id": "vel-io",
-        "name": "Vel.IO",
+        "id": "romaneio-ocr",
+        "name": "Romaneio OCR",
         "tagline": {
-            "en": "Accessible web for elderly users and people with motor disabilities",
-            "pt": "Web acessível pra idosos e pessoas com deficiência motora"
+            "en": "Document pipeline that turns paper waybills into searchable data",
+            "pt": "Pipeline documental que transforma romaneios de papel em dados pesquisáveis"
         },
-        "client": "Vel.IO",
-        "period": "2021 — 2022",
-        "role": {
-            "en": "Fullstack Developer | Art Director",
-            "pt": "Desenvolvedor Fullstack | Diretor de Arte"
-        },
-        "thumbnail": "assets/velioSite.jpg",
+        "client": "Sal Express",
+        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
+        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
+        "thumbnail": "assets/salromaneioSite.jpg",
         "shortDescription": {
-            "en": "A project aimed at simplifying the digital life of elderly people and individuals with motor disabilities, through an easy-to-use interface.",
-            "pt": "Um projeto pra simplificar a vida digital de idosos e pessoas com deficiência motora, através de uma interface fácil de usar."
+            "en": "OCR pipeline for waybill documents: capture, reading, data extraction, cloud storage and instant search.",
+            "pt": "Pipeline de OCR para romaneios: captura, leitura, extração de dados, armazenamento em nuvem e busca instantânea."
         },
         "longDescription": {
-            "en": "Vel.IO focuses on accessibility and simplicity: large controls, clear contrast and straightforward flows to help elderly and motor-impaired users achieve daily tasks online. I worked on UI improvements and accessibility fixes.",
-            "pt": "O Vel.IO foca em acessibilidade e simplicidade: controles grandes, contraste claro e fluxos diretos pra ajudar idosos e pessoas com limitações motoras nas tarefas do dia a dia online. Trabalhei em melhorias de UI e correções de acessibilidade."
+            "en": "The system automates the reading and processing of waybill documents. Drivers capture photos through a mobile app (Expo) that validates image quality on-device before upload. The pipeline reads each image with PaddleOCR and uses AI to interpret the text — separating title, issue date and body into structured tables. Files live entirely on S3, and the web platform offers search and history over everything that was ever processed.",
+            "pt": "O sistema automatiza a leitura e o processamento de romaneios. Os motoristas capturam as fotos por um app mobile (Expo) que valida a qualidade da imagem no próprio aparelho antes do upload. O pipeline lê cada imagem com PaddleOCR e usa IA para interpretar o texto — separando título, data de emissão e corpo em tabelas estruturadas. Os arquivos vivem 100% no S3, e a plataforma web oferece busca e histórico de tudo que já foi processado."
         },
-        "stack": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "PHP"
-        ],
+        "stack": ["Python", "PaddleOCR", "OpenAI API", "Expo", "AWS S3"],
         "highlights": {
-            "en": [],
-            "pt": []
+            "en": [
+                "Mobile capture app with on-device photo validation (brightness, sharpness, framing)",
+                "PaddleOCR + AI interpretation: title, issue date and body extracted into tables",
+                "Document classifier that separates waybills from other paperwork",
+                "100% cloud storage on S3 — zero server disk usage",
+                "Instant search over the full document history"
+            ],
+            "pt": [
+                "App mobile de captura com validação de foto no aparelho (brilho, nitidez, enquadramento)",
+                "PaddleOCR + interpretação com IA: título, data de emissão e corpo extraídos em tabelas",
+                "Classificador de documentos que separa romaneios de outros papéis",
+                "Armazenamento 100% em nuvem no S3 — zero disco no servidor",
+                "Busca instantânea sobre todo o histórico de documentos"
+            ]
         },
         "infraInfo": {
             "frontend": {
                 "title": "Frontend",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "React web platform + Expo mobile app for capture",
+                    "pt": "Plataforma web em React + app mobile Expo para captura"
                 }
             },
             "backend": {
                 "title": "Backend",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Python pipeline: PaddleOCR, AI interpretation and REST APIs",
+                    "pt": "Pipeline em Python: PaddleOCR, interpretação com IA e APIs REST"
                 }
             },
             "server": {
                 "title": "Server",
                 "desc": {
-                    "en": "",
-                    "pt": ""
+                    "en": "Own server + AWS S3 for all document storage",
+                    "pt": "Servidor próprio + AWS S3 para todo o armazenamento"
                 }
             },
-            "dataSources": []
+            "dataSources": ["MySQL", "AWS S3", "OpenAI API"]
         },
         "impact": [],
         "usageExample": {
-            "en": [],
-            "pt": []
+            "en": [
+                "Driver photographs the waybill in the mobile app",
+                "The app validates the photo quality before uploading",
+                "OCR + AI extract title, date and body into structured data",
+                "The document becomes searchable on the web platform, stored on S3"
+            ],
+            "pt": [
+                "O motorista fotografa o romaneio no app mobile",
+                "O app valida a qualidade da foto antes do upload",
+                "OCR + IA extraem título, data e corpo em dados estruturados",
+                "O documento vira pesquisável na plataforma web, guardado no S3"
+            ]
         },
-        "screenshots": [
-            "assets/velioSite.jpg"
+        "screenshots": ["assets/salromaneioSite.jpg"],
+        "links": { "repo": "", "demo": "", "case": "" }
+    },
+    {
+        "id": "sistema-integrado",
+        "name": "Sistema Integrado Sal Express",
+        "tagline": {
+            "en": "One unified platform for the company's internal systems",
+            "pt": "Uma plataforma única para os sistemas internos da empresa"
+        },
+        "client": "Sal Express",
+        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
+        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
+        "thumbnail": "",
+        "shortDescription": {
+            "en": "Platform that consolidated the company's isolated internal systems into a single modern environment with centralized authentication.",
+            "pt": "Plataforma que consolidou os sistemas internos isolados da empresa em um único ambiente moderno com autenticação centralizada."
+        },
+        "longDescription": {
+            "en": "The company's internal tools grew as isolated systems, each with its own login and interface. The integrated platform unifies them in one responsive environment with centralized authentication, role-based permission control, modular architecture and REST APIs — giving the operation a single, secure entry point and full visibility over logistics processes. I worked across every stage: requirements gathering with multiple departments, architecture, database modeling, backend, frontend and deploy on the company's Linux servers.",
+            "pt": "As ferramentas internas da empresa cresceram como sistemas isolados, cada um com seu login e interface. A plataforma integrada unifica tudo em um ambiente único e responsivo com autenticação centralizada, controle de permissões por papéis, arquitetura modular e APIs REST — dando à operação uma porta de entrada única e segura, com visão completa dos processos logísticos. Atuei em todas as etapas: levantamento de requisitos com múltiplos setores, arquitetura, modelagem de banco, backend, frontend e deploy nos servidores Linux da empresa."
+        },
+        "stack": ["Laravel", "React", "SQL Server", "Tailwind"],
+        "highlights": {
+            "en": [
+                "Centralized authentication with role-based permission control",
+                "Modular architecture: each internal system plugs in as a module",
+                "Requirements gathered directly with multiple company departments",
+                "Real-time tracking and full integration between modules"
+            ],
+            "pt": [
+                "Autenticação centralizada com controle de permissões por papéis",
+                "Arquitetura modular: cada sistema interno entra como um módulo",
+                "Requisitos levantados direto com múltiplos setores da empresa",
+                "Rastreamento em tempo real e integração total entre módulos"
+            ]
+        },
+        "infraInfo": {
+            "frontend": {
+                "title": "Frontend",
+                "desc": {
+                    "en": "React + Tailwind, responsive with dark mode",
+                    "pt": "React + Tailwind, responsivo e com dark mode"
+                }
+            },
+            "backend": {
+                "title": "Backend",
+                "desc": {
+                    "en": "Laravel REST APIs with centralized auth (Sanctum)",
+                    "pt": "APIs REST em Laravel com auth centralizada (Sanctum)"
+                }
+            },
+            "server": {
+                "title": "Server",
+                "desc": {
+                    "en": "Company's own Linux servers",
+                    "pt": "Servidores Linux próprios da empresa"
+                }
+            },
+            "dataSources": ["SQL Server", "MySQL"]
+        },
+        "impact": [
+            { "label": { "en": "Critical apps in production", "pt": "Aplicações críticas em produção" }, "value": "5" }
         ],
-        "links": {
-            "repo": "",
-            "demo": "",
-            "case": ""
-        }
+        "usageExample": { "en": [], "pt": [] },
+        "screenshots": [],
+        "links": { "repo": "", "demo": "", "case": "" }
+    },
+    {
+        "id": "epoc",
+        "name": "EPOC — Escalada Para o Céu",
+        "tagline": {
+            "en": "Multi-user platform for schedules, ministries and event calendars",
+            "pt": "Plataforma multiusuário de escalas, ministérios e calendário de eventos"
+        },
+        "client": "Freelance",
+        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
+        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
+        "thumbnail": "",
+        "shortDescription": {
+            "en": "Multi-user system for managing schedules, ministries and event calendars, with permission control and complex relational modeling.",
+            "pt": "Sistema multiusuário para gestão de escalas, ministérios e calendário de eventos, com controle de permissões e modelagem relacional complexa."
+        },
+        "longDescription": {
+            "en": "EPOC organizes who serves where and when: members belong to ministries, ministries have schedules, and schedules feed a shared event calendar. The relational modeling is the heart of the project — people, roles, ministries, events and availability all connect — with permission control deciding what each user can see and manage.",
+            "pt": "O EPOC organiza quem serve onde e quando: membros pertencem a ministérios, ministérios têm escalas, e as escalas alimentam um calendário de eventos compartilhado. A modelagem relacional é o coração do projeto — pessoas, papéis, ministérios, eventos e disponibilidade se conectam — com controle de permissões decidindo o que cada usuário vê e gerencia."
+        },
+        "stack": ["Node.js", "Express", "SQL Server"],
+        "highlights": {
+            "en": [
+                "Complex relational modeling: people, roles, ministries, schedules and events",
+                "Permission control per user and ministry",
+                "Shared event calendar fed by the schedules"
+            ],
+            "pt": [
+                "Modelagem relacional complexa: pessoas, papéis, ministérios, escalas e eventos",
+                "Controle de permissões por usuário e ministério",
+                "Calendário de eventos compartilhado alimentado pelas escalas"
+            ]
+        },
+        "infraInfo": {
+            "frontend": { "title": "Frontend", "desc": { "en": "", "pt": "" } },
+            "backend": {
+                "title": "Backend",
+                "desc": {
+                    "en": "Node.js + Express REST APIs",
+                    "pt": "APIs REST em Node.js + Express"
+                }
+            },
+            "server": { "title": "Server", "desc": { "en": "", "pt": "" } },
+            "dataSources": ["SQL Server"]
+        },
+        "impact": [],
+        "usageExample": { "en": [], "pt": [] },
+        "screenshots": [],
+        "links": { "repo": "", "demo": "", "case": "" }
     },
     {
         "id": "personal-portfolio",
         "name": "Personal Portfolio",
         "tagline": {
-            "en": "Hand-built portfolio with a hidden music player easter egg",
-            "pt": "Portfolio feito à mão com um player de música escondido de easter egg"
+            "en": "Hand-built bilingual portfolio with a hidden music player easter egg",
+            "pt": "Portfolio bilíngue feito à mão com um player de música escondido de easter egg"
         },
         "client": "Ítalo Aurélio",
-        "period": {
-            "en": "2024 — Present",
-            "pt": "2024 — Presente"
-        },
-        "role": {
-            "en": "Design & Development",
-            "pt": "Design & Desenvolvimento"
-        },
+        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
+        "role": { "en": "Design & Development", "pt": "Design & Desenvolvimento" },
         "thumbnail": "assets/italoportifolioSite.jpg",
         "shortDescription": {
-            "en": "My personal portfolio, where I showcase my projects and skills.",
-            "pt": "Meu portfolio pessoal, onde mostro meus projetos e habilidades."
+            "en": "This very site: vanilla HTML/CSS/JS, bilingual EN/PT, data-driven by JSON and maintained through a hand-built admin panel.",
+            "pt": "Este site aqui: HTML/CSS/JS puro, bilíngue EN/PT, alimentado por JSON e mantido por um painel admin feito à mão."
         },
         "longDescription": {
-            "en": "This is my personal portfolio site where I present projects, experience and technical skills. Built with responsive design in mind and lightweight interactions to keep navigation fast.",
-            "pt": "Este é meu site de portfolio pessoal, onde apresento projetos, experiência e habilidades técnicas. Feito com design responsivo em mente e interações leves pra manter a navegação rápida."
+            "en": "No frameworks, no build step — just carefully written HTML, CSS and JavaScript. The whole content is data-driven from JSON files, edited through a custom admin panel that exports ready-to-deploy data. It ships with a bilingual EN/PT system, keyboard accessibility, SEO with Open Graph, and a music player easter egg hidden in the profile photo.",
+            "pt": "Sem frameworks, sem build — só HTML, CSS e JavaScript escritos com cuidado. Todo o conteúdo vem de arquivos JSON, editados por um painel admin próprio que exporta os dados prontos pra deploy. Vem com sistema bilíngue EN/PT, acessibilidade por teclado, SEO com Open Graph e um player de música de easter egg escondido na foto de perfil."
         },
-        "stack": [
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
+        "stack": ["HTML", "CSS", "JavaScript"],
         "highlights": {
-            "en": [],
-            "pt": []
+            "en": [
+                "Bilingual EN/PT system written from scratch in vanilla JS",
+                "Custom admin panel that generates the site's JSON data",
+                "Music player easter egg — click the photo",
+                "Zero dependencies: no framework, no build step"
+            ],
+            "pt": [
+                "Sistema bilíngue EN/PT escrito do zero em JS puro",
+                "Painel admin próprio que gera os dados JSON do site",
+                "Easter egg de player de música — clica na foto",
+                "Zero dependências: sem framework, sem build"
+            ]
         },
         "infraInfo": {
-            "frontend": {
-                "title": "Frontend",
-                "desc": {
-                    "en": "",
-                    "pt": ""
-                }
-            },
-            "backend": {
-                "title": "Backend",
-                "desc": {
-                    "en": "",
-                    "pt": ""
-                }
-            },
+            "frontend": { "title": "Frontend", "desc": { "en": "", "pt": "" } },
+            "backend": { "title": "Backend", "desc": { "en": "", "pt": "" } },
             "server": {
                 "title": "Server",
-                "desc": {
-                    "en": "",
-                    "pt": ""
-                }
+                "desc": { "en": "Static deploy on Vercel", "pt": "Deploy estático na Vercel" }
             },
             "dataSources": []
         },
         "impact": [],
-        "usageExample": {
-            "en": [],
-            "pt": []
-        },
-        "screenshots": [
-            "assets/italoportifolioSite.jpg"
-        ],
-        "links": {
-            "repo": "https://github.com/italoaurelio/NewPortifolio",
-            "demo": "https://italo-aurelio-dev.vercel.app",
-            "case": ""
-        }
+        "usageExample": { "en": [], "pt": [] },
+        "screenshots": ["assets/italoportifolioSite.jpg"],
+        "links": { "repo": "https://github.com/italoaurelio/NewPortifolio", "demo": "https://italo-aurelio-dev.vercel.app", "case": "" }
     }
 ]

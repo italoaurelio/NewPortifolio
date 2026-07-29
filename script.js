@@ -172,16 +172,6 @@ function buildProjectCard(item) {
     card.setAttribute('role', 'button');
     card.setAttribute('aria-label', `${item.name} — ${i18n.t('project.viewCase')}`);
 
-    // Crop fixo 16:9 — nunca mais card gigante por causa de screenshot comprida 📐
-    const media = el('div', 'card-media');
-    const img = document.createElement('img');
-    img.src = item.thumbnail || '';
-    img.alt = `${item.name} — screenshot`;
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    media.appendChild(img);
-    card.appendChild(media);
-
     const body = el('div', 'card-body');
 
     const meta = [item.client, i18n.field(item.period)].filter(Boolean).join(' · ');
@@ -215,6 +205,21 @@ function buildProjectCard(item) {
     body.appendChild(footer);
 
     card.appendChild(body);
+
+    // Mídia à direita; sem screenshot ainda? entra o cartão-assinatura da casa 🎴
+    const media = el('div', 'card-media');
+    if (item.thumbnail) {
+        const img = document.createElement('img');
+        img.src = item.thumbnail;
+        img.alt = `${item.name} — screenshot`;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        media.appendChild(img);
+    } else {
+        media.classList.add('placeholder');
+        media.appendChild(el('span', 'placeholder-name', item.name));
+    }
+    card.appendChild(media);
 
     // Clique OU teclado abrem o case
     card.addEventListener('click', () => openProjectModal(item));
@@ -379,17 +384,25 @@ function renderProjectModal(item){
         linksEl.style.display = defs.length ? '' : 'none';
     }
 
-    // Galeria — screenshots do próprio projeto (thumbnail de fallback)
+    // Galeria — screenshots do próprio projeto (thumbnail de fallback);
+    // sem imagem nenhuma, a galeria nem aparece 🫥
     modalImages = (Array.isArray(item.screenshots) && item.screenshots.length)
-        ? item.screenshots : [item.thumbnail];
+        ? item.screenshots
+        : (item.thumbnail ? [item.thumbnail] : []);
+
+    const galleryArea = document.getElementById('modalGalleryArea');
+    if (galleryArea) galleryArea.style.display = modalImages.length ? '' : 'none';
 
     const galleryMain = document.getElementById('galleryMain');
     const imageWrap = galleryMain?.querySelector('.gallery-image-wrap');
     if(imageWrap) imageWrap.innerHTML = '';
-    modalMainImg = document.createElement('img');
-    modalMainImg.src = modalImages[0];
-    modalMainImg.alt = `${item.name} — ${i18n.t('modal.image')} 1`;
-    if(imageWrap) imageWrap.appendChild(modalMainImg);
+    modalMainImg = null;
+    if(modalImages.length){
+        modalMainImg = document.createElement('img');
+        modalMainImg.src = modalImages[0];
+        modalMainImg.alt = `${item.name} — ${i18n.t('modal.image')} 1`;
+        if(imageWrap) imageWrap.appendChild(modalMainImg);
+    }
 
     // Setas e dots só quando tem mais de uma imagem
     const multi = modalImages.length > 1;
@@ -451,7 +464,11 @@ function openProjectModal(item){
 
         // ensure we don't create multiple handlers
         if (!window._preventScrollHandler) {
-            window._preventScrollHandler = function (e) { e.preventDefault(); };
+            window._preventScrollHandler = function (e) {
+                // rolar DENTRO do case é permitido; o bloqueio é só pro fundo 🛗
+                if (e.target.closest && e.target.closest('.modal-content')) return;
+                e.preventDefault();
+            };
         }
         // non-passive to allow preventDefault
         window.addEventListener('touchmove', window._preventScrollHandler, { passive: false });

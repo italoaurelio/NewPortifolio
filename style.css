@@ -506,6 +506,10 @@ body {
         border: 2px solid white;
         position: absolute;
         left: calc(7% - 30.5px);
+        /* logo retangular (FOJB) não espreme dentro do círculo */
+        object-fit: contain;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 4px;
     }
 
     .workText {
@@ -581,20 +585,20 @@ body {
 
 #projectContainer {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 24px;
     padding-top: 10px;
     margin-bottom: 90px;
 }
 
-/* Card de projeto novo: crop fixo, meta editorial e métrica de destaque ⭐ */
+/* Card em linha: texto à esquerda, mídia à direita — cara de case, não de vitrine 🗂️ */
 .projectCard {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
     border: 1.5px solid white;
     border-radius: 6px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
     cursor: pointer;
     background: var(--surface);
     transition: transform 0.3s ease;
@@ -605,9 +609,9 @@ body {
 }
 
 .card-media {
-    aspect-ratio: 16 / 9;
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    min-height: 220px;
 }
 
 .card-media img {
@@ -624,12 +628,29 @@ body {
     transform: scale(1.04);
 }
 
+/* Sem screenshot ainda: cartão-assinatura com o teal da casa 🎴 */
+.card-media.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(26, 65, 76, 0.55));
+}
+
+.placeholder-name {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.25;
+    opacity: 0.45;
+    transform: scaleY(1.1);
+}
+
 .card-body {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 14px;
-    flex: 1;
+    gap: 10px;
+    padding: 20px;
 }
 
 .card-meta {
@@ -641,12 +662,12 @@ body {
 }
 
 .card-name {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
 }
 
 .card-tagline {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 300;
     color: var(--muted);
     display: -webkit-box;
@@ -692,7 +713,7 @@ body {
 }
 
 .metric-value {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 600;
     line-height: 1.1;
 }
@@ -986,8 +1007,17 @@ body {
         }
     }
 
-    #projectContainer {
+    /* No celular o card empilha: mídia em cima, texto embaixo */
+    .projectCard {
         grid-template-columns: 1fr;
+    }
+
+    .card-media {
+        order: -1;
+        border-left: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        aspect-ratio: 16 / 9;
+        min-height: 0;
     }
 
     #footerBox {
@@ -1087,6 +1117,16 @@ body {
 
 .modal-header {
     padding-right: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.modal-header-text {
+    min-width: 0;
+    flex: 1 1 320px;
 }
 
 .modal-meta {
@@ -1143,17 +1183,13 @@ body {
 }
 
 .modal-body {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 24px;
     margin-top: 22px;
-    align-items: start;
 }
 
 .modal-info {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
 }
 
 .modal-content h5 {
@@ -1174,9 +1210,9 @@ body {
 
 #modalHighlights ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
 }
 
 #modalHighlights li {
@@ -1209,10 +1245,14 @@ body {
     font-weight: 400;
 }
 
-/* Galeria: no case a screenshot aparece inteira, sem crop 🖼️ */
+/* Galeria em largura total: no case a screenshot aparece inteira, sem crop 🖼️ */
+.modal-gallery-col {
+    margin-top: 22px;
+}
+
 .gallery-main {
     position: relative;
-    aspect-ratio: 16 / 10;
+    height: min(46vh, 420px);
     background: #000;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
@@ -1359,12 +1399,12 @@ body {
     color: white;
 }
 
-/* CTAs: o demo é o único elemento sólido da página 🎯 */
+/* CTAs: o demo é o único elemento sólido da página 🎯 (moram no header agora) */
 .modal-links {
-    margin-top: 24px;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .modal-link {
@@ -1391,13 +1431,12 @@ body {
 }
 
 @media (max-width: 900px) {
-    .modal-body {
+    #modalHighlights ul {
         grid-template-columns: 1fr;
     }
 
-    /* no celular a imagem vem primeiro */
-    .modal-gallery-col {
-        order: -1;
+    .gallery-main {
+        height: min(36vh, 300px);
     }
 
     .infra-grid {

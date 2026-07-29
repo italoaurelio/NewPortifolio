@@ -1,16 +1,16 @@
 [
     {
         "photo": "assets/cefet.jpg",
-        "date": { "en": "Jun 2022 - Present", "pt": "Jun 2022 - Presente" },
+        "date": { "en": "2022 - 2027", "pt": "2022 - 2027" },
         "name": { "en": "Computer Engineering", "pt": "Engenharia de Computação" },
         "ocupation": { "en": "Cefet-MG (Leopoldina Campus)", "pt": "Cefet-MG (Campus Leopoldina)" }
     },
     {
         "photo": "assets/senai.jpg",
-        "date": { "en": "October 2024 - Present", "pt": "Outubro 2024 - Presente" },
+        "date": { "en": "2024 - 2026", "pt": "2024 - 2026" },
         "name": {
-            "en": "Technical Course in Fullstack Development<br>('Rio Pomba Valley')",
-            "pt": "Curso Técnico em Desenvolvimento Fullstack<br>('Rio Pomba Valley')"
+            "en": "Technical Course in Systems Development<br>('Rio Pomba Valley')",
+            "pt": "Curso Técnico em Desenvolvimento de Sistemas<br>('Rio Pomba Valley')"
         },
         "ocupation": "SENAI Cataguases"
     },

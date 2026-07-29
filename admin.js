@@ -405,7 +405,7 @@ function initEvents() {
         const p = collectProject();
         if (!p.name) return toast('Informe o nome do projeto', true);
         if (!p.id) return toast('Informe um ID/slug', true);
-        if (!p.thumbnail) return toast('Adicione um thumbnail', true);
+        // thumbnail é opcional agora — o site mostra um placeholder bonito 🎴
 
         if (editingIndex === null) {
             projects.push(p);

@@ -170,42 +170,52 @@
         </div>
         <div id="techstack">
             <h2 data-i18n="techstack.title">Tech Stack</h2><br>
+            <!-- Stack de verdade, direto do dia a dia (o CV mandou lembranças 📋) -->
             <div id="techIcons">
-                <div class="techIcons"><iconify-icon icon="ri:javascript-fill" class="icon"></iconify-icon>
-                    <p>Javascript</p>
+                <div class="techIcons"><iconify-icon icon="meteor-icons:laravel" class="icon"></iconify-icon>
+                    <p>Laravel</p>
                 </div>
-                <div class="techIcons"><iconify-icon icon="icon-park-solid:html-five" class="icon"></iconify-icon>
-                    <p>Html</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="streamline:css-three-solid" class="icon"></iconify-icon>
-                    <p>Css</p>
+                <div class="techIcons"><iconify-icon icon="ri:nextjs-fill" class="icon"></iconify-icon>
+                    <p>Next.js</p>
                 </div>
                 <div class="techIcons"><iconify-icon icon="flowbite:react-solid" class="icon"></iconify-icon>
                     <p>React</p>
                 </div>
-                <div class="techIcons"><iconify-icon icon="ri:tailwind-css-fill" class="icon"></iconify-icon>
-                    <p>Tailwind</p>
+                <div class="techIcons"><iconify-icon icon="ri:javascript-fill" class="icon"></iconify-icon>
+                    <p>JavaScript</p>
                 </div>
-                <div class="techIcons"><iconify-icon icon="carbon:mysql" class="icon"></iconify-icon>
-                    <p>MySQL</p>
+                <div class="techIcons"><iconify-icon icon="ri:nodejs-fill" class="icon"></iconify-icon>
+                    <p>Node.js</p>
                 </div>
-                <div class="techIcons"><iconify-icon icon="mdi:sql-query" class="icon"></iconify-icon>
-                    <p>SQL</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="devicon-plain:neovim" class="icon"></iconify-icon>
-                    <p>Neovim</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="mingcute:linux-fill" class="icon"></iconify-icon>
-                    <p>Linux</p>
+                <div class="techIcons"><iconify-icon icon="mdi:language-php" class="icon"></iconify-icon>
+                    <p>PHP</p>
                 </div>
                 <div class="techIcons"><iconify-icon icon="akar-icons:python-fill" class="icon"></iconify-icon>
                     <p>Python</p>
                 </div>
-                <div class="techIcons"><iconify-icon icon="simple-icons:c" class="icon"></iconify-icon>
-                    <p>C</p>
+                <div class="techIcons"><iconify-icon icon="ri:tailwind-css-fill" class="icon"></iconify-icon>
+                    <p>Tailwind</p>
                 </div>
-                <div class="techIcons"><iconify-icon icon="meteor-icons:laravel" class="icon"></iconify-icon>
-                    <p>Laravel</p>
+                <div class="techIcons"><iconify-icon icon="akar-icons:postgresql-fill" class="icon"></iconify-icon>
+                    <p>PostgreSQL</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="carbon:mysql" class="icon"></iconify-icon>
+                    <p>MySQL</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="simple-icons:microsoftsqlserver" class="icon"></iconify-icon>
+                    <p>SQL Server</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="mdi:docker" class="icon"></iconify-icon>
+                    <p>Docker</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="simple-icons:expo" class="icon"></iconify-icon>
+                    <p>Expo</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="mingcute:linux-fill" class="icon"></iconify-icon>
+                    <p>Linux</p>
+                </div>
+                <div class="techIcons"><iconify-icon icon="devicon-plain:neovim" class="icon"></iconify-icon>
+                    <p>Neovim</p>
                 </div>
                 <div class="techIcons"><iconify-icon icon="mage:photoshop" class="icon"></iconify-icon>
                     <p>Photoshop</p>
@@ -267,13 +277,29 @@
             <button class="modal-close" id="closeModal" aria-label="Close" data-i18n-aria="modal.close">&times;</button>
 
             <header class="modal-header">
-                <p class="modal-meta" id="modalMeta"></p>
-                <h2 id="modalProjectName"></h2>
-                <p class="modal-tagline" id="modalTagline"></p>
+                <div class="modal-header-text">
+                    <p class="modal-meta" id="modalMeta"></p>
+                    <h2 id="modalProjectName"></h2>
+                    <p class="modal-tagline" id="modalTagline"></p>
+                </div>
+                <!-- CTAs no topo: recrutador não caça link 🎯 -->
+                <div class="modal-links" id="modalLinks"></div>
             </header>
 
             <!-- Números primeiro: é o que segura o olho de quem contrata 👀 -->
             <div class="modal-impact" id="modalImpact"></div>
+
+            <!-- Galeria em largura total (só aparece quando tem imagem) -->
+            <div class="modal-gallery-col" id="modalGalleryArea">
+                <div class="gallery-main" id="galleryMain">
+                    <button class="gallery-arrow left" id="galleryPrev" aria-label="Previous"
+                        data-i18n-aria="modal.prev">‹</button>
+                    <div class="gallery-image-wrap"><!-- imagem principal inserida via JS --></div>
+                    <button class="gallery-arrow right" id="galleryNext" aria-label="Next"
+                        data-i18n-aria="modal.next">›</button>
+                </div>
+                <div class="gallery-dots" id="galleryDots" aria-live="polite"><!-- bolinhas geradas via JS --></div>
+            </div>
 
             <div class="modal-body">
                 <div class="modal-info">
@@ -290,22 +316,10 @@
                         <div class="modal-tech"></div>
                     </section>
                 </div>
-
-                <div class="modal-gallery-col" id="modalGalleryArea">
-                    <div class="gallery-main" id="galleryMain">
-                        <button class="gallery-arrow left" id="galleryPrev" aria-label="Previous"
-                            data-i18n-aria="modal.prev">‹</button>
-                        <div class="gallery-image-wrap"><!-- imagem principal inserida via JS --></div>
-                        <button class="gallery-arrow right" id="galleryNext" aria-label="Next"
-                            data-i18n-aria="modal.next">›</button>
-                    </div>
-                    <div class="gallery-dots" id="galleryDots" aria-live="polite"><!-- bolinhas geradas via JS --></div>
-                </div>
             </div>
 
             <section class="modal-infra" id="modalInfra"></section>
             <section class="modal-usage" id="modalUsage"></section>
-            <footer class="modal-links" id="modalLinks"></footer>
         </div>
     </div>
 
