@@ -73,8 +73,20 @@
     <div id="presentation">
         <div id="me">
             <!-- A foto é um botão secreto: toca música 🎧 (agora o teclado também sabe disso) -->
-            <img src="assets/foto_italo.jpg" alt="" id="photo" role="button" tabindex="0" aria-pressed="false"
-                data-i18n-aria="hero.photoLabel" width="90" height="90" decoding="async" fetchpriority="high">
+            <div id="photo-wrap">
+                <!-- "clique aqui" girando em volta da foto 🎡 -->
+                <svg id="click-hint" viewBox="0 0 120 120" aria-hidden="true">
+                    <defs>
+                        <path id="hint-circle" d="M 60,60 m -52,0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0" />
+                    </defs>
+                    <text>
+                        <textPath href="#hint-circle" data-i18n="hero.clickHint">CLICK HERE ✦ CLICK HERE ✦ CLICK
+                            HERE ✦</textPath>
+                    </text>
+                </svg>
+                <img src="assets/foto_italo.jpg" alt="" id="photo" role="button" tabindex="0" aria-pressed="false"
+                    data-i18n-aria="hero.photoLabel" width="90" height="90" decoding="async" fetchpriority="high">
+            </div>
             <div id="name">
                 <h1 id="name-title">Ítalo Aurélio.</h1>
                 <div id="based">
