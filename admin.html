@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/italoaurelio.ico" type="image/x-icon">
+    <link rel="stylesheet" href="admin.css">
+    <title>Cadastro de Projetos · Ítalo Aurélio</title>
+</head>
+
+<body class="animated-background">
+    <header class="admin-header">
+        <div>
+            <h1>Cadastro de Projetos</h1>
+            <p class="sub">Adicione, edite e reordene seus projetos. No final, baixe o <code>projects.json</code> e
+                substitua o arquivo em <code>assets/dados/</code>.</p>
+        </div>
+        <a class="ghost-btn" href="index.html" target="_blank" rel="noopener">
+            <iconify-icon icon="mdi:eye-outline"></iconify-icon> Ver portfólio
+        </a>
+    </header>
+
+    <main class="admin-layout">
+        <!-- Coluna esquerda: lista de projetos -->
+        <section class="panel">
+            <div class="panel-head">
+                <h2>Projetos <span id="projectCount" class="count">0</span></h2>
+                <button class="primary-btn sm" id="newProjectBtn">
+                    <iconify-icon icon="mdi:plus"></iconify-icon> Novo
+                </button>
+            </div>
+            <p class="hint">Arraste para reordenar. A ordem aqui é a ordem no site.</p>
+            <ul id="projectList" class="project-list"></ul>
+
+            <div class="io-row">
+                <label class="ghost-btn file-label">
+                    <iconify-icon icon="mdi:upload"></iconify-icon> Importar projects.json
+                    <input type="file" id="importJson" accept="application/json" hidden>
+                </label>
+                <button class="ghost-btn" id="reloadBtn" title="Recarregar do arquivo do site">
+                    <iconify-icon icon="mdi:refresh"></iconify-icon> Recarregar do site
+                </button>
+            </div>
+        </section>
+
+        <!-- Coluna central: formulário -->
+        <section class="panel form-panel">
+            <div class="panel-head">
+                <h2 id="formTitle">Novo projeto</h2>
+                <button class="danger-btn sm" id="deleteBtn" hidden>
+                    <iconify-icon icon="mdi:trash-can-outline"></iconify-icon> Excluir
+                </button>
+            </div>
+
+            <form id="projectForm" autocomplete="off">
+                <div class="grid-2">
+                    <label class="field">
+                        <span>Nome do projeto *</span>
+                        <input type="text" name="name" required placeholder="Ex.: Plataforma de Eventos">
+                    </label>
+                    <label class="field">
+                        <span>ID (slug) *</span>
+                        <input type="text" name="id" required placeholder="ex.: events-platform">
+                    </label>
+                </div>
+
+                <label class="field">
+                    <span>Tagline (frase curta)</span>
+                    <input type="text" name="tagline" placeholder="Uma linha que resume o projeto">
+                </label>
+
+                <div class="grid-3">
+                    <label class="field">
+                        <span>Cliente / Contexto</span>
+                        <input type="text" name="client" placeholder="Ex.: Sal Express">
+                    </label>
+                    <label class="field">
+                        <span>Período</span>
+                        <input type="text" name="period" placeholder="Ex.: 2024 - Present">
+                    </label>
+                    <label class="field">
+                        <span>Seu papel</span>
+                        <input type="text" name="role" placeholder="Ex.: Full Stack Developer">
+                    </label>
+                </div>
+
+                <label class="field">
+                    <span>Descrição curta (aparece no card)</span>
+                    <textarea name="shortDescription" rows="2" placeholder="Resumo objetivo mostrado no card do projeto."></textarea>
+                </label>
+
+                <label class="field">
+                    <span>Descrição longa (aparece no popup)</span>
+                    <textarea name="longDescription" rows="4" placeholder="Descrição completa: o que você construiu, arquitetura, impacto."></textarea>
+                </label>
+
+                <label class="field">
+                    <span>Stack / Tecnologias <em>(separe por vírgula)</em></span>
+                    <input type="text" name="stack" placeholder="Laravel, React, PostgreSQL, Docker">
+                </label>
+
+                <label class="field">
+                    <span>Destaques — "O que eu construí" <em>(uma linha cada)</em></span>
+                    <textarea name="highlights" rows="4" placeholder="Fluxo completo de upload e validação&#10;Controle de acesso por papéis&#10;APIs REST integradas"></textarea>
+                </label>
+
+                <label class="field">
+                    <span>Exemplo de uso — passo a passo <em>(uma linha cada)</em></span>
+                    <textarea name="usageExample" rows="4" placeholder="Usuário faz login&#10;Sistema processa os dados&#10;Resultado é salvo com histórico"></textarea>
+                </label>
+
+                <fieldset class="field-group">
+                    <legend>Magnitude do projeto (métricas — até 4)</legend>
+                    <div id="impactRows"></div>
+                    <button type="button" class="ghost-btn sm" id="addImpact">
+                        <iconify-icon icon="mdi:plus"></iconify-icon> Métrica
+                    </button>
+                </fieldset>
+
+                <fieldset class="field-group">
+                    <legend>Infraestrutura (infográfico do popup)</legend>
+                    <div class="grid-3">
+                        <label class="field">
+                            <span>Frontend</span>
+                            <textarea name="infra_frontend" rows="3" placeholder="Descreva a camada de interface."></textarea>
+                        </label>
+                        <label class="field">
+                            <span>Backend</span>
+                            <textarea name="infra_backend" rows="3" placeholder="Descreva a camada de regras e APIs."></textarea>
+                        </label>
+                        <label class="field">
+                            <span>Servidor</span>
+                            <textarea name="infra_server" rows="3" placeholder="Descreva a hospedagem/execução."></textarea>
+                        </label>
+                    </div>
+                    <label class="field">
+                        <span>Onde consulta / fontes de dados <em>(uma linha cada)</em></span>
+                        <textarea name="infra_sources" rows="3" placeholder="PostgreSQL (dados)&#10;Google Maps API&#10;Logs de operação"></textarea>
+                    </label>
+                </fieldset>
+
+                <fieldset class="field-group">
+                    <legend>Imagens</legend>
+                    <div class="field">
+                        <span>Thumbnail (capa do card) *</span>
+                        <div class="image-drop" id="thumbDrop">
+                            <input type="file" id="thumbInput" accept="image/*" hidden>
+                            <div class="image-drop-inner" id="thumbPreviewWrap">
+                                <iconify-icon icon="mdi:image-plus" class="drop-icon"></iconify-icon>
+                                <span>Clique ou arraste uma imagem</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <span>Screenshots da galeria <em>(várias)</em></span>
+                        <div class="image-drop" id="shotsDrop">
+                            <input type="file" id="shotsInput" accept="image/*" multiple hidden>
+                            <div class="image-drop-inner">
+                                <iconify-icon icon="mdi:image-multiple" class="drop-icon"></iconify-icon>
+                                <span>Clique ou arraste imagens</span>
+                            </div>
+                        </div>
+                        <div class="shots-grid" id="shotsGrid"></div>
+                    </div>
+                    <p class="hint">As imagens são embutidas no JSON (data URI), então funcionam na hora — sem precisar
+                        copiar arquivos. Prefere caminhos como <code>assets/foto.jpg</code>? É só digitar o caminho no
+                        JSON depois.</p>
+                </fieldset>
+
+                <fieldset class="field-group">
+                    <legend>Links (opcional)</legend>
+                    <div class="grid-3">
+                        <label class="field">
+                            <span>Repositório</span>
+                            <input type="url" name="link_repo" placeholder="https://github.com/...">
+                        </label>
+                        <label class="field">
+                            <span>Demo</span>
+                            <input type="url" name="link_demo" placeholder="https://...">
+                        </label>
+                        <label class="field">
+                            <span>Case / Artigo</span>
+                            <input type="url" name="link_case" placeholder="https://...">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="button" class="ghost-btn" id="cancelBtn">Limpar</button>
+                    <button type="submit" class="primary-btn">
+                        <iconify-icon icon="mdi:content-save"></iconify-icon>
+                        <span id="saveLabel">Adicionar projeto</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Coluna direita: preview + export -->
+        <aside class="panel preview-panel">
+            <div class="panel-head">
+                <h2>Preview do card</h2>
+            </div>
+            <div id="cardPreview" class="card-preview-slot"></div>
+
+            <div class="export-box">
+                <h3>Publicar</h3>
+                <p class="hint">Baixe o arquivo e substitua <code>assets/dados/projects.json</code> no projeto, depois
+                    faça o commit/deploy.</p>
+                <div class="export-actions">
+                    <button class="primary-btn" id="downloadBtn">
+                        <iconify-icon icon="mdi:download"></iconify-icon> Baixar projects.json
+                    </button>
+                    <button class="ghost-btn" id="copyBtn">
+                        <iconify-icon icon="mdi:content-copy"></iconify-icon> Copiar JSON
+                    </button>
+                </div>
+                <div id="saveStatus" class="save-status"></div>
+            </div>
+        </aside>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
