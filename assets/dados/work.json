@@ -1,52 +1,35 @@
 [
     {
         "photo": "assets/salexpress.jpg",
-        "date": { "en": "Dec 2024 - Present", "pt": "Dez 2024 - Presente" },
+        "date": { "en": "Dec 2024 - now", "pt": "Dez 2024 - hoje", "es": "Dic 2024 - hoy" },
         "name": "Sal Express",
-        "ocupation": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
+        "ocupation": { "en": "Full stack developer (contractor)", "pt": "Desenvolvedor full stack (PJ)", "es": "Desarrollador full stack (contratista)" },
         "description": {
-            "en": "Development and evolution of the company's internal systems — intelligent logistics routing, OCR document pipeline and the unified Sal Express platform. Laravel + Next.js + SQL, deployed on own Linux servers.",
-            "pt": "Desenvolvimento e evolução dos sistemas internos da empresa — roteirização logística inteligente, pipeline de documentos com OCR e a plataforma unificada Sal Express. Laravel + Next.js + SQL, com deploy em servidores Linux próprios."
+            "en": "Routing, monitoring, OCR, fiscal automations, the new data platform and the internal system of a logistics carrier.",
+            "pt": "Roteirização, monitoramento, OCR, automações fiscais, a nova plataforma de dados e o sistema interno de uma transportadora.",
+            "es": "Ruteo, monitoreo, OCR, automatizaciones fiscales, la nueva plataforma de datos y el sistema interno de una transportadora."
         }
     },
     {
         "photo": "assets/fojb.png",
-        "date": { "en": "2025 - Present", "pt": "2025 - Presente" },
+        "date": { "en": "2025 - now", "pt": "2025 - hoje", "es": "2025 - hoy" },
         "name": "Fundação Ormeu Junqueira Botelho",
-        "ocupation": { "en": "Full Stack Developer (Consultant)", "pt": "Desenvolvedor Full Stack (Consultor)" },
+        "ocupation": { "en": "Full stack developer (contractor)", "pt": "Desenvolvedor full stack (PJ)", "es": "Desarrollador full stack (contratista)" },
         "description": {
-            "en": "Sole technical owner of the foundation's events and ticketing platform — architecture, database design, backend, frontend, infrastructure and continuous delivery. ~5,770 registered users.",
-            "pt": "Responsável técnico, de forma independente, pela plataforma de eventos e ingressos da Fundação — arquitetura, modelagem de banco, backend, frontend, infraestrutura e evolução contínua. ~5.770 usuários cadastrados."
-        }
-    },
-    {
-        "photo": "assets/foto_italo.jpg",
-        "date": { "en": "2024 - Present", "pt": "2024 - Presente" },
-        "name": "Freelance",
-        "ocupation": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
-        "description": {
-            "en": "Complete web solutions for different clients — from technical design to production: architecture, databases, REST APIs, web interfaces, third-party integrations and ongoing maintenance.",
-            "pt": "Soluções web completas para diferentes clientes — da concepção técnica à produção: arquitetura, bancos de dados, APIs REST, interfaces web, integrações com serviços externos e manutenção evolutiva."
+            "en": "Sole technical owner of the ticketing platform for the Foundation's cultural venues, plus games for Energisa.",
+            "pt": "Responsável técnico único pela plataforma de ingressos dos espaços culturais da Fundação, e jogos para a Energisa.",
+            "es": "Único responsable técnico de la plataforma de entradas de los espacios culturales de la Fundación, y juegos para Energisa."
         }
     },
     {
         "photo": "assets/ram.jpg",
-        "date": { "en": "Jun 2021 - Aug 2022", "pt": "Jun 2021 - Ago 2022" },
-        "name": "Agência Ram",
-        "ocupation": { "en": "Graphic Designer", "pt": "Designer Gráfico" },
+        "date": { "en": "2019 - 2023", "pt": "2019 - 2023", "es": "2019 - 2023" },
+        "name": { "en": "Design", "pt": "Design", "es": "Diseño" },
+        "ocupation": { "en": "Graphic designer and art director", "pt": "Designer gráfico e diretor de arte", "es": "Diseñador gráfico y director de arte" },
         "description": {
-            "en": "Creation of creatives for social media; Photo and video editing with Photoshop and Illustrator; Task and deadline management with Trello, working within an integrated team.",
-            "pt": "Criação de criativos para redes sociais; Edição de fotos e vídeos com Photoshop e Illustrator; Organização de tarefas e prazos com Trello, trabalhando em equipe integrada."
-        }
-    },
-    {
-        "photo": "assets/unimed.jpg",
-        "date": { "en": "Feb 2020 - May 2021", "pt": "Fev 2020 - Maio 2021" },
-        "name": "Unimed",
-        "ocupation": { "en": "Administrative Intern", "pt": "Estagiário Administrativo" },
-        "description": {
-            "en": "Administrative support across HR, purchasing and archiving; Physical and digital document management; Cataloguing of assets, creating the base for the company inventory.",
-            "pt": "Apoio administrativo em RH, compras e arquivo; Gestão de documentos físicos e digitais; Catalogação de itens físicos, criando a base para o inventário da empresa."
+            "en": "Agência Ram, Promove, Vel.IO and freelance work: social media, print, video and product art direction.",
+            "pt": "Agência Ram, Promove, Vel.IO e trabalhos autônomos: redes sociais, impresso, vídeo e direção de arte de produto.",
+            "es": "Agência Ram, Promove, Vel.IO y trabajos freelance: redes sociales, impresos, video y dirección de arte de producto."
         }
     }
 ]

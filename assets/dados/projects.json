@@ -1,402 +1,893 @@
 [
-    {
-        "id": "ingressos-fojb",
-        "name": "Plataforma de Ingressos FOJB",
-        "tagline": {
-            "en": "Events and free-ticketing platform for the foundation's cultural venues",
-            "pt": "Plataforma de eventos e ingressos gratuitos para os equipamentos culturais da Fundação"
-        },
-        "client": "Fundação Ormeu Junqueira Botelho",
-        "period": { "en": "2025 — Present", "pt": "2025 — Presente" },
-        "role": { "en": "Lead Developer (Consultant)", "pt": "Desenvolvedor Principal (Consultor)" },
-        "thumbnail": "",
-        "shortDescription": {
-            "en": "Full events and ticketing platform with QR Code check-in, used by the foundation's museums, festivals and cultural spaces.",
-            "pt": "Plataforma completa de eventos e ingressos com check-in por QR Code, usada pelos museus, festivais e espaços culturais da Fundação."
-        },
-        "longDescription": {
-            "en": "I own the platform end to end: architecture, database design, backend, frontend, infrastructure and continuous delivery. The system manages events and free ticket distribution with secure transactional control, duplicate prevention and reliability under concurrent access. Visitors check in through a QR Code read by the staff's phone camera, and the platform also handles role-based admin access and e-mail campaigns to thousands of guests.",
-            "pt": "Cuido da plataforma de ponta a ponta: arquitetura, modelagem de banco, backend, frontend, infraestrutura e evolução contínua. O sistema gerencia eventos e distribuição gratuita de ingressos com controle transacional seguro, prevenção de duplicidade e confiabilidade sob múltiplos acessos simultâneos. A entrada é validada por QR Code lido pela câmera do celular da equipe, e a plataforma ainda cuida de papéis de acesso administrativo e campanhas de e-mail para milhares de convidados."
-        },
-        "stack": ["Laravel", "Next.js", "PostgreSQL", "Tailwind", "Nginx"],
-        "highlights": {
-            "en": [
-                "Check-in via QR Code using the phone camera — fast, practical entry validation",
-                "Full user management with roles and admin access levels",
-                "Transactional integrity: duplicate prevention and safety under concurrent access",
-                "E-mail broadcasts inviting thousands of guests to festivals and events",
-                "Hosted on the foundation's own server, tuned with Nginx"
-            ],
-            "pt": [
-                "Check-in por QR Code usando a câmera do celular — validação de entrada rápida e prática",
-                "Gestão completa de usuários com papéis e níveis de acesso administrativo",
-                "Integridade transacional: prevenção de duplicidade e segurança sob acessos simultâneos",
-                "Disparos de e-mail convidando milhares de pessoas para festivais e eventos",
-                "Hospedada em servidor próprio da Fundação, otimizado com Nginx"
-            ]
-        },
-        "infraInfo": {
-            "frontend": {
-                "title": "Frontend",
-                "desc": {
-                    "en": "Next.js + Tailwind — responsive, accessible on any device",
-                    "pt": "Next.js + Tailwind — responsivo, acessível em qualquer dispositivo"
-                }
-            },
-            "backend": {
-                "title": "Backend",
-                "desc": {
-                    "en": "Laravel REST APIs with transactional ticket control",
-                    "pt": "APIs REST em Laravel com controle transacional dos ingressos"
-                }
-            },
-            "server": {
-                "title": "Server",
-                "desc": {
-                    "en": "Foundation's own server with Nginx, high availability",
-                    "pt": "Servidor próprio da Fundação com Nginx, alta disponibilidade"
-                }
-            },
-            "dataSources": ["PostgreSQL"]
-        },
-        "impact": [
-            { "label": { "en": "Registered users", "pt": "Usuários cadastrados" }, "value": "~5.770" },
-            { "label": { "en": "Check-in", "pt": "Check-in" }, "value": "QR Code" }
-        ],
-        "usageExample": {
-            "en": [
-                "Visitor picks an event and reserves a free ticket",
-                "The platform issues a unique QR Code ticket by e-mail",
-                "At the venue, staff scan the QR Code with a phone camera",
-                "The system validates the ticket transactionally, blocking duplicates"
-            ],
-            "pt": [
-                "O visitante escolhe um evento e reserva o ingresso gratuito",
-                "A plataforma emite o ingresso com QR Code único por e-mail",
-                "Na entrada, a equipe escaneia o QR Code com a câmera do celular",
-                "O sistema valida o ingresso transacionalmente, bloqueando duplicatas"
-            ]
-        },
-        "screenshots": [],
-        "links": { "repo": "", "demo": "", "case": "" }
+  {
+    "id": "ingressos-fojb",
+    "side": "A",
+    "track": "A1",
+    "featured": true,
+    "name": "Ingressos FOJB",
+    "client": "Fundação Ormeu Junqueira Botelho",
+    "period": {
+      "pt": "2025 até hoje",
+      "en": "2025 to now",
+      "es": "2025 hasta hoy"
     },
-    {
-        "id": "roteirizador-logistico",
-        "name": "Roteirizador Logístico",
-        "tagline": {
-            "en": "Graph-based delivery route planning validated against the real world",
-            "pt": "Planejamento de rotas de entrega com grafos, validado contra o mundo real"
-        },
-        "client": "Sal Express",
-        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
-        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
-        "thumbnail": "assets/salreactSite.jpg",
-        "shortDescription": {
-            "en": "Intelligent routing system that plans daily delivery routes by combining graph algorithms with multiple geographic data sources.",
-            "pt": "Sistema inteligente de roteirização que planeja as rotas diárias de entrega combinando algoritmos de grafos com múltiplas fontes de dados geográficos."
-        },
-        "longDescription": {
-            "en": "The router plans delivery routes applying graph concepts over geographic data from Google Maps APIs. I also built the company's own data infrastructure around it: a scraper that collects operational data, an auxiliary database and automated cross-checking between sources, so the planned routes are continuously compared against what actually happened on the street. Daily report cards are generated automatically and sent to the operation's WhatsApp.",
-            "pt": "O roteirizador planeja as rotas de entrega aplicando conceitos de grafos sobre dados geográficos das APIs do Google Maps. Também construí a infraestrutura própria de dados em volta dele: um scraper que coleta os dados operacionais, banco auxiliar e comparação automatizada entre fontes — as rotas planejadas são confrontadas todo dia com o que realmente aconteceu na rua. Cards de relatório são gerados automaticamente e enviados no WhatsApp da operação."
-        },
-        "stack": ["Laravel", "Next.js", "PostgreSQL", "Python", "Google Maps APIs"],
-        "highlights": {
-            "en": [
-                "Graph algorithms to optimize daily delivery planning",
-                "Own geographic data pipeline: scraper, auxiliary database and automated source cross-checking",
-                "Daily planned-vs-real comparison across the company's distribution bases",
-                "Automatic PNG report cards delivered straight to the operation's WhatsApp"
-            ],
-            "pt": [
-                "Algoritmos de grafos para otimizar o planejamento diário de entregas",
-                "Pipeline geográfico próprio: scraper, banco auxiliar e comparação automatizada entre fontes",
-                "Comparativo diário planejado × realizado nas bases de distribuição da empresa",
-                "Cards de relatório em PNG entregues automaticamente no WhatsApp da operação"
-            ]
-        },
-        "infraInfo": {
-            "frontend": {
-                "title": "Frontend",
-                "desc": {
-                    "en": "Next.js dashboard with maps and route comparison",
-                    "pt": "Painel em Next.js com mapas e comparação de rotas"
-                }
-            },
-            "backend": {
-                "title": "Backend",
-                "desc": {
-                    "en": "Laravel APIs + Python for graphs, scraping and analysis",
-                    "pt": "APIs Laravel + Python para grafos, scraping e análises"
-                }
-            },
-            "server": {
-                "title": "Server",
-                "desc": {
-                    "en": "Company's own Linux servers with scheduled pipelines",
-                    "pt": "Servidores Linux próprios com pipelines agendados"
-                }
-            },
-            "dataSources": ["PostgreSQL", "Google Maps APIs", "SSW (scraper)"]
-        },
-        "impact": [
-            { "label": { "en": "Estimated operational gain", "pt": "Melhoria operacional estimada" }, "value": "~22%" },
-            { "label": { "en": "WhatsApp reports", "pt": "Reports no WhatsApp" }, "value": { "en": "2×/day", "pt": "2×/dia" } }
-        ],
-        "usageExample": {
-            "en": [
-                "Overnight, the scraper ingests the day's operational data",
-                "The router plans optimized routes for each distribution base",
-                "In the morning, the operation receives the route card on WhatsApp",
-                "At closing, planned routes are compared against real deliveries"
-            ],
-            "pt": [
-                "De madrugada, o scraper ingere os dados operacionais do dia",
-                "O roteirizador planeja rotas otimizadas para cada base de distribuição",
-                "De manhã, a operação recebe o card de rotas no WhatsApp",
-                "No fechamento, as rotas planejadas são comparadas com as entregas reais"
-            ]
-        },
-        "screenshots": ["assets/salreactSite.jpg"],
-        "links": { "repo": "", "demo": "", "case": "" }
+    "role": {
+      "pt": "Design, back, front e infra. Sozinho.",
+      "en": "Design, back end, front end and infra. Solo.",
+      "es": "Diseño, back, front e infra. Solo."
     },
-    {
-        "id": "romaneio-ocr",
-        "name": "Romaneio OCR",
-        "tagline": {
-            "en": "Document pipeline that turns paper waybills into searchable data",
-            "pt": "Pipeline documental que transforma romaneios de papel em dados pesquisáveis"
-        },
-        "client": "Sal Express",
-        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
-        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
-        "thumbnail": "assets/salromaneioSite.jpg",
-        "shortDescription": {
-            "en": "OCR pipeline for waybill documents: capture, reading, data extraction, cloud storage and instant search.",
-            "pt": "Pipeline de OCR para romaneios: captura, leitura, extração de dados, armazenamento em nuvem e busca instantânea."
-        },
-        "longDescription": {
-            "en": "The system automates the reading and processing of waybill documents. Drivers capture photos through a mobile app (Expo) that validates image quality on-device before upload. The pipeline reads each image with PaddleOCR and uses AI to interpret the text — separating title, issue date and body into structured tables. Files live entirely on S3, and the web platform offers search and history over everything that was ever processed.",
-            "pt": "O sistema automatiza a leitura e o processamento de romaneios. Os motoristas capturam as fotos por um app mobile (Expo) que valida a qualidade da imagem no próprio aparelho antes do upload. O pipeline lê cada imagem com PaddleOCR e usa IA para interpretar o texto — separando título, data de emissão e corpo em tabelas estruturadas. Os arquivos vivem 100% no S3, e a plataforma web oferece busca e histórico de tudo que já foi processado."
-        },
-        "stack": ["Python", "PaddleOCR", "OpenAI API", "Expo", "AWS S3"],
-        "highlights": {
-            "en": [
-                "Mobile capture app with on-device photo validation (brightness, sharpness, framing)",
-                "PaddleOCR + AI interpretation: title, issue date and body extracted into tables",
-                "Document classifier that separates waybills from other paperwork",
-                "100% cloud storage on S3 — zero server disk usage",
-                "Instant search over the full document history"
-            ],
-            "pt": [
-                "App mobile de captura com validação de foto no aparelho (brilho, nitidez, enquadramento)",
-                "PaddleOCR + interpretação com IA: título, data de emissão e corpo extraídos em tabelas",
-                "Classificador de documentos que separa romaneios de outros papéis",
-                "Armazenamento 100% em nuvem no S3 — zero disco no servidor",
-                "Busca instantânea sobre todo o histórico de documentos"
-            ]
-        },
-        "infraInfo": {
-            "frontend": {
-                "title": "Frontend",
-                "desc": {
-                    "en": "React web platform + Expo mobile app for capture",
-                    "pt": "Plataforma web em React + app mobile Expo para captura"
-                }
-            },
-            "backend": {
-                "title": "Backend",
-                "desc": {
-                    "en": "Python pipeline: PaddleOCR, AI interpretation and REST APIs",
-                    "pt": "Pipeline em Python: PaddleOCR, interpretação com IA e APIs REST"
-                }
-            },
-            "server": {
-                "title": "Server",
-                "desc": {
-                    "en": "Own server + AWS S3 for all document storage",
-                    "pt": "Servidor próprio + AWS S3 para todo o armazenamento"
-                }
-            },
-            "dataSources": ["MySQL", "AWS S3", "OpenAI API"]
-        },
-        "impact": [],
-        "usageExample": {
-            "en": [
-                "Driver photographs the waybill in the mobile app",
-                "The app validates the photo quality before uploading",
-                "OCR + AI extract title, date and body into structured data",
-                "The document becomes searchable on the web platform, stored on S3"
-            ],
-            "pt": [
-                "O motorista fotografa o romaneio no app mobile",
-                "O app valida a qualidade da foto antes do upload",
-                "OCR + IA extraem título, data e corpo em dados estruturados",
-                "O documento vira pesquisável na plataforma web, guardado no S3"
-            ]
-        },
-        "screenshots": ["assets/salromaneioSite.jpg"],
-        "links": { "repo": "", "demo": "", "case": "" }
+    "tagline": {
+      "pt": "Ingressos gratuitos, lotação controlada e check-in por QR nos museus da Fundação.",
+      "en": "Free tickets, capacity control and QR check-in for the Foundation's museums.",
+      "es": "Entradas gratuitas, aforo controlado y check-in por QR en los museos de la Fundación."
     },
-    {
-        "id": "sistema-integrado",
-        "name": "Sistema Integrado Sal Express",
-        "tagline": {
-            "en": "One unified platform for the company's internal systems",
-            "pt": "Uma plataforma única para os sistemas internos da empresa"
-        },
-        "client": "Sal Express",
-        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
-        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
-        "thumbnail": "",
-        "shortDescription": {
-            "en": "Platform that consolidated the company's isolated internal systems into a single modern environment with centralized authentication.",
-            "pt": "Plataforma que consolidou os sistemas internos isolados da empresa em um único ambiente moderno com autenticação centralizada."
-        },
-        "longDescription": {
-            "en": "The company's internal tools grew as isolated systems, each with its own login and interface. The integrated platform unifies them in one responsive environment with centralized authentication, role-based permission control, modular architecture and REST APIs — giving the operation a single, secure entry point and full visibility over logistics processes. I worked across every stage: requirements gathering with multiple departments, architecture, database modeling, backend, frontend and deploy on the company's Linux servers.",
-            "pt": "As ferramentas internas da empresa cresceram como sistemas isolados, cada um com seu login e interface. A plataforma integrada unifica tudo em um ambiente único e responsivo com autenticação centralizada, controle de permissões por papéis, arquitetura modular e APIs REST — dando à operação uma porta de entrada única e segura, com visão completa dos processos logísticos. Atuei em todas as etapas: levantamento de requisitos com múltiplos setores, arquitetura, modelagem de banco, backend, frontend e deploy nos servidores Linux da empresa."
-        },
-        "stack": ["Laravel", "React", "SQL Server", "Tailwind"],
-        "highlights": {
-            "en": [
-                "Centralized authentication with role-based permission control",
-                "Modular architecture: each internal system plugs in as a module",
-                "Requirements gathered directly with multiple company departments",
-                "Real-time tracking and full integration between modules"
-            ],
-            "pt": [
-                "Autenticação centralizada com controle de permissões por papéis",
-                "Arquitetura modular: cada sistema interno entra como um módulo",
-                "Requisitos levantados direto com múltiplos setores da empresa",
-                "Rastreamento em tempo real e integração total entre módulos"
-            ]
-        },
-        "infraInfo": {
-            "frontend": {
-                "title": "Frontend",
-                "desc": {
-                    "en": "React + Tailwind, responsive with dark mode",
-                    "pt": "React + Tailwind, responsivo e com dark mode"
-                }
-            },
-            "backend": {
-                "title": "Backend",
-                "desc": {
-                    "en": "Laravel REST APIs with centralized auth (Sanctum)",
-                    "pt": "APIs REST em Laravel com auth centralizada (Sanctum)"
-                }
-            },
-            "server": {
-                "title": "Server",
-                "desc": {
-                    "en": "Company's own Linux servers",
-                    "pt": "Servidores Linux próprios da empresa"
-                }
-            },
-            "dataSources": ["SQL Server", "MySQL"]
-        },
-        "impact": [
-            { "label": { "en": "Critical apps in production", "pt": "Aplicações críticas em produção" }, "value": "5" }
-        ],
-        "usageExample": { "en": [], "pt": [] },
-        "screenshots": [],
-        "links": { "repo": "", "demo": "", "case": "" }
+    "problem": {
+      "pt": "Os espaços culturais da Fundação precisavam distribuir ingressos gratuitos por horário, sem estourar a lotação, e validar quem entra na portaria. Cada tipo de visita tem regra própria: espontânea, mediada, escolar com aprovação, trilha com termo e dependentes.",
+      "en": "The Foundation's cultural venues needed to hand out free tickets per time slot without going over capacity, and validate who walks in at the gate. Every visit type has its own rules: walk-in, guided, school visits that need approval, trails with a signed waiver and dependents.",
+      "es": "Los espacios culturales de la Fundación necesitaban repartir entradas gratuitas por horario sin superar el aforo y validar quién entra en la portería. Cada tipo de visita tiene su regla: espontánea, guiada, escolar con aprobación, sendero con términos y dependientes."
     },
-    {
-        "id": "epoc",
-        "name": "EPOC — Escalada Para o Céu",
-        "tagline": {
-            "en": "Multi-user platform for schedules, ministries and event calendars",
-            "pt": "Plataforma multiusuário de escalas, ministérios e calendário de eventos"
-        },
-        "client": "Freelance",
-        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
-        "role": { "en": "Full Stack Developer", "pt": "Desenvolvedor Full Stack" },
-        "thumbnail": "",
-        "shortDescription": {
-            "en": "Multi-user system for managing schedules, ministries and event calendars, with permission control and complex relational modeling.",
-            "pt": "Sistema multiusuário para gestão de escalas, ministérios e calendário de eventos, com controle de permissões e modelagem relacional complexa."
-        },
-        "longDescription": {
-            "en": "EPOC organizes who serves where and when: members belong to ministries, ministries have schedules, and schedules feed a shared event calendar. The relational modeling is the heart of the project — people, roles, ministries, events and availability all connect — with permission control deciding what each user can see and manage.",
-            "pt": "O EPOC organiza quem serve onde e quando: membros pertencem a ministérios, ministérios têm escalas, e as escalas alimentam um calendário de eventos compartilhado. A modelagem relacional é o coração do projeto — pessoas, papéis, ministérios, eventos e disponibilidade se conectam — com controle de permissões decidindo o que cada usuário vê e gerencia."
-        },
-        "stack": ["Node.js", "Express", "SQL Server"],
-        "highlights": {
-            "en": [
-                "Complex relational modeling: people, roles, ministries, schedules and events",
-                "Permission control per user and ministry",
-                "Shared event calendar fed by the schedules"
-            ],
-            "pt": [
-                "Modelagem relacional complexa: pessoas, papéis, ministérios, escalas e eventos",
-                "Controle de permissões por usuário e ministério",
-                "Calendário de eventos compartilhado alimentado pelas escalas"
-            ]
-        },
-        "infraInfo": {
-            "frontend": { "title": "Frontend", "desc": { "en": "", "pt": "" } },
-            "backend": {
-                "title": "Backend",
-                "desc": {
-                    "en": "Node.js + Express REST APIs",
-                    "pt": "APIs REST em Node.js + Express"
-                }
-            },
-            "server": { "title": "Server", "desc": { "en": "", "pt": "" } },
-            "dataSources": ["SQL Server"]
-        },
-        "impact": [],
-        "usageExample": { "en": [], "pt": [] },
-        "screenshots": [],
-        "links": { "repo": "", "demo": "", "case": "" }
+    "longDescription": {
+      "pt": "Desenhei e construí a plataforma inteira, do banco à tela. Hoje ela roda a agenda pública, a retirada de ingresso, a portaria com leitor de QR, um modo totem para quem chega sem celular e o painel de público da equipe. Também cuido do servidor, do deploy e de cada correção em produção.",
+      "en": "I designed and built the whole platform, from the database to the screen. It runs the public schedule, ticket booking, the gate with a QR reader, a kiosk mode for visitors without a phone and the team's audience dashboard. I also own the server, the deploys and every production fix.",
+      "es": "Diseñé y construí toda la plataforma, de la base de datos a la pantalla. Hoy mueve la agenda pública, la reserva de entradas, la portería con lector de QR, un modo tótem para quien llega sin celular y el panel de público del equipo. También me encargo del servidor, del deploy y de cada corrección en producción."
     },
-    {
-        "id": "personal-portfolio",
-        "name": "Personal Portfolio",
-        "tagline": {
-            "en": "Hand-built bilingual portfolio with a hidden music player easter egg",
-            "pt": "Portfolio bilíngue feito à mão com um player de música escondido de easter egg"
-        },
-        "client": "Ítalo Aurélio",
-        "period": { "en": "2024 — Present", "pt": "2024 — Presente" },
-        "role": { "en": "Design & Development", "pt": "Design & Desenvolvimento" },
-        "thumbnail": "assets/italoportifolioSite.jpg",
-        "shortDescription": {
-            "en": "This very site: vanilla HTML/CSS/JS, bilingual EN/PT, data-driven by JSON and maintained through a hand-built admin panel.",
-            "pt": "Este site aqui: HTML/CSS/JS puro, bilíngue EN/PT, alimentado por JSON e mantido por um painel admin feito à mão."
-        },
-        "longDescription": {
-            "en": "No frameworks, no build step — just carefully written HTML, CSS and JavaScript. The whole content is data-driven from JSON files, edited through a custom admin panel that exports ready-to-deploy data. It ships with a bilingual EN/PT system, keyboard accessibility, SEO with Open Graph, and a music player easter egg hidden in the profile photo.",
-            "pt": "Sem frameworks, sem build — só HTML, CSS e JavaScript escritos com cuidado. Todo o conteúdo vem de arquivos JSON, editados por um painel admin próprio que exporta os dados prontos pra deploy. Vem com sistema bilíngue EN/PT, acessibilidade por teclado, SEO com Open Graph e um player de música de easter egg escondido na foto de perfil."
-        },
-        "stack": ["HTML", "CSS", "JavaScript"],
-        "highlights": {
-            "en": [
-                "Bilingual EN/PT system written from scratch in vanilla JS",
-                "Custom admin panel that generates the site's JSON data",
-                "Music player easter egg — click the photo",
-                "Zero dependencies: no framework, no build step"
-            ],
-            "pt": [
-                "Sistema bilíngue EN/PT escrito do zero em JS puro",
-                "Painel admin próprio que gera os dados JSON do site",
-                "Easter egg de player de música — clica na foto",
-                "Zero dependências: sem framework, sem build"
-            ]
-        },
-        "infraInfo": {
-            "frontend": { "title": "Frontend", "desc": { "en": "", "pt": "" } },
-            "backend": { "title": "Backend", "desc": { "en": "", "pt": "" } },
-            "server": {
-                "title": "Server",
-                "desc": { "en": "Static deploy on Vercel", "pt": "Deploy estático na Vercel" }
-            },
-            "dataSources": []
-        },
-        "impact": [],
-        "usageExample": { "en": [], "pt": [] },
-        "screenshots": ["assets/italoportifolioSite.jpg"],
-        "links": { "repo": "https://github.com/italoaurelio/NewPortifolio", "demo": "https://italo-aurelio-dev.vercel.app", "case": "" }
+    "highlights": {
+      "pt": [
+        "Check-in por QR com trava de linha no banco: o mesmo ingresso não entra duas vezes",
+        "Modo totem com teclado virtual para a recepção dos museus",
+        "41 permissões configuráveis pelo painel, sem precisar de deploy",
+        "Registro de aceite de termo com IP, data e versão do documento",
+        "Migração que unificou 1.049 contas duplicadas por CPF, ensaiada numa cópia do banco antes de ir pra produção",
+        "Deploy pelo GitHub Actions que só passa se os testes do back (PHPUnit) e os testes de ponta a ponta (Playwright) passarem"
+      ],
+      "en": [
+        "QR check-in with a row lock in the database: the same ticket can't get in twice",
+        "Kiosk mode with an on-screen keyboard for the museum front desk",
+        "41 permissions editable from the admin panel, no deploy needed",
+        "Waiver acceptance log with IP, timestamp and document version",
+        "A migration that merged 1,049 duplicate accounts by tax ID, rehearsed on a copy of the database before production",
+        "GitHub Actions deploy that only ships if the back-end tests (PHPUnit) and end-to-end tests (Playwright) pass"
+      ],
+      "es": [
+        "Check-in por QR con bloqueo de fila en la base: la misma entrada no pasa dos veces",
+        "Modo tótem con teclado virtual para la recepción de los museos",
+        "41 permisos configurables desde el panel, sin deploy",
+        "Registro de aceptación de términos con IP, fecha y versión del documento",
+        "Una migración que unificó 1.049 cuentas duplicadas por CPF, ensayada en una copia de la base antes de producción",
+        "Deploy por GitHub Actions que solo sale si pasan las pruebas del back (PHPUnit) y las de punta a punta (Playwright)"
+      ]
+    },
+    "backstage": {
+      "title": {
+        "pt": "A abertura do Museu-Parque",
+        "en": "Opening the Museum-Park",
+        "es": "La apertura del Museo-Parque"
+      },
+      "text": {
+        "pt": "Em abril de 2026 o Museu-Parque Usina Maurício abriu as portas usando a plataforma. O público foi de 272 pessoas no primeiro mês para 2.527 em julho. Os bugs de check-in e de edição de eventos apareceram com gente na fila, e foram corrigidos na mesma semana, em produção. Numa outra data, o limite de envio do Gmail estourou durante um evento e isso cancelava o ingresso inteiro. Tirei o envio de e-mail de dentro da transação: hoje o ingresso é garantido mesmo se o e-mail falhar.",
+        "en": "In April 2026 the Usina Maurício Museum-Park opened its doors on the platform. Attendance went from 272 people in the first month to 2,527 in July. The check-in and event-editing bugs showed up with people already in line, and I fixed them in production that same week. Another time, Gmail's sending limit ran out during an event, and that rolled back the whole ticket. I moved the e-mail out of the database transaction: now the ticket is kept even if the e-mail fails.",
+        "es": "En abril de 2026 el Museo-Parque Usina Maurício abrió sus puertas usando la plataforma. El público pasó de 272 personas el primer mes a 2.527 en julio. Los bugs de check-in y de edición de eventos aparecieron con gente en la fila y los corregí esa misma semana, en producción. Otra vez, el límite de envío de Gmail se agotó durante un evento y eso anulaba la entrada entera. Saqué el envío del e-mail de la transacción: hoy la entrada queda garantizada aunque el e-mail falle."
+      }
+    },
+    "impact": [
+      {
+        "value": "23.639",
+        "label": {
+          "pt": "pessoas com ingresso",
+          "en": "people with a ticket",
+          "es": "personas con entrada"
+        }
+      },
+      {
+        "value": "18.500",
+        "label": {
+          "pt": "check-ins na portaria",
+          "en": "gate check-ins",
+          "es": "check-ins en portería"
+        }
+      },
+      {
+        "value": "7,6 mil",
+        "label": {
+          "pt": "usuários ativos",
+          "en": "active users",
+          "es": "usuarios activos"
+        }
+      },
+      {
+        "value": "~400",
+        "label": {
+          "pt": "testes automatizados",
+          "en": "automated tests",
+          "es": "pruebas automatizadas"
+        }
+      }
+    ],
+    "stack": [
+      "Laravel 12",
+      "React 19",
+      "MySQL",
+      "Tailwind",
+      "PWA",
+      "GitHub Actions",
+      "Playwright"
+    ],
+    "thumbnail": "assets/shots/fojb-home.jpg",
+    "screenshots": [
+      "assets/shots/fojb-home.jpg",
+      "assets/shots/fojb-home-mobile.jpg"
+    ],
+    "links": {
+      "demo": "https://ingressosfojb.com.br"
+    },
+    "live": true
+  },
+  {
+    "id": "roteirizador",
+    "side": "A",
+    "track": "A2",
+    "featured": true,
+    "name": "Roteirizador",
+    "client": "Sal Express",
+    "period": {
+      "pt": "2025 até hoje",
+      "en": "2025 to now",
+      "es": "2025 hasta hoy"
+    },
+    "role": {
+      "pt": "Criei do zero",
+      "en": "Built from scratch",
+      "es": "Creado desde cero"
+    },
+    "tagline": {
+      "pt": "Monta as rotas do dia de uma transportadora, veículo por veículo, antes do caminhão sair.",
+      "en": "Plans a carrier's daily routes, truck by truck, before anyone leaves the yard.",
+      "es": "Arma las rutas del día de una transportadora, camión por camión, antes de que salga nadie."
+    },
+    "problem": {
+      "pt": "Todo dia alguém decidia na mão quais cargas saíam, em qual rota e em qual veículo. As regras são muitas: peso, jornada até as 18h, no máximo 28 entregas por veículo e dezenas de códigos de ocorrência do sistema da transportadora.",
+      "en": "Every day someone decided by hand which loads went out, on which route and in which truck. There are a lot of rules: weight, a shift that ends at 6 pm, at most 28 drops per vehicle and dozens of status codes from the carrier's system.",
+      "es": "Cada día alguien decidía a mano qué cargas salían, en qué ruta y en qué vehículo. Las reglas son muchas: peso, jornada hasta las 18 h, máximo 28 entregas por vehículo y decenas de códigos de ocurrencia del sistema de la transportadora."
+    },
+    "longDescription": {
+      "pt": "Um robô coleta as cargas no sistema da transportadora a cada 30 minutos. O roteirizador ordena as cidades pelo vizinho mais próximo usando distância e tempo reais do Google, encaixa as entregas, troca para um veículo maior ou adiciona outro quando estoura peso ou horário, e calcula o custo de cada rota. A operação compara o proposto com o que realmente saiu numa tela própria.",
+      "en": "A bot pulls the loads from the carrier's system every 30 minutes. The router orders cities by nearest neighbor using real distance and travel time from Google, fits the deliveries, switches to a bigger truck or adds another one when weight or time runs over, and prices each route. Operations compares the plan with what actually went out on its own screen.",
+      "es": "Un robot recoge las cargas del sistema de la transportadora cada 30 minutos. El ruteador ordena las ciudades por vecino más cercano con distancia y tiempo reales de Google, encaja las entregas, cambia a un vehículo más grande o suma otro cuando se pasa de peso u horario, y calcula el costo de cada ruta. La operación compara lo propuesto con lo que realmente salió en una pantalla propia."
+    },
+    "highlights": {
+      "pt": [
+        "Em uso nas bases de Pouso Alegre, Juiz de Fora, Varginha e João Monlevade",
+        "Robô em Playwright que entra no sistema da transportadora, baixa as cargas e manda para a API",
+        "37 códigos de ocorrência tratados como bloqueio, com regras especiais para outros cinco",
+        "Custo por veículo: diária mais quilômetro, ou valor fixo da rota",
+        "Tela de comparativo real contra proposto, com exportação e card de imagem para os grupos da operação"
+      ],
+      "en": [
+        "In use at the Pouso Alegre, Juiz de Fora, Varginha and João Monlevade hubs",
+        "A Playwright bot that logs into the carrier's system, downloads the loads and sends them to the API",
+        "37 status codes treated as blockers, with special rules for five more",
+        "Cost per vehicle: daily rate plus mileage, or a flat route fee",
+        "A planned-versus-actual screen with export and a shareable image card for the ops chat groups"
+      ],
+      "es": [
+        "En uso en las bases de Pouso Alegre, Juiz de Fora, Varginha y João Monlevade",
+        "Un robot en Playwright que entra al sistema de la transportadora, baja las cargas y las manda a la API",
+        "37 códigos de ocurrencia tratados como bloqueo, con reglas especiales para otros cinco",
+        "Costo por vehículo: diaria más kilómetro, o valor fijo de la ruta",
+        "Pantalla de real contra propuesto, con exportación y una tarjeta de imagen para los grupos de la operación"
+      ]
+    },
+    "backstage": {
+      "title": {
+        "pt": "A cidade que tinha dois códigos",
+        "en": "The city with two codes",
+        "es": "La ciudad con dos códigos"
+      },
+      "text": {
+        "pt": "Juiz de Fora estava cadastrada com um código de cidade, e o sistema da transportadora gravava outro. Resultado: 1.676 conhecimentos de transporte por mês caíam fora de qualquer rota, sem erro nenhum na tela. Achei o problema cruzando as tabelas. Depois da correção, às 5 da manhã o roteirizador já enxerga de 92% a 98% da carga que vai sair. Antes, em várias bases, via menos de 10%.",
+        "en": "Juiz de Fora was registered under one city code, and the carrier's system saved another. The result: 1,676 shipping documents a month fell outside every route, with no error on screen. I found it by cross-checking the tables. After the fix, by 5 am the router already sees 92% to 98% of the cargo that will leave. Before, several hubs saw less than 10%.",
+        "es": "Juiz de Fora estaba registrada con un código de ciudad y el sistema de la transportadora guardaba otro. Resultado: 1.676 conocimientos de transporte al mes quedaban fuera de cualquier ruta, sin ningún error en pantalla. Lo encontré cruzando las tablas. Después de la corrección, a las 5 de la mañana el ruteador ya ve entre el 92% y el 98% de la carga que va a salir. Antes, varias bases veían menos del 10%."
+      }
+    },
+    "impact": [
+      {
+        "value": "95%",
+        "label": {
+          "pt": "de acerto contra o que saiu de verdade",
+          "en": "match with what actually shipped",
+          "es": "de acierto contra lo que salió de verdad"
+        }
+      },
+      {
+        "value": "19.316",
+        "label": {
+          "pt": "entregas roteirizadas em junho",
+          "en": "deliveries routed in June",
+          "es": "entregas ruteadas en junio"
+        }
+      },
+      {
+        "value": "4",
+        "label": {
+          "pt": "bases em operação",
+          "en": "hubs running it",
+          "es": "bases en operación"
+        }
+      }
+    ],
+    "stack": [
+      "Laravel 12",
+      "Next.js",
+      "MySQL",
+      "Python",
+      "Playwright",
+      "Google Distance Matrix",
+      "Gemini"
+    ],
+    "thumbnail": "assets/shots/roteirizador-comparativo.jpg",
+    "screenshots": [
+      "assets/shots/roteirizador-comparativo.jpg",
+      "assets/shots/roteirizador-painel.jpg",
+      "assets/shots/roteirizador-dashboard.jpg",
+      "assets/shots/roteirizador-mobile.jpg"
+    ],
+    "links": {}
+  },
+  {
+    "id": "monitor-salexpress",
+    "side": "A",
+    "track": "A3",
+    "featured": true,
+    "name": "Monitor Sal Express",
+    "client": "Sal Express",
+    "period": {
+      "pt": "2026",
+      "en": "2026",
+      "es": "2026"
+    },
+    "role": {
+      "pt": "Criei do zero",
+      "en": "Built from scratch",
+      "es": "Creado desde cero"
+    },
+    "tagline": {
+      "pt": "Vigia 45 serviços e avisa no WhatsApp antes de alguém ligar reclamando.",
+      "en": "Watches 45 services and pings WhatsApp before anyone calls to complain.",
+      "es": "Vigila 45 servicios y avisa por WhatsApp antes de que alguien llame a quejarse."
+    },
+    "problem": {
+      "pt": "Os sistemas da empresa caíam com frequência e a gente descobria pelo usuário. O pior caso: um agendamento do roteirizador ficou parado desde 22 de junho sem ninguém perceber.",
+      "en": "The company's systems went down often and we found out from users. The worst case: a scheduled job for the router stopped on June 22 and nobody noticed.",
+      "es": "Los sistemas de la empresa se caían seguido y nos enterábamos por el usuario. El peor caso: una tarea programada del ruteador quedó parada desde el 22 de junio sin que nadie lo notara."
+    },
+    "longDescription": {
+      "pt": "Construí um monitor com painel instalável no celular, notificação push, WhatsApp e e-mail. Ele confere disco, memória, serviços do sistema, portas, páginas, certificados e agendamentos. Para os agendamentos, não basta o job ter rodado: o monitor lê o log e acusa se tiver erro. E um segundo servidor vigia o próprio monitor.",
+      "en": "I built a monitor with a dashboard you can install on your phone, push notifications, WhatsApp and e-mail. It checks disk, memory, system services, ports, pages, certificates and scheduled jobs. For jobs, having run isn't enough: the monitor reads the log and flags any error. And a second server watches the monitor itself.",
+      "es": "Construí un monitor con panel instalable en el celular, notificación push, WhatsApp y e-mail. Revisa disco, memoria, servicios del sistema, puertos, páginas, certificados y tareas programadas. Para las tareas no alcanza con que hayan corrido: el monitor lee el log y avisa si hay error. Y un segundo servidor vigila al propio monitor."
+    },
+    "highlights": {
+      "pt": [
+        "45 alvos em 12 grupos, com 8 tipos de checagem",
+        "Só alerta depois de falhas seguidas, respeita dependência entre serviços e fica quieto de madrugada",
+        "Relatório no WhatsApp às 8h, 13h e 18h, e fora disso só fala quando tem problema",
+        "Watchdog externo: se o monitor cair, outro servidor avisa"
+      ],
+      "en": [
+        "45 targets in 12 groups, with 8 kinds of checks",
+        "Only alerts after repeated failures, respects dependencies between services and stays quiet overnight",
+        "WhatsApp report at 8 am, 1 pm and 6 pm, otherwise it only speaks up when something is wrong",
+        "External watchdog: if the monitor goes down, another server says so"
+      ],
+      "es": [
+        "45 objetivos en 12 grupos, con 8 tipos de chequeo",
+        "Solo alerta tras fallas seguidas, respeta dependencias entre servicios y se calla de madrugada",
+        "Informe por WhatsApp a las 8, 13 y 18 h; fuera de eso solo habla cuando hay un problema",
+        "Watchdog externo: si el monitor se cae, otro servidor avisa"
+      ]
+    },
+    "backstage": {
+      "title": {
+        "pt": "O primeiro dia no ar",
+        "en": "Day one in production",
+        "es": "El primer día en producción"
+      },
+      "text": {
+        "pt": "No primeiro dia ligado, o monitor achou erros reais no robô que coleta as cargas e em outra automação, que até então falhavam em silêncio. Foi aí que o time parou de descobrir problema pelo telefone.",
+        "en": "On its first day running, the monitor found real errors in the bot that collects the loads and in another automation, both failing silently until then. That's when the team stopped learning about problems over the phone.",
+        "es": "En su primer día encendido, el monitor encontró errores reales en el robot que recoge las cargas y en otra automatización, que hasta entonces fallaban en silencio. Ahí el equipo dejó de enterarse de los problemas por teléfono."
+      }
+    },
+    "impact": [
+      {
+        "value": "45",
+        "label": {
+          "pt": "serviços vigiados",
+          "en": "services watched",
+          "es": "servicios vigilados"
+        }
+      },
+      {
+        "value": "8",
+        "label": {
+          "pt": "tipos de checagem",
+          "en": "kinds of checks",
+          "es": "tipos de chequeo"
+        }
+      },
+      {
+        "value": "3",
+        "label": {
+          "pt": "canais de alerta",
+          "en": "alert channels",
+          "es": "canales de alerta"
+        }
+      }
+    ],
+    "stack": [
+      "Python",
+      "FastAPI",
+      "PWA",
+      "Web Push",
+      "Evolution API",
+      "systemd",
+      "Linux"
+    ],
+    "thumbnail": "assets/shots/monitor-chamados.jpg",
+    "screenshots": [
+      "assets/shots/monitor-chamados.jpg",
+      "assets/shots/monitor-painel.jpg"
+    ],
+    "links": {}
+  },
+  {
+    "id": "plataforma-dados",
+    "side": "A",
+    "track": "A4",
+    "name": {
+      "pt": "Plataforma de Dados",
+      "en": "Data Platform",
+      "es": "Plataforma de Datos"
+    },
+    "client": "Sal Express",
+    "period": {
+      "pt": "2026, em andamento",
+      "en": "2026, in progress",
+      "es": "2026, en curso"
+    },
+    "role": {
+      "pt": "Arquitetura e construção",
+      "en": "Architecture and build",
+      "es": "Arquitectura y construcción"
+    },
+    "tagline": {
+      "pt": "Troca um Pentaho antigo por um pipeline moderno sem o BI perceber a mudança.",
+      "en": "Swaps an old Pentaho setup for a modern pipeline without the BI noticing.",
+      "es": "Reemplaza un Pentaho viejo por un pipeline moderno sin que el BI note el cambio."
+    },
+    "problem": {
+      "pt": "Os relatórios da empresa dependiam de um scraper, do Pentaho, de um MySQL 5.7 e de agendamentos soltos. Quando algo quebrava, ninguém sabia onde.",
+      "en": "The company's reports depended on a scraper, Pentaho, a MySQL 5.7 database and loose scheduled jobs. When something broke, nobody knew where.",
+      "es": "Los informes de la empresa dependían de un scraper, de Pentaho, de un MySQL 5.7 y de tareas programadas sueltas. Cuando algo se rompía, nadie sabía dónde."
+    },
+    "longDescription": {
+      "pt": "Montei a nova plataforma em camadas (bruto, tratado e pronto para o BI) com Dagster orquestrando, dbt modelando e PostgreSQL guardando. A camada final mantém os 174 nomes de coluna do legado, então o BI só troca a conexão. A primeira fatia completa já foi conferida contra o sistema antigo.",
+      "en": "I set up the new platform in layers (raw, cleaned and BI-ready) with Dagster orchestrating, dbt modeling and PostgreSQL storing. The final layer keeps the legacy's 174 column names, so the BI only swaps its connection. The first full slice has already been checked against the old system.",
+      "es": "Armé la nueva plataforma en capas (bruto, tratado y listo para el BI) con Dagster orquestando, dbt modelando y PostgreSQL guardando. La capa final mantiene los 174 nombres de columna del legado, así que el BI solo cambia la conexión. La primera porción completa ya se comparó contra el sistema viejo."
+    },
+    "highlights": {
+      "pt": [
+        "8 milhões de linhas processadas com chave própria, porque o número do documento se repete entre anos",
+        "Fonte nova entra com uma declaração de umas 30 linhas",
+        "Quando o sistema de origem renomeou uma coluna, o contrato aceitou pelo apelido e nada travou"
+      ],
+      "en": [
+        "8 million rows processed with a custom key, because document numbers repeat across years",
+        "A new source takes a declaration of about 30 lines",
+        "When the source system renamed a column, the contract matched it by alias and nothing stopped"
+      ],
+      "es": [
+        "8 millones de filas procesadas con clave propia, porque el número de documento se repite entre años",
+        "Una fuente nueva entra con una declaración de unas 30 líneas",
+        "Cuando el sistema de origen renombró una columna, el contrato la aceptó por alias y nada se trabó"
+      ]
+    },
+    "backstage": {
+      "title": {
+        "pt": "O log verde que mentia",
+        "en": "The green log that lied",
+        "es": "El log verde que mentía"
+      },
+      "text": {
+        "pt": "Uma ingestão ficou 3 dias respondendo sucesso, com log verde, gravando zero linha. Desde então a prova de que funcionou é contar as linhas antes e depois, e não confiar no status.",
+        "en": "One ingestion spent 3 days reporting success, with a green log, while writing zero rows. Since then, proof that it worked means counting rows before and after, not trusting the status code.",
+        "es": "Una ingesta pasó 3 días respondiendo éxito, con log verde, grabando cero filas. Desde entonces la prueba de que funcionó es contar las filas antes y después, no confiar en el status."
+      }
+    },
+    "impact": [
+      {
+        "value": "8 mi",
+        "label": {
+          "pt": "linhas na base",
+          "en": "rows in the base",
+          "es": "filas en la base"
+        }
+      },
+      {
+        "value": "174",
+        "label": {
+          "pt": "colunas do legado preservadas",
+          "en": "legacy columns kept",
+          "es": "columnas del legado preservadas"
+        }
+      }
+    ],
+    "stack": [
+      "Python",
+      "Dagster",
+      "dbt",
+      "PostgreSQL 17",
+      "MinIO",
+      "Playwright"
+    ],
+    "thumbnail": "assets/shots/in2-teia.jpg",
+    "screenshots": [
+      "assets/shots/in2-teia.jpg",
+      "assets/shots/in2-monitoramento.jpg",
+      "assets/shots/in2-procedencia.jpg"
+    ],
+    "links": {}
+  },
+  {
+    "id": "romaneio",
+    "side": "A",
+    "track": "A5",
+    "name": "Romaneio",
+    "client": "Sal Express",
+    "period": {
+      "pt": "2025 até hoje",
+      "en": "2025 to now",
+      "es": "2025 hasta hoy"
+    },
+    "role": {
+      "pt": "Primeira versão e evolução",
+      "en": "First version and ongoing work",
+      "es": "Primera versión y evolución"
+    },
+    "tagline": {
+      "pt": "O motorista fotografa o romaneio e o sistema confere se alguma nota ficou de fora.",
+      "en": "The driver snaps the manifest and the system checks whether any invoice is missing.",
+      "es": "El chofer fotografía el romaneo y el sistema revisa si faltó alguna nota."
+    },
+    "problem": {
+      "pt": "Conferir romaneios de papel contra o sistema era manual, lento e deixava passar nota faltando.",
+      "en": "Checking paper manifests against the system was manual, slow and let missing invoices slip through.",
+      "es": "Revisar romaneos en papel contra el sistema era manual, lento y dejaba pasar notas faltantes."
+    },
+    "longDescription": {
+      "pt": "App mobile para enviar a foto, leitura com OCR e IA, e conferência automática contra o sistema da transportadora. O resultado vai por e-mail, WhatsApp e aviso na tela.",
+      "en": "A mobile app to send the photo, reading with OCR and AI, and an automatic check against the carrier's system. The result goes out by e-mail, WhatsApp and an on-screen alert.",
+      "es": "App móvil para enviar la foto, lectura con OCR e IA, y revisión automática contra el sistema de la transportadora. El resultado sale por e-mail, WhatsApp y aviso en pantalla."
+    },
+    "highlights": {
+      "pt": [
+        "Leitura 7 vezes mais rápida depois da minha refatoração",
+        "Relatório para 14 clientes em 3 canais",
+        "Imagens 100% no S3"
+      ],
+      "en": [
+        "Reading 7 times faster after my refactor",
+        "Reports to 14 clients over 3 channels",
+        "Images fully on S3"
+      ],
+      "es": [
+        "Lectura 7 veces más rápida después de mi refactorización",
+        "Informe para 14 clientes en 3 canales",
+        "Imágenes 100% en S3"
+      ]
+    },
+    "impact": [
+      {
+        "value": "7x",
+        "label": {
+          "pt": "leitura mais rápida",
+          "en": "faster reading",
+          "es": "lectura más rápida"
+        }
+      },
+      {
+        "value": "63",
+        "label": {
+          "pt": "endpoints",
+          "en": "endpoints",
+          "es": "endpoints"
+        }
+      }
+    ],
+    "stack": [
+      "FastAPI",
+      "Expo",
+      "React Native",
+      "Tesseract",
+      "Gemini",
+      "AWS S3"
+    ],
+    "thumbnail": "",
+    "screenshots": [],
+    "links": {}
+  },
+  {
+    "id": "sistema-integrado",
+    "side": "A",
+    "track": "A6",
+    "name": {
+      "pt": "Sistema Integrado e Iscas",
+      "en": "Integrated System and Trackers",
+      "es": "Sistema Integrado e Iscas"
+    },
+    "client": "Sal Express",
+    "period": {
+      "pt": "2024 até hoje",
+      "en": "2024 to now",
+      "es": "2024 hasta hoy"
+    },
+    "role": {
+      "pt": "Full stack",
+      "en": "Full stack",
+      "es": "Full stack"
+    },
+    "tagline": {
+      "pt": "O sistema interno da transportadora, com o módulo de iscas que eu criei do zero.",
+      "en": "The carrier's internal system, including the tracker module I built from scratch.",
+      "es": "El sistema interno de la transportadora, con el módulo de iscas que creé desde cero."
+    },
+    "problem": {
+      "pt": "Cadastro de agregados, motoristas, veículos, pallets, denúncias e os rastreadores escondidos nas cargas viviam em planilhas e sistemas separados.",
+      "en": "Contractors, drivers, vehicles, pallets, compliance reports and the trackers hidden in the cargo lived in spreadsheets and separate systems.",
+      "es": "El registro de agregados, choferes, vehículos, pallets, denuncias y los rastreadores escondidos en las cargas vivía en planillas y sistemas separados."
+    },
+    "longDescription": {
+      "pt": "Um só sistema em Laravel e Next.js, com 8 módulos e design system documentado. O módulo de iscas controla cada rastreador, onde ele está e há quanto tempo não se mexe.",
+      "en": "One system in Laravel and Next.js, with 8 modules and a documented design system. The tracker module follows each device, where it is and how long it has been still.",
+      "es": "Un solo sistema en Laravel y Next.js, con 8 módulos y design system documentado. El módulo de iscas controla cada rastreador, dónde está y cuánto hace que no se mueve."
+    },
+    "highlights": {
+      "pt": [
+        "Mais de 180 rotas de API e 54 telas",
+        "465 agregados, 602 motoristas e 527 veículos cadastrados",
+        "Prioriza iscas paradas há mais de 2 dias"
+      ],
+      "en": [
+        "More than 180 API routes and 54 screens",
+        "465 contractors, 602 drivers and 527 vehicles on file",
+        "Surfaces trackers that haven't moved in over 2 days"
+      ],
+      "es": [
+        "Más de 180 rutas de API y 54 pantallas",
+        "465 agregados, 602 choferes y 527 vehículos registrados",
+        "Prioriza iscas paradas hace más de 2 días"
+      ]
+    },
+    "impact": [
+      {
+        "value": "54",
+        "label": {
+          "pt": "telas",
+          "en": "screens",
+          "es": "pantallas"
+        }
+      },
+      {
+        "value": "180+",
+        "label": {
+          "pt": "rotas de API",
+          "en": "API routes",
+          "es": "rutas de API"
+        }
+      }
+    ],
+    "stack": [
+      "Laravel 12",
+      "Next.js",
+      "MySQL",
+      "Tailwind",
+      "Cypress"
+    ],
+    "thumbnail": "assets/shots/iscas-dashboard.jpg",
+    "screenshots": [
+      "assets/shots/iscas-dashboard.jpg",
+      "assets/shots/sistema-ger-dashboard.jpg",
+      "assets/shots/sistema-menu.jpg"
+    ],
+    "links": {}
+  },
+  {
+    "id": "gradment",
+    "side": "A",
+    "track": "A7",
+    "name": "GradMent",
+    "client": "CEFET-MG",
+    "period": {
+      "pt": "2025 até hoje",
+      "en": "2025 to now",
+      "es": "2025 hasta hoy"
+    },
+    "role": {
+      "pt": "Back end, depois dev principal. Hoje, o único dev.",
+      "en": "Back end, then lead dev. Now the only dev.",
+      "es": "Back end, luego dev principal. Hoy, el único dev."
+    },
+    "tagline": {
+      "pt": "Ajuda estudantes de engenharia a montar a grade de horários do semestre.",
+      "en": "Helps engineering students put together their class schedule for the semester.",
+      "es": "Ayuda a estudiantes de ingeniería a armar su horario del semestre."
+    },
+    "problem": {
+      "pt": "Montar a grade no CEFET era tentativa e erro com PDF e planilha.",
+      "en": "Building a schedule at CEFET was trial and error with PDFs and spreadsheets.",
+      "es": "Armar el horario en el CEFET era prueba y error con PDF y planillas."
+    },
+    "longDescription": {
+      "pt": "Começou como projeto de equipe numa disciplina. Eu entrei cuidando do back end, assumi como dev principal e hoje mantenho sozinho. Virou artigo na MOCITEC.",
+      "en": "It started as a team project for a course. I joined on the back end, took over as lead dev and now maintain it alone. It became a paper at MOCITEC.",
+      "es": "Empezó como proyecto de equipo en una materia. Entré a cargo del back end, pasé a dev principal y hoy lo mantengo solo. Se convirtió en artículo en la MOCITEC."
+    },
+    "highlights": {
+      "pt": [
+        "CI/CD com GitHub Actions e ambientes separados de dev e produção",
+        "API documentada com OpenAPI",
+        "Docker do começo ao fim"
+      ],
+      "en": [
+        "CI/CD with GitHub Actions and separate dev and production environments",
+        "API documented with OpenAPI",
+        "Docker end to end"
+      ],
+      "es": [
+        "CI/CD con GitHub Actions y entornos separados de dev y producción",
+        "API documentada con OpenAPI",
+        "Docker de punta a punta"
+      ]
+    },
+    "impact": [],
+    "stack": [
+      "Next.js",
+      "CodeIgniter 4",
+      "Docker",
+      "GitHub Actions"
+    ],
+    "thumbnail": "assets/shots/gradment-home.jpg",
+    "screenshots": [
+      "assets/shots/gradment-home.jpg",
+      "assets/shots/gradment-mobile.jpg"
+    ],
+    "links": {
+      "demo": "https://gradment.linceonline.com.br"
+    },
+    "live": true
+  },
+  {
+    "id": "quando-da",
+    "side": "B",
+    "track": "B1",
+    "name": "Quando Dá",
+    "client": {
+      "pt": "Projeto próprio",
+      "en": "Personal project",
+      "es": "Proyecto propio"
+    },
+    "period": {
+      "pt": "2026",
+      "en": "2026",
+      "es": "2026"
+    },
+    "role": {
+      "pt": "Ideia, design e código",
+      "en": "Idea, design and code",
+      "es": "Idea, diseño y código"
+    },
+    "tagline": {
+      "pt": "Descobre o horário em que todo mundo pode, sem 40 mensagens no grupo.",
+      "en": "Finds the time slot that works for everyone, without 40 messages in the group chat.",
+      "es": "Encuentra el horario en que todos pueden, sin 40 mensajes en el grupo."
+    },
+    "longDescription": {
+      "pt": "Evento por link, sem cadastro. Cada pessoa marca a disponibilidade e o app cruza os horários. Grupos com login por link mágico, convites por e-mail e notificação no celular.",
+      "en": "Events by link, no sign-up. Everyone marks when they're free and the app overlaps the slots. Groups with magic-link login, e-mail invites and phone notifications.",
+      "es": "Evento por link, sin registro. Cada persona marca su disponibilidad y la app cruza los horarios. Grupos con login por link mágico, invitaciones por e-mail y notificaciones en el celular."
+    },
+    "stack": [
+      "Next.js 15",
+      "React 19",
+      "Supabase",
+      "PWA"
+    ],
+    "thumbnail": "assets/shots/quandoda-mobile.jpg",
+    "screenshots": [
+      "assets/shots/quandoda-mobile.jpg",
+      "assets/shots/quandoda-home.jpg"
+    ],
+    "links": {
+      "demo": "https://quando-da.vercel.app"
+    },
+    "live": true
+  },
+  {
+    "id": "reino-infinito",
+    "side": "B",
+    "track": "B2",
+    "name": "Reino Infinito",
+    "client": {
+      "pt": "Projeto próprio",
+      "en": "Personal project",
+      "es": "Proyecto propio"
+    },
+    "period": {
+      "pt": "2026",
+      "en": "2026",
+      "es": "2026"
+    },
+    "role": {
+      "pt": "Game design e código",
+      "en": "Game design and code",
+      "es": "Game design y código"
+    },
+    "tagline": {
+      "pt": "Um roguelite medieval infinito. Toda a arte e todo o som são gerados por código.",
+      "en": "An endless medieval roguelite. Every sprite and every sound is generated in code.",
+      "es": "Un roguelite medieval infinito. Todo el arte y todo el sonido se generan con código."
+    },
+    "longDescription": {
+      "pt": "Nenhum arquivo de imagem ou áudio: as formas são desenhadas em tempo real e os efeitos saem da Web Audio API. Dá para trocar o tema inteiro mudando um arquivo de cores. Joga aqui mesmo.",
+      "en": "Not a single image or audio file: shapes are drawn in real time and sound effects come from the Web Audio API. The whole theme changes by editing one color file. Play it right here.",
+      "es": "Ni un archivo de imagen o audio: las formas se dibujan en tiempo real y los efectos salen de la Web Audio API. El tema entero cambia editando un archivo de colores. Se juega acá mismo."
+    },
+    "stack": [
+      "Phaser 3",
+      "TypeScript",
+      "Web Audio API",
+      "Vite"
+    ],
+    "thumbnail": "assets/shots/reino-infinito.jpg",
+    "screenshots": [
+      "assets/shots/reino-infinito.jpg"
+    ],
+    "links": {
+      "demo": "lab/reino-infinito/"
     }
+  },
+  {
+    "id": "casa-inteligente",
+    "side": "B",
+    "track": "B3",
+    "name": {
+      "pt": "Casa Inteligente 3D",
+      "en": "Smart House 3D",
+      "es": "Casa Inteligente 3D"
+    },
+    "client": "Energisa",
+    "period": {
+      "pt": "2026",
+      "en": "2026",
+      "es": "2026"
+    },
+    "role": {
+      "pt": "Jogo completo",
+      "en": "Full game",
+      "es": "Juego completo"
+    },
+    "tagline": {
+      "pt": "Um jogo de totem sobre gasto de energia: 60 segundos pra desligar tudo antes do pai chegar.",
+      "en": "A kiosk game about energy waste: 60 seconds to switch everything off before dad gets home.",
+      "es": "Un juego de tótem sobre gasto de energía: 60 segundos para apagar todo antes de que llegue papá."
+    },
+    "longDescription": {
+      "pt": "Feito para a Energisa conscientizar o público sobre consumo. A conta de luz veio alta, e o jogador corre pela casa em 3D tocando nos aparelhos pra desligar. Cada um mostra quanto gasta em watts e em reais por mês, e o placar acompanha o consumo total, o tempo e a conta. Roda em totem touch, com instalador para Windows e Mac.",
+      "en": "Made for Energisa to raise awareness about power use. The electricity bill came in high, and the player runs through a 3D house tapping appliances to switch them off. Each one shows its draw in watts and its cost in reais per month, and the HUD tracks total consumption, time and the bill. Runs on a touch kiosk, with installers for Windows and Mac.",
+      "es": "Hecho para que Energisa concientice al público sobre el consumo. La cuenta de luz llegó alta, y el jugador recorre una casa en 3D tocando los aparatos para apagarlos. Cada uno muestra cuánto gasta en watts y en reales por mes, y el marcador sigue el consumo total, el tiempo y la cuenta. Corre en tótem táctil, con instalador para Windows y Mac."
+    },
+    "stack": [
+      "Electron",
+      "Babylon.js",
+      "Touch"
+    ],
+    "thumbnail": "assets/shots/casa-jogo.jpg",
+    "screenshots": [
+      "assets/shots/casa-jogo.jpg",
+      "assets/shots/casa-menu.jpg",
+      "assets/shots/casa-jogo-sala.jpg",
+      "assets/shots/casa-resultado.jpg"
+    ],
+    "links": {}
+  },
+  {
+    "id": "tanoclima",
+    "side": "B",
+    "track": "B4",
+    "name": "TaNoClima",
+    "client": {
+      "pt": "Desafio técnico",
+      "en": "Technical challenge",
+      "es": "Desafío técnico"
+    },
+    "period": {
+      "pt": "2026",
+      "en": "2026",
+      "es": "2026"
+    },
+    "role": {
+      "pt": "Full stack",
+      "en": "Full stack",
+      "es": "Full stack"
+    },
+    "tagline": {
+      "pt": "Previsão do tempo para cada evento da agenda, com identidade visual própria.",
+      "en": "A weather forecast for every event on the calendar, with its own visual identity.",
+      "es": "Pronóstico del tiempo para cada evento de la agenda, con identidad visual propia."
+    },
+    "longDescription": {
+      "pt": "Back em PHP 8.2 com SQLite e front em Vue 3. O README conta as decisões, o que ficou de fora e como usei IA no processo.",
+      "en": "Back end in PHP 8.2 with SQLite and a Vue 3 front end. The README covers the decisions, what I left out and how I used AI along the way.",
+      "es": "Back en PHP 8.2 con SQLite y front en Vue 3. El README cuenta las decisiones, lo que quedó afuera y cómo usé IA en el proceso."
+    },
+    "stack": [
+      "PHP 8.2",
+      "SQLite",
+      "Vue 3",
+      "Vite",
+      "OpenWeather"
+    ],
+    "thumbnail": "assets/shots/tanoclima-eventos.jpg",
+    "screenshots": [
+      "assets/shots/tanoclima-eventos.jpg",
+      "assets/shots/tanoclima-evento.jpg"
+    ],
+    "links": {
+      "repo": "https://github.com/italoaurelio/BuscaTempo-InEvent"
+    }
+  },
+  {
+    "id": "design",
+    "side": "B",
+    "track": "B5",
+    "name": {
+      "pt": "4 anos de design",
+      "en": "4 years of design",
+      "es": "4 años de diseño"
+    },
+    "client": {
+      "pt": "Agências e autônomo",
+      "en": "Agencies and freelance",
+      "es": "Agencias y freelance"
+    },
+    "period": {
+      "pt": "2019 a 2023",
+      "en": "2019 to 2023",
+      "es": "2019 a 2023"
+    },
+    "role": {
+      "pt": "Designer gráfico e diretor de arte",
+      "en": "Graphic designer and art director",
+      "es": "Diseñador gráfico y director de arte"
+    },
+    "tagline": {
+      "pt": "Antes do código, eu desenhava. É por isso que as telas que eu faço saem coerentes.",
+      "en": "Before code, I designed. That's why the screens I build hold together.",
+      "es": "Antes del código, diseñaba. Por eso las pantallas que hago salen coherentes."
+    },
+    "longDescription": {
+      "pt": "Criativos para redes sociais, material impresso, vídeo e direção de arte de produto digital. Hoje eu desenho e implemento a mesma interface.",
+      "en": "Social media creatives, print, video and art direction for digital products. Today I design and build the same interface.",
+      "es": "Piezas para redes sociales, material impreso, video y dirección de arte de producto digital. Hoy diseño e implemento la misma interfaz."
+    },
+    "stack": [
+      "Photoshop",
+      "Illustrator",
+      "Direção de arte"
+    ],
+    "thumbnail": "assets/shots/design-colagem.jpg",
+    "screenshots": [
+      "assets/shots/design-colagem.jpg"
+    ],
+    "links": {}
+  }
 ]

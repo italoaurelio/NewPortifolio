@@ -17,6 +17,13 @@ function pickLang(v, lang) {
     return v[lang] ?? (lang === 'en' ? '' : '');
 }
 
+// Texto "de vitrine" (nome, cliente): string ou {pt, en, es}
+function txt(v) {
+    if (v == null) return '';
+    if (typeof v === 'string') return v;
+    return v.pt || v.en || v.es || '';
+}
+
 function pickLangArr(v, lang) {
     const out = pickLang(v, lang);
     return Array.isArray(out) ? out : [];
@@ -127,8 +134,8 @@ function renderList() {
         li.innerHTML = `
             ${thumb}
             <div class="pi-body">
-                <div class="pi-name">${p.name || '(sem nome)'}</div>
-                <div class="pi-meta">${[p.client, pickLang(p.period, formLang) || pickLang(p.period, 'en')].filter(Boolean).join(' · ')}</div>
+                <div class="pi-name">${escapeHtml(txt(p.name) || '(sem nome)')}</div>
+                <div class="pi-meta">${escapeHtml([txt(p.client), pickLang(p.period, formLang) || pickLang(p.period, 'en')].filter(Boolean).join(' · '))}</div>
             </div>
             <iconify-icon icon="mdi:drag" class="drag-handle"></iconify-icon>
         `;
@@ -232,15 +239,24 @@ function collectProject() {
     const fd = new FormData(form);
     const get = (k) => (fd.get(k) || '').toString().trim();
 
-    // Campos de texto viram {en, pt} — o site resolve com fallback
-    const bi = (k) => ({ en: get(`${k}_en`), pt: get(`${k}_pt`) });
-    const biLines = (k) => ({ en: linesToArray(get(`${k}_en`)), pt: linesToArray(get(`${k}_pt`)) });
+    // Projeto que já existia: o que o form não edita (espanhol, lado A/B,
+    // faixa, bastidores...) sobrevive intacto no merge 🧷
+    const prev = editingIndex != null ? (projects[editingIndex] || {}) : {};
+    const keep = (v) => (v && typeof v === 'object' && !Array.isArray(v)) ? v : {};
+
+    // Campos de texto viram {en, pt} (e o "es" antigo, se tiver, fica)
+    const bi = (k, old = prev[k]) => ({ ...keep(old), en: get(`${k}_en`), pt: get(`${k}_pt`) });
+    const biLines = (k, old = prev[k]) => ({ ...keep(old), en: linesToArray(get(`${k}_en`)), pt: linesToArray(get(`${k}_pt`)) });
+    const nameVal = get('name');
+    const name = (prev.name && typeof prev.name === 'object') ? { ...prev.name, pt: nameVal } : nameVal;
+    const client = (prev.client && typeof prev.client === 'object') ? { ...prev.client, pt: get('client') } : get('client');
 
     return {
-        id: get('id') || slugify(get('name')),
-        name: get('name'),
+        ...prev,
+        id: get('id') || slugify(nameVal),
+        name,
         tagline: bi('tagline'),
-        client: get('client'),
+        client,
         period: bi('period'),
         role: bi('role'),
         thumbnail: thumbData || '',
@@ -249,15 +265,16 @@ function collectProject() {
         stack: csvToArray(get('stack')),
         highlights: biLines('highlights'),
         infraInfo: {
-            frontend: { title: 'Frontend', desc: bi('infra_frontend') },
-            backend: { title: 'Backend', desc: bi('infra_backend') },
-            server: { title: 'Server', desc: bi('infra_server') },
+            frontend: { title: 'Frontend', desc: bi('infra_frontend', prev.infraInfo?.frontend?.desc) },
+            backend: { title: 'Backend', desc: bi('infra_backend', prev.infraInfo?.backend?.desc) },
+            server: { title: 'Server', desc: bi('infra_server', prev.infraInfo?.server?.desc) },
             dataSources: linesToArray(get('infra_sources'))
         },
         impact: getImpactRows(),
         usageExample: biLines('usageExample'),
         screenshots: shotsData.slice(),
         links: {
+            ...keep(prev.links),
             repo: get('link_repo'),
             demo: get('link_demo'),
             case: get('link_case')
@@ -266,7 +283,8 @@ function collectProject() {
 }
 
 function fillForm(p) {
-    form.name.value = p.name || '';
+    // nome/cliente podem ser {pt, en, es}: o form edita a versão em PT
+    form.name.value = (p.name && typeof p.name === 'object') ? (p.name.pt || p.name.en || '') : (p.name || '');
     form.id.value = p.id || '';
     // aceita string legada OU {en, pt} — retrocompat com JSON velho importado
     for (const lang of ['en', 'pt']) {
@@ -281,7 +299,7 @@ function fillForm(p) {
         form[`infra_backend_${lang}`].value = pickLang(p.infraInfo?.backend?.desc, lang);
         form[`infra_server_${lang}`].value = pickLang(p.infraInfo?.server?.desc, lang);
     }
-    form.client.value = p.client || '';
+    form.client.value = (p.client && typeof p.client === 'object') ? (p.client.pt || p.client.en || '') : (p.client || '');
     form.stack.value = (p.stack || []).join(', ');
     form.infra_sources.value = (p.infraInfo?.dataSources || []).join('\n');
     form.link_repo.value = p.links?.repo || '';
@@ -342,8 +360,8 @@ function updatePreview() {
         <div class="pv-card">
             <div class="pv-media">${media}</div>
             <div class="pv-body">
-                <p class="pv-meta">${escapeHtml([p.client, L(p.period)].filter(Boolean).join(' · '))}</p>
-                <h5>${escapeHtml(p.name || 'Nome do projeto')}</h5>
+                <p class="pv-meta">${escapeHtml([txt(p.client), L(p.period)].filter(Boolean).join(' · '))}</p>
+                <h5>${escapeHtml(txt(p.name) || 'Nome do projeto')}</h5>
                 <p class="pv-tagline">${escapeHtml(L(p.tagline) || L(p.shortDescription))}</p>
                 <div class="pv-chips">${chips}</div>
                 <div class="pv-footer">
@@ -403,7 +421,7 @@ function initEvents() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const p = collectProject();
-        if (!p.name) return toast('Informe o nome do projeto', true);
+        if (!txt(p.name)) return toast('Informe o nome do projeto', true);
         if (!p.id) return toast('Informe um ID/slug', true);
         // thumbnail é opcional agora — o site mostra um placeholder bonito 🎴
 

@@ -1,330 +1,498 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#0e1315" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#e9ecea" media="(prefers-color-scheme: light)">
 
-    <!-- SEO: agora o link compartilhado tem cara de gente 🔍 -->
+    <!-- SEO: o link compartilhado chega com cara de disco novo 🔍 -->
+    <title>Ítalo Aurélio | Engenheiro de software full stack</title>
     <meta name="description"
-        content="Portfolio of Ítalo Aurélio, fullstack developer based in Brazil. React, PHP, MySQL, JavaScript — projects, work experience and tech stack.">
+        content="Ítalo Aurélio, engenheiro de software full stack no Brasil. Sistemas em produção para a Sal Express e a Fundação Ormeu Junqueira Botelho. Aberto a contrato mensal PJ.">
     <link rel="canonical" href="https://italo-aurelio-dev.vercel.app/">
 
     <!-- Open Graph (preview no LinkedIn/WhatsApp) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Ítalo Aurélio — Fullstack Developer">
-    <meta property="og:description" content="Fullstack developer based in Brazil. React, PHP, MySQL, JavaScript.">
+    <meta property="og:title" content="Ítalo Aurélio | Engenheiro de software full stack">
+    <meta property="og:description" content="Cuido do sistema inteiro, do banco ao pixel. Aberto a contrato mensal PJ.">
     <meta property="og:url" content="https://italo-aurelio-dev.vercel.app/">
-    <meta property="og:image" content="https://italo-aurelio-dev.vercel.app/assets/italoportifolioSite.jpg">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="650">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="pt_BR">
+    <meta property="og:image" content="https://italo-aurelio-dev.vercel.app/assets/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ítalo Aurélio — Fullstack Developer">
-    <meta name="twitter:description" content="Fullstack developer based in Brazil. React, PHP, MySQL, JavaScript.">
-    <meta name="twitter:image" content="https://italo-aurelio-dev.vercel.app/assets/italoportifolioSite.jpg">
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
+    <meta name="twitter:title" content="Ítalo Aurélio | Engenheiro de software full stack">
+    <meta name="twitter:description" content="Cuido do sistema inteiro, do banco ao pixel.">
+    <meta name="twitter:image" content="https://italo-aurelio-dev.vercel.app/assets/og-cover.jpg">
+
+    <link rel="icon" href="assets/italoaurelio.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="assets/italoaurelio.ico" type="image/x-icon">
-    <!-- Só os pesos que o CSS usa de verdade (adeus 13 Poppins fantasmas 👻) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+    <!-- Outfit: formas redondas, pontas retas (a número 3 da comparação) ⭕ -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Ítalo Aurélio — Fullstack Developer</title>
+    <!-- Fontes do recorte de revista: só as letras que a gente usa (subset via &text) ✂️ -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Bodoni+Moda:ital,opsz,wght@1,6..96,900&family=DM+Serif+Display&family=Rubik+Mono+One&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%C3%81%C3%82%C3%83%C3%89%C3%8A%C3%8D%C3%93%C3%94%C3%95%C3%9A%C3%87%C3%91%C3%A1%C3%A2%C3%A3%C3%A9%C3%AA%C3%AD%C3%B3%C3%B4%C3%B5%C3%BA%C3%A7%C3%B1"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=202609222028">
+    <link rel="preload" as="image" href="assets/foto_italo.jpg">
+
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
 
     <!-- Dados estruturados: o Google gosta de saber quem eu sou 🤖 -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Ítalo Aurélio",
-        "jobTitle": "Fullstack Developer",
+        "name": "Ítalo Aurélio de Paula Vieira",
+        "alternateName": "Ítalo Aurélio",
+        "jobTitle": "Engenheiro de software full stack",
         "url": "https://italo-aurelio-dev.vercel.app/",
         "image": "https://italo-aurelio-dev.vercel.app/assets/foto_italo.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "Cataguases", "addressRegion": "MG", "addressCountry": "BR" },
+        "alumniOf": "CEFET-MG",
         "sameAs": [
             "https://www.linkedin.com/in/italoaurelio/",
             "https://github.com/italoaurelio",
             "https://www.instagram.com/italoaurelio.png/"
         ],
-        "knowsAbout": ["JavaScript", "React", "PHP", "MySQL", "HTML", "CSS", "Python", "C", "Laravel", "Tailwind"],
+        "knowsAbout": ["Laravel", "PHP", "Next.js", "React", "TypeScript", "Python", "PostgreSQL", "MySQL", "Docker", "Linux", "Dagster", "dbt"],
         "nationality": "Brazilian"
     }
     </script>
 </head>
 
-<body class="animated-background">
-    <div id="menu">
-        <span id="hover-bg"></span>
-        <a href="#presentation" id="one" data-i18n="menu.home">Home</a>
-        <a href="#experience" id="two" data-i18n="menu.experience">Experience</a>
-        <a href="#techstack" id="three" data-i18n="menu.techstack">TechStack</a>
-        <a href="#projects" id="four" data-i18n="menu.projects">Projects</a>
-        <!-- Botãozinho de idioma 🌎 -->
-        <button id="lang-toggle" aria-label="Switch language / Trocar idioma">
-            <span data-lang-opt="en">EN</span><span class="lang-sep">/</span><span data-lang-opt="pt">PT</span>
-            <iconify-icon icon="mdi:web" class="lang-globe"></iconify-icon>
-        </button>
-    </div>
-    <div id="presentation">
-        <div id="me">
-            <!-- A foto é um botão secreto: toca música 🎧 (agora o teclado também sabe disso) -->
-            <div id="photo-wrap">
-                <!-- dica discreta do easter egg 🤫 -->
-                <!-- "clique aqui" curvado na borda da foto, parado 🤫 -->
-                <div id="click-hint" aria-hidden="true">
-                    <svg viewBox="0 0 120 120">
-                        <defs>
-                            <path id="hint-arc" d="M 8,60 A 52,52 0 0 1 112,60" />
-                        </defs>
-                        <!-- ancorado pelo fim: o PT é mais falante e crescia por cima do dedinho -->
-                        <text text-anchor="end">
-                            <textPath href="#hint-arc" startOffset="56%" data-i18n="hero.clickHint">Click
-                                here</textPath>
-                        </text>
-                    </svg>
-                    <iconify-icon icon="mingcute:finger-press-fill"></iconify-icon>
-                </div>
-                <img src="assets/foto_italo.jpg" alt="" id="photo" role="button" tabindex="0" aria-pressed="false"
-                    data-i18n-aria="hero.photoLabel" width="90" height="90" decoding="async" fetchpriority="high">
-            </div>
-            <div id="name">
-                <h1 id="name-title">Ítalo Aurélio.</h1>
-                <div id="based">
-                    <!-- Ícone Brasil -->
-                    <svg id="br-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 36 36">
-                        <path fill="#009b3a"
-                            d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4z" />
-                        <path fill="#fedf01" d="M32.728 18L18 29.124L3.272 18L18 6.875z" />
-                        <circle cx="17.976" cy="17.924" r="6.458" fill="#002776" />
-                        <path fill="#cbe9d4"
-                            d="M12.277 14.887a6.4 6.4 0 0 0-.672 2.023c3.995-.29 9.417 1.891 11.744 4.595c.402-.604.7-1.28.883-2.004c-2.872-2.808-7.917-4.63-11.955-4.614" />
-                        <path fill="#88c9f9" d="M12 18.233h1v1h-1zm1 2h1v1h-1z" />
-                        <path fill="#55acee" d="M15 18.233h1v1h-1zm2 1h1v1h-1zm4 2h1v1h-1zm-3 1h1v1h-1zm3-6h1v1h-1z" />
-                        <path fill="#3b88c3" d="M19 20.233h1v1h-1z" />
-                    </svg>
-                    <!-- Ícone Play (Iconify) que será exibido após a foto ser clicada -->
-                    <iconify-icon icon="line-md:play-filled" id="play-icon" style="display: none;"></iconify-icon>
-                    <p id="music-title" data-i18n="hero.basedIn">Based in Brazil</p>
-                </div>
-            </div>
-        </div>
+<body>
+    <!-- Fundo: ondas empilhadas que reagem ao mouse e à música 〰️ -->
+    <canvas id="bg-waves" aria-hidden="true"></canvas>
+    <a class="skip" href="#lado-a">Pular para os projetos</a>
 
-        <audio id="audio-player" preload="auto">
-            <source id="audio-source" src="" type="audio/mp3">
-        </audio>
-
-        <p class="hero-role">FULLSTACK</p>
-        <div id="dev">
-            <p class="hero-role-2">DEVELOPER</p>
-            <a target="_blank"
-                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcNHVWGwXNrfvrPsbhsKcvzBmmwvHhvFKfgJhsntVngNwWGMbWBzZKJNBrCXdWgnVFGV"
-                id="contact">
-                <!-- SVG inline: era a única coisa que usava a lib inteira do Phosphor 🪶 -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="16"
-                    height="16" aria-hidden="true">
-                    <path
-                        d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z" />
-                </svg>
-                <p data-i18n="hero.contact">Contact me</p>
+    <header class="nav" id="menu">
+        <a href="#presentation" class="nav-brand" aria-label="Ítalo Aurélio">
+            <span class="nav-mark" aria-hidden="true"></span>
+            <!-- nome ↔ "faixa X de 6" conforme o scroll: o menu vira player 🎛️ -->
+            <span class="nav-swap">
+                <span class="nav-name">Ítalo Aurélio</span>
+                <span class="nav-player" aria-hidden="true">
+                    <span class="np-track" id="navTrack">01/06</span>
+                    <span class="np-title" id="navTitle">Capa</span>
+                </span>
+            </span>
+        </a>
+        <span class="nav-progress" aria-hidden="true"><i id="navProgress"></i></span>
+        <nav class="nav-links">
+            <a href="#lado-a" data-i18n="nav.sideA">Projetos</a>
+            <a href="#lado-b" data-i18n="nav.sideB">Criativo</a>
+            <a href="#como-trabalho" data-i18n="nav.work">Como trabalho</a>
+            <a href="#sobre" data-i18n="nav.about">Sobre</a>
+        </nav>
+        <div class="nav-end">
+            <!-- Seletor de idioma: três lados do mesmo disco 🌎 -->
+            <div class="lang" role="group" data-i18n-aria="nav.lang" aria-label="Idioma">
+                <button type="button" data-lang-opt="pt">PT</button>
+                <button type="button" data-lang-opt="en">EN</button>
+                <button type="button" data-lang-opt="es">ES</button>
+            </div>
+            <a class="btn btn-accent btn-sm" data-wa target="_blank" rel="noopener" href="https://wa.me/5532998825125">
+                <iconify-icon icon="ph:whatsapp-logo-bold" aria-hidden="true"></iconify-icon>
+                <span class="nav-cta-label" data-i18n="cta.whatsapp">Chamar no WhatsApp</span>
             </a>
         </div>
-        <div id="socials">
-            <!-- Linkedin -->
-            <a href="https://www.linkedin.com/in/italoaurelio/" target="_blank"><iconify-icon icon="line-md:linkedin"
-                    class="icon"></iconify-icon></a>
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/italoaurelio.png/" target="_blank"><iconify-icon icon="line-md:instagram"
-                    class="icon"></iconify-icon></a>
-            <!-- GitHub -->
-            <a href="https://github.com/italoaurelio" target="_blank"><iconify-icon icon="line-md:github"
-                    class="icon"></iconify-icon></a>
-            <!-- Telephone -->
-            <a href="https://api.whatsapp.com/send/?phone=32999200455&text&type=phone_number&app_absent=0"
-                target="_blank"><iconify-icon icon="line-md:phone" class="icon"></iconify-icon></a>
-            <!-- Curriculum -->
-            <a href="https://drive.google.com/file/d/1WVFzQyXcepJy4VwnRyCzn2_PjaTRJdgZ/view"
-                target="_blank"><iconify-icon icon="line-md:file-document" class="icon"></iconify-icon></a>
-        </div>
-    </div>
-    <div id="arrow_down">
-        <iconify-icon icon="ep:arrow-down-bold" class="icon"></iconify-icon>
-    </div>
-    <div id="portifolio">
-        <div id="experience">
-            <h2 data-i18n="experience.title">Experience</h2>
-            <div id="button">
-                <button id="buttonWS1" class="active" data-i18n="experience.work">Work</button>
-                <button id="buttonWS2" data-i18n="experience.studies">Studies</button>
-            </div>
-            <div id="experienceTable">
-                <div id="line"></div>
-                <div id="container">
-                    <!-- Lógica no Script 👌 -->
-                </div>
-            </div>
-        </div>
-        <div id="techstack">
-            <h2 data-i18n="techstack.title">Tech Stack</h2><br>
-            <!-- Stack de verdade, direto do dia a dia (o CV mandou lembranças 📋) -->
-            <div id="techIcons">
-                <div class="techIcons"><iconify-icon icon="meteor-icons:laravel" class="icon"></iconify-icon>
-                    <p>Laravel</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="ri:nextjs-fill" class="icon"></iconify-icon>
-                    <p>Next.js</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="flowbite:react-solid" class="icon"></iconify-icon>
-                    <p>React</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="ri:javascript-fill" class="icon"></iconify-icon>
-                    <p>JavaScript</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="ri:nodejs-fill" class="icon"></iconify-icon>
-                    <p>Node.js</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="mdi:language-php" class="icon"></iconify-icon>
-                    <p>PHP</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="akar-icons:python-fill" class="icon"></iconify-icon>
-                    <p>Python</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="ri:tailwind-css-fill" class="icon"></iconify-icon>
-                    <p>Tailwind</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="akar-icons:postgresql-fill" class="icon"></iconify-icon>
-                    <p>PostgreSQL</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="carbon:mysql" class="icon"></iconify-icon>
-                    <p>MySQL</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="simple-icons:microsoftsqlserver" class="icon"></iconify-icon>
-                    <p>SQL Server</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="mdi:docker" class="icon"></iconify-icon>
-                    <p>Docker</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="simple-icons:expo" class="icon"></iconify-icon>
-                    <p>Expo</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="mingcute:linux-fill" class="icon"></iconify-icon>
-                    <p>Linux</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="devicon-plain:neovim" class="icon"></iconify-icon>
-                    <p>Neovim</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="mage:photoshop" class="icon"></iconify-icon>
-                    <p>Photoshop</p>
-                </div>
-                <div class="techIcons"><iconify-icon icon="mage:illustrator" class="icon"></iconify-icon>
-                    <p>Illustrator</p>
-                </div>
-            </div>
-        </div>
-        <div id="projects">
-            <div class="projects-header">
-                <h2 data-i18n="projects.title">Projects</h2>
-                <div class="project-hint-inline">
-                    <span class="project-hint-text" data-i18n="projects.hint">Click a project to expand</span>
-                    <iconify-icon icon="mingcute:finger-press-fill" class="project-hint-icon-inline"></iconify-icon>
-                </div>
-            </div>
-            <div id="projectContainer">
-                <!-- Lógica no Script 😁 -->
-            </div>
-        </div>
-        <footer>
-            <div id="footerBox">
-                <div class="footerName">
-                    <div>Ítalo</div>
-                    <div>Aurélio.</div>
-                </div>
-                <div id="footerText">
-                    <div class="footerElement">
-                        <h3 data-i18n="footer.explore">Explore</h3>
-                        <a href="#presentation" data-i18n="menu.home">Home</a>
-                        <a href="#experience" data-i18n="menu.experience">Experience</a>
-                        <a href="#techstack" data-i18n="menu.techstack">TechStack</a>
-                        <a href="#projects" data-i18n="menu.projects">Projects</a>
-                    </div>
-                    <div class="footerElement">
-                        <h3 data-i18n="footer.connect">Let's Connect</h3>
-                        <a target="_blank"
-                            href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvrcNHVWGwXNrfvrPsbhsKcvzBmmwvHhvFKfgJhsntVngNwWGMbWBzZKJNBrCXdWgnVFGV"
-                            data-i18n="footer.email">Email</a>
-                        <a href="https://www.linkedin.com/in/italoaurelio/" target="_blank">LinkedIn</a>
-                        <a href="https://github.com/italoaurelio" target="_blank">GitHub</a>
-                        <a href="https://www.instagram.com/italoaurelio.png/" target="_blank">Instagram</a>
-                        <a href="https://api.whatsapp.com/send/?phone=32999200455&text&type=phone_number&app_absent=0"
-                            target="_blank" data-i18n="footer.phone">Phone</a>
-                    </div>
-                </div>
-            </div>
-            <div id="footerSignature">
-                <p>© 2025</p>
-                <p>Ítalo Aurélio.</p>
-            </div>
-        </footer>
-    </div>
+    </header>
 
-    <!-- Modal de detalhes do projeto (agora é um mini case study 📋) -->
+    <main id="portifolio">
+        <!-- CAPA: o disco saindo da capa. A foto é o selo, e o selo toca música 🎧 -->
+        <section id="presentation" class="hero">
+            <div class="hero-copy">
+                <h1 class="hero-title" data-i18n="hero.title">O sistema inteiro, do banco ao pixel.</h1>
+                <p class="hero-sub" data-i18n="hero.sub">Engenheiro de software full stack. Desenho, construo, coloco no
+                    ar e fico de olho depois. Aberto a contrato mensal PJ.</p>
+                <div class="hero-ctas">
+                    <a class="btn btn-accent" data-wa target="_blank" rel="noopener" href="https://wa.me/5532998825125">
+                        <iconify-icon icon="ph:whatsapp-logo-bold" aria-hidden="true"></iconify-icon>
+                        <span data-i18n="cta.whatsapp">Chamar no WhatsApp</span>
+                    </a>
+                    <a class="btn btn-ghost" href="#lado-a">
+                        <iconify-icon icon="ph:play-fill" aria-hidden="true"></iconify-icon>
+                        <span data-i18n="cta.sideA">Ver projetos</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="disc" id="me">
+                <div class="sleeve">
+                    <div class="sleeve-art" aria-hidden="true">
+                        <span class="sleeve-name ransom" data-ransom-skip="teal">Ítalo Aurélio</span>
+                        <span class="sleeve-sides">
+                            <span data-i18n="sleeve.sideA">Lado A: Engenharia</span>
+                            <span data-i18n="sleeve.sideB">Lado B: Criativo</span>
+                        </span>
+                    </div>
+                    <!-- Adesivo da capa: nome ↔ "tocando agora" (a lógica original, intacta) -->
+                    <div class="sticker" id="name">
+                        <p id="name-title">Ítalo Aurélio.</p>
+                        <div id="based">
+                            <svg id="br-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 36 36" aria-hidden="true">
+                                <path fill="#009b3a"
+                                    d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4z" />
+                                <path fill="#fedf01" d="M32.728 18L18 29.124L3.272 18L18 6.875z" />
+                                <circle cx="17.976" cy="17.924" r="6.458" fill="#002776" />
+                                <path fill="#cbe9d4"
+                                    d="M12.277 14.887a6.4 6.4 0 0 0-.672 2.023c3.995-.29 9.417 1.891 11.744 4.595c.402-.604.7-1.28.883-2.004c-2.872-2.808-7.917-4.63-11.955-4.614" />
+                            </svg>
+                            <iconify-icon icon="ph:play-fill" id="play-icon" style="display: none;"
+                                aria-hidden="true"></iconify-icon>
+                            <p id="music-title" data-i18n="hero.basedIn">Direto do Brasil</p>
+                        </div>
+                        <div id="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+
+                <div class="vinyl">
+                    <div class="grooves" aria-hidden="true"></div>
+                    <div id="photo-wrap">
+                        <!-- "clique aqui" curvado na borda do selo 🤫 -->
+                        <div id="click-hint" aria-hidden="true">
+                            <svg viewBox="0 0 120 120">
+                                <defs>
+                                    <path id="hint-arc" d="M 60,8 A 52,52 0 0 1 60,112" />
+                                </defs>
+                                <text text-anchor="middle">
+                                    <textPath href="#hint-arc" startOffset="40%" data-i18n="hero.clickHint">Clique
+                                        aqui</textPath>
+                                </text>
+                            </svg>
+                            <iconify-icon icon="ph:hand-tap-fill"></iconify-icon>
+                        </div>
+                        <img src="assets/foto_italo.jpg" alt="" id="photo" role="button" tabindex="0"
+                            aria-pressed="false" data-i18n-aria="hero.photoLabel" width="160" height="160"
+                            decoding="async" fetchpriority="high">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🎧 o que o Ítalo está ouvindo de verdade (Last.fm). Some sozinho se não tiver -->
+            <a class="now-playing" id="nowPlaying" target="_blank" rel="noopener" hidden>
+                <img alt="" width="36" height="36" id="npCover">
+                <span class="np-text">
+                    <span class="np-label" id="npLabel"></span>
+                    <span class="np-song" id="npSong"></span>
+                </span>
+            </a>
+
+            <audio id="audio-player" preload="none">
+                <source id="audio-source" src="" type="audio/mp3">
+            </audio>
+        </section>
+
+        <!-- NÚMEROS: só o que dá pra conferir no banco 📊 -->
+        <section class="stats" data-i18n-aria="stats.label" aria-label="Os projetos em números">
+            <div class="stat">
+                <span class="stat-value" data-count="23639">23.639</span>
+                <span class="stat-label" data-i18n="stat.people">pessoas com ingresso na plataforma que eu construí</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" data-count="19316">19.316</span>
+                <span class="stat-label" data-i18n="stat.deliveries">entregas roteirizadas em um único mês</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" data-count="95" data-suffix="%">95%</span>
+                <span class="stat-label" data-i18n="stat.accuracy">de acerto do roteirizador contra o que saiu de verdade</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" data-count="45">45</span>
+                <span class="stat-label" data-i18n="stat.services">serviços vigiados dia e noite pelo monitor</span>
+            </div>
+        </section>
+
+        <!-- LADO A: engenharia, os singles e o resto do tracklist -->
+        <section id="lado-a" class="side">
+            <header class="side-head">
+                <span class="side-tag" data-i18n="sideA.tag">Lado A</span>
+                <h2 class="side-title ransom" data-i18n="sideA.title">Projetos</h2>
+                <p class="side-sub" data-i18n="sideA.sub">Sistemas em produção, com gente de verdade do outro lado.</p>
+            </header>
+            <div class="singles" id="singles"><!-- Lógica no Script 👌 --></div>
+
+            <div class="tracks">
+                <h3 class="tracks-title" data-i18n="tracks.title">Mais projetos</h3>
+                <ol class="tracklist" id="tracklist"><!-- Lógica no Script 😁 --></ol>
+            </div>
+        </section>
+
+        <!-- LADO B: criativo -->
+        <section id="lado-b" class="side side-b">
+            <header class="side-head">
+                <span class="side-tag" data-i18n="sideB.tag">Lado B</span>
+                <h2 class="side-title ransom" data-i18n="sideB.title">Criativo</h2>
+                <p class="side-sub" data-i18n="sideB.sub">Jogos, produtos próprios e o design que veio antes do código.</p>
+            </header>
+            <div class="bento" id="bento"><!-- Lógica no Script 🎮 --></div>
+        </section>
+
+        <!-- COMO TRABALHO: o que um contratante quer saber antes de chamar -->
+        <section id="como-trabalho" class="work">
+            <div class="work-intro">
+                <h2 class="work-title" data-i18n="work.title">Como trabalhar comigo</h2>
+                <p class="work-lead" data-i18n="work.lead">Meu formato favorito é o contrato mensal: eu viro o dev da sua
+                    empresa ou reforço o seu time.</p>
+                <a class="btn btn-accent" data-wa target="_blank" rel="noopener" href="https://wa.me/5532998825125">
+                    <iconify-icon icon="ph:whatsapp-logo-bold" aria-hidden="true"></iconify-icon>
+                    <span data-i18n="cta.whatsapp">Chamar no WhatsApp</span>
+                </a>
+            </div>
+            <div class="work-body">
+                <ul class="formats">
+                    <li>
+                        <h3 data-i18n="work.f1.t">Alocação mensal</h3>
+                        <p data-i18n="work.f1.d">Horas fixas por mês no seu produto ou no seu time. Remoto, com nota fiscal.</p>
+                    </li>
+                    <li>
+                        <h3 data-i18n="work.f2.t">Projeto fechado</h3>
+                        <p data-i18n="work.f2.d">Escopo, prazo e preço combinados antes de começar. Do banco à tela, com deploy incluso.</p>
+                    </li>
+                    <li>
+                        <h3 data-i18n="work.f3.t">Consultoria em dados e processos</h3>
+                        <p data-i18n="work.f3.d">Entender onde a operação trava, organizar os dados e montar os relatórios que a gestão realmente usa.</p>
+                    </li>
+                </ul>
+                <div class="work-facts">
+                    <p><iconify-icon icon="ph:receipt" aria-hidden="true"></iconify-icon><span data-i18n="work.fact1">Emito nota fiscal como PJ</span></p>
+                    <p><iconify-icon icon="ph:globe-hemisphere-west" aria-hidden="true"></iconify-icon><span data-i18n="work.fact2">Remoto, fuso de Brasília.</span></p>
+                    <p><iconify-icon icon="ph:translate" aria-hidden="true"></iconify-icon><span data-i18n="work.fact3">Português nativo, inglês avançado</span></p>
+                </div>
+                <div class="work-ai">
+                    <h3 data-i18n="work.ai.t">E a IA?</h3>
+                    <p data-i18n="work.ai.d">Uso Claude Code e outras ferramentas de IA todo dia.</p>
+                </div>
+
+                <div class="how">
+                    <h3 class="how-title" data-i18n="how.title">Como funciona</h3>
+                    <ol class="how-steps">
+                        <li><strong data-i18n="how.s1.t">Conversa</strong><span data-i18n="how.s1.d"></span></li>
+                        <li><strong data-i18n="how.s2.t">Proposta</strong><span data-i18n="how.s2.d"></span></li>
+                        <li><strong data-i18n="how.s3.t">Começamos</strong><span data-i18n="how.s3.d"></span></li>
+                    </ol>
+                </div>
+
+                <div class="faq">
+                    <h3 class="how-title" data-i18n="faq.title">Perguntas rápidas</h3>
+                    <details><summary data-i18n="faq.q1">Você emite nota fiscal?</summary><p data-i18n="faq.a1"></p></details>
+                    <details><summary data-i18n="faq.q2">Consegue entrar num sistema que já existe?</summary><p data-i18n="faq.a2"></p></details>
+                    <details><summary data-i18n="faq.q3">Assina acordo de confidencialidade?</summary><p data-i18n="faq.a3"></p></details>
+                    <details><summary data-i18n="faq.q4">E depois que o projeto sai?</summary><p data-i18n="faq.a4"></p></details>
+                    <details><summary data-i18n="faq.q5">Atende empresas de fora do Brasil?</summary><p data-i18n="faq.a5"></p></details>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAIXA BÔNUS: quem é o cara -->
+        <section id="sobre" class="about">
+            <div class="about-top">
+                <h2 class="about-title ransom" data-i18n="about.title">Faixa bônus</h2>
+                <p class="about-text" data-i18n="about.text">Sou o Ítalo, de Cataguases, Minas Gerais.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-col">
+                    <h3 data-i18n="about.career">Discografia</h3>
+                    <ul class="timeline" id="career"></ul>
+                </div>
+                <div class="about-col">
+                    <h3 data-i18n="about.studies">Formação</h3>
+                    <ul class="timeline" id="studies"></ul>
+                </div>
+                <div class="about-col">
+                    <h3 data-i18n="about.certs">Certificados</h3>
+                    <ul class="certs">
+                        <li>
+                            <img src="assets/badges/aws-cloud-foundations.png" alt="" width="44" height="44" loading="lazy">
+                            <div>
+                                <strong>AWS Academy Cloud Foundations</strong>
+                                <span><span data-i18n="about.badge">Selo de treinamento</span>, 2026</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="assets/badges/aws-cloud-operations.png" alt="" width="44" height="44" loading="lazy">
+                            <div>
+                                <strong>AWS Academy Cloud Operations</strong>
+                                <span><span data-i18n="about.badge">Selo de treinamento</span>, 2026</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="cert-mark" aria-hidden="true"><iconify-icon icon="ph:magnifying-glass"></iconify-icon></span>
+                            <div>
+                                <strong>Perícia Forense Computacional</strong>
+                                <span>Universidade Cruzeiro do Sul. <span data-i18n="about.course">Curso livre, 40 horas</span>, 2025</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Única marquee da página: a caixa de ferramentas passando 🧰 -->
+        <div class="marquee" data-i18n-aria="about.stack" aria-label="Ferramentas do dia a dia" role="region">
+            <div class="marquee-track">
+                <ul>
+                    <li><iconify-icon icon="simple-icons:laravel" aria-hidden="true"></iconify-icon>Laravel</li>
+                    <li><iconify-icon icon="simple-icons:php" aria-hidden="true"></iconify-icon>PHP</li>
+                    <li><iconify-icon icon="simple-icons:nextdotjs" aria-hidden="true"></iconify-icon>Next.js</li>
+                    <li><iconify-icon icon="simple-icons:react" aria-hidden="true"></iconify-icon>React</li>
+                    <li><iconify-icon icon="simple-icons:typescript" aria-hidden="true"></iconify-icon>TypeScript</li>
+                    <li><iconify-icon icon="simple-icons:vuedotjs" aria-hidden="true"></iconify-icon>Vue</li>
+                    <li><iconify-icon icon="simple-icons:nodedotjs" aria-hidden="true"></iconify-icon>Node.js</li>
+                    <li><iconify-icon icon="simple-icons:python" aria-hidden="true"></iconify-icon>Python</li>
+                    <li><iconify-icon icon="simple-icons:fastapi" aria-hidden="true"></iconify-icon>FastAPI</li>
+                    <li><iconify-icon icon="ph:graph-bold" aria-hidden="true"></iconify-icon>Dagster</li>
+                    <li><iconify-icon icon="simple-icons:dbt" aria-hidden="true"></iconify-icon>dbt</li>
+                    <li><iconify-icon icon="simple-icons:postgresql" aria-hidden="true"></iconify-icon>PostgreSQL</li>
+                    <li><iconify-icon icon="simple-icons:mysql" aria-hidden="true"></iconify-icon>MySQL</li>
+                    <li><iconify-icon icon="simple-icons:microsoftsqlserver" aria-hidden="true"></iconify-icon>SQL Server</li>
+                    <li><iconify-icon icon="simple-icons:docker" aria-hidden="true"></iconify-icon>Docker</li>
+                    <li><iconify-icon icon="simple-icons:linux" aria-hidden="true"></iconify-icon>Linux</li>
+                    <li><iconify-icon icon="simple-icons:amazonwebservices" aria-hidden="true"></iconify-icon>AWS</li>
+                    <li><iconify-icon icon="simple-icons:playwright" aria-hidden="true"></iconify-icon>Playwright</li>
+                    <li><iconify-icon icon="simple-icons:expo" aria-hidden="true"></iconify-icon>Expo</li>
+                    <li><iconify-icon icon="ph:game-controller-bold" aria-hidden="true"></iconify-icon>Phaser</li>
+                    <li><iconify-icon icon="simple-icons:babylondotjs" aria-hidden="true"></iconify-icon>Babylon.js</li>
+                    <li><iconify-icon icon="simple-icons:tailwindcss" aria-hidden="true"></iconify-icon>Tailwind</li>
+                    <li><iconify-icon icon="simple-icons:adobephotoshop" aria-hidden="true"></iconify-icon>Photoshop</li>
+                    <li><iconify-icon icon="simple-icons:adobeillustrator" aria-hidden="true"></iconify-icon>Illustrator</li>
+                </ul>
+                <ul aria-hidden="true">
+                    <li><iconify-icon icon="simple-icons:laravel" aria-hidden="true"></iconify-icon>Laravel</li>
+                    <li><iconify-icon icon="simple-icons:php" aria-hidden="true"></iconify-icon>PHP</li>
+                    <li><iconify-icon icon="simple-icons:nextdotjs" aria-hidden="true"></iconify-icon>Next.js</li>
+                    <li><iconify-icon icon="simple-icons:react" aria-hidden="true"></iconify-icon>React</li>
+                    <li><iconify-icon icon="simple-icons:typescript" aria-hidden="true"></iconify-icon>TypeScript</li>
+                    <li><iconify-icon icon="simple-icons:vuedotjs" aria-hidden="true"></iconify-icon>Vue</li>
+                    <li><iconify-icon icon="simple-icons:nodedotjs" aria-hidden="true"></iconify-icon>Node.js</li>
+                    <li><iconify-icon icon="simple-icons:python" aria-hidden="true"></iconify-icon>Python</li>
+                    <li><iconify-icon icon="simple-icons:fastapi" aria-hidden="true"></iconify-icon>FastAPI</li>
+                    <li><iconify-icon icon="ph:graph-bold" aria-hidden="true"></iconify-icon>Dagster</li>
+                    <li><iconify-icon icon="simple-icons:dbt" aria-hidden="true"></iconify-icon>dbt</li>
+                    <li><iconify-icon icon="simple-icons:postgresql" aria-hidden="true"></iconify-icon>PostgreSQL</li>
+                    <li><iconify-icon icon="simple-icons:mysql" aria-hidden="true"></iconify-icon>MySQL</li>
+                    <li><iconify-icon icon="simple-icons:microsoftsqlserver" aria-hidden="true"></iconify-icon>SQL Server</li>
+                    <li><iconify-icon icon="simple-icons:docker" aria-hidden="true"></iconify-icon>Docker</li>
+                    <li><iconify-icon icon="simple-icons:linux" aria-hidden="true"></iconify-icon>Linux</li>
+                    <li><iconify-icon icon="simple-icons:amazonwebservices" aria-hidden="true"></iconify-icon>AWS</li>
+                    <li><iconify-icon icon="simple-icons:playwright" aria-hidden="true"></iconify-icon>Playwright</li>
+                    <li><iconify-icon icon="simple-icons:expo" aria-hidden="true"></iconify-icon>Expo</li>
+                    <li><iconify-icon icon="ph:game-controller-bold" aria-hidden="true"></iconify-icon>Phaser</li>
+                    <li><iconify-icon icon="simple-icons:babylondotjs" aria-hidden="true"></iconify-icon>Babylon.js</li>
+                    <li><iconify-icon icon="simple-icons:tailwindcss" aria-hidden="true"></iconify-icon>Tailwind</li>
+                    <li><iconify-icon icon="simple-icons:adobephotoshop" aria-hidden="true"></iconify-icon>Photoshop</li>
+                    <li><iconify-icon icon="simple-icons:adobeillustrator" aria-hidden="true"></iconify-icon>Illustrator</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CONTATO: o fim do disco, e o convite pro próximo -->
+        <section id="contato" class="contact">
+            <h2 class="contact-title" data-i18n="contact.title">Tem um sistema pra tirar do papel, ou um que vive caindo?</h2>
+            <p class="contact-sub" data-i18n="contact.sub">Me conta o que está acontecendo. A primeira conversa é sem compromisso.</p>
+            <a class="btn btn-accent btn-lg" data-wa target="_blank" rel="noopener" href="https://wa.me/5532998825125">
+                <iconify-icon icon="ph:whatsapp-logo-bold" aria-hidden="true"></iconify-icon>
+                <span data-i18n="cta.whatsapp">Chamar no WhatsApp</span>
+            </a>
+            <p class="contact-or" data-i18n="contact.or">Ou, se preferir:</p>
+            <ul class="contact-links">
+                <li><a href="mailto:italoaurelio0@gmail.com"><iconify-icon icon="ph:envelope-simple" aria-hidden="true"></iconify-icon>italoaurelio0@gmail.com</a></li>
+                <li><a href="https://www.linkedin.com/in/italoaurelio/" target="_blank" rel="noopener"><iconify-icon icon="ph:linkedin-logo" aria-hidden="true"></iconify-icon>LinkedIn</a></li>
+                <li><a href="https://github.com/italoaurelio" target="_blank" rel="noopener"><iconify-icon icon="ph:github-logo" aria-hidden="true"></iconify-icon>GitHub</a></li>
+                <li><a href="https://www.instagram.com/italoaurelio.png/" target="_blank" rel="noopener"><iconify-icon icon="ph:instagram-logo" aria-hidden="true"></iconify-icon>Instagram</a></li>
+                <li><a href="https://drive.google.com/file/d/1WVFzQyXcepJy4VwnRyCzn2_PjaTRJdgZ/view" target="_blank" rel="noopener"><iconify-icon icon="ph:file-text" aria-hidden="true"></iconify-icon><span data-i18n="footer.cv">Currículo (PDF)</span></a></li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Ítalo Aurélio</p>
+            <a href="#presentation" data-i18n="footer.top">Voltar ao topo</a>
+        </footer>
+    </main>
+
+    <!-- Encarte do case (modal) 📋 -->
     <div id="projectModal" class="modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalProjectName">
-            <button class="modal-close" id="closeModal" aria-label="Close" data-i18n-aria="modal.close">&times;</button>
+            <button class="modal-close" id="closeModal" aria-label="Fechar" data-i18n-aria="modal.close">
+                <iconify-icon icon="ph:x-bold" aria-hidden="true"></iconify-icon>
+            </button>
 
             <header class="modal-header">
-                <div class="modal-header-text">
-                    <p class="modal-meta" id="modalMeta"></p>
-                    <h2 id="modalProjectName"></h2>
-                    <p class="modal-tagline" id="modalTagline"></p>
-                </div>
-                <!-- CTAs no topo: recrutador não caça link 🎯 -->
+                <p class="modal-meta" id="modalMeta"></p>
+                <h2 id="modalProjectName"></h2>
+                <p class="modal-tagline" id="modalTagline"></p>
                 <div class="modal-links" id="modalLinks"></div>
             </header>
 
-            <!-- Números primeiro: é o que segura o olho de quem contrata 👀 -->
             <div class="modal-impact" id="modalImpact"></div>
 
-            <!-- Galeria em largura total (só aparece quando tem imagem) -->
-            <div class="modal-gallery-col" id="modalGalleryArea">
+            <div class="modal-gallery" id="modalGalleryArea">
                 <div class="gallery-main" id="galleryMain">
-                    <button class="gallery-arrow left" id="galleryPrev" aria-label="Previous"
-                        data-i18n-aria="modal.prev">‹</button>
-                    <div class="gallery-image-wrap"><!-- imagem principal inserida via JS --></div>
-                    <button class="gallery-arrow right" id="galleryNext" aria-label="Next"
-                        data-i18n-aria="modal.next">›</button>
+                    <button class="gallery-arrow left" id="galleryPrev" aria-label="Imagem anterior"
+                        data-i18n-aria="modal.prev"><iconify-icon icon="ph:caret-left-bold"></iconify-icon></button>
+                    <div class="gallery-image-wrap"></div>
+                    <button class="gallery-arrow right" id="galleryNext" aria-label="Próxima imagem"
+                        data-i18n-aria="modal.next"><iconify-icon icon="ph:caret-right-bold"></iconify-icon></button>
                 </div>
-                <div class="gallery-dots" id="galleryDots" aria-live="polite"><!-- bolinhas geradas via JS --></div>
+                <div class="gallery-dots" id="galleryDots"></div>
             </div>
 
             <div class="modal-body">
-                <div class="modal-info">
-                    <section id="modalOverview">
-                        <h5></h5>
-                        <p class="modal-description"></p>
-                    </section>
-                    <section id="modalHighlights">
-                        <h5></h5>
-                        <ul></ul>
-                    </section>
-                    <section id="modalStack">
-                        <h5></h5>
-                        <div class="modal-tech"></div>
-                    </section>
-                </div>
+                <section id="modalProblem"><h3></h3><p></p></section>
+                <section id="modalOverview"><h3></h3><p></p></section>
+                <section id="modalHighlights"><h3></h3><ul></ul></section>
+                <section id="modalBackstage" class="modal-backstage"><h3></h3><h4></h4><p></p></section>
+                <section id="modalStack"><h3></h3><div class="chips"></div></section>
             </div>
-
-            <section class="modal-infra" id="modalInfra"></section>
-            <section class="modal-usage" id="modalUsage"></section>
         </div>
     </div>
 
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
+    <!-- Fliperama: o Reino Infinito roda aqui dentro 🕹️ -->
+    <div id="gameModal" class="game-modal" aria-hidden="true">
+        <div class="game-frame" role="dialog" aria-modal="true" aria-label="Reino Infinito">
+            <button class="modal-close" id="closeGame" aria-label="Fechar" data-i18n-aria="modal.close">
+                <iconify-icon icon="ph:x-bold" aria-hidden="true"></iconify-icon>
+            </button>
+            <iframe id="gameIframe" title="Reino Infinito" loading="lazy" allow="autoplay; fullscreen"></iframe>
+        </div>
+    </div>
+
+    <!-- 📺 Mini player da playlist do YouTube: aparece só enquanto toca -->
+    <aside class="mini-player" id="miniPlayer" aria-hidden="true" aria-label="Rock na Estrada">
+        <div class="mp-screen"><div id="ytPlayer"></div></div>
+        <div class="mp-body">
+            <p class="mp-label">Rock na Estrada</p>
+            <p class="mp-title" id="mpTitle"></p>
+            <div class="mp-actions">
+                <button type="button" id="mpNext" data-i18n-aria="mp.next" aria-label="Próxima">
+                    <iconify-icon icon="ph:skip-forward-fill" aria-hidden="true"></iconify-icon>
+                </button>
+                <button type="button" id="mpStop" data-i18n-aria="mp.stop" aria-label="Parar">
+                    <iconify-icon icon="ph:stop-fill" aria-hidden="true"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <div class="grain" aria-hidden="true"></div>
+
+    <script src="i18n.js?v=202609222028"></script>
+    <script src="ransom.js?v=202609222028"></script>
+    <script src="script.js?v=202609222028" defer></script>
+    <script src="bg.js?v=202609222028" defer></script>
 </body>
 
 </html>

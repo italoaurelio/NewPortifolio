@@ -1,0 +1,6 @@
+{
+  "name": "italo-aurelio-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "Portfólio estático; a pasta api/ tem as funções da Vercel (status dos sistemas e o que estou ouvindo)"
+}

@@ -1,32 +1,20 @@
 [
     {
         "photo": "assets/cefet.jpg",
-        "date": { "en": "2022 - 2027", "pt": "2022 - 2027" },
-        "name": { "en": "Computer Engineering", "pt": "Engenharia de Computação" },
-        "ocupation": { "en": "Cefet-MG (Leopoldina Campus)", "pt": "Cefet-MG (Campus Leopoldina)" }
+        "date": { "en": "2022 - 2029", "pt": "2022 - 2029", "es": "2022 - 2029" },
+        "name": { "en": "Computer Engineering", "pt": "Engenharia de Computação", "es": "Ingeniería en Computación" },
+        "ocupation": { "en": "CEFET-MG, Leopoldina campus", "pt": "CEFET-MG, campus Leopoldina", "es": "CEFET-MG, campus Leopoldina" }
     },
     {
         "photo": "assets/senai.jpg",
-        "date": { "en": "2024 - 2026", "pt": "2024 - 2026" },
-        "name": {
-            "en": "Technical Course in Systems Development<br>('Rio Pomba Valley')",
-            "pt": "Curso Técnico em Desenvolvimento de Sistemas<br>('Rio Pomba Valley')"
-        },
+        "date": { "en": "2024 - 2026", "pt": "2024 - 2026", "es": "2024 - 2026" },
+        "name": { "en": "Systems Development (technical degree)", "pt": "Técnico em Desenvolvimento de Sistemas", "es": "Técnico en Desarrollo de Sistemas" },
         "ocupation": "SENAI Cataguases"
     },
     {
         "photo": "assets/uninter.jpg",
-        "date": { "en": "Jan 2022 - Dec 2024 (Deferred)", "pt": "Jan 2022 - Dez 2024 (Trancado)" },
-        "name": { "en": "Bachelor's Degree in Visual Arts", "pt": "Bacharelado em Artes Visuais" },
+        "date": { "en": "2022 - 2024, paused", "pt": "2022 - 2024, trancado", "es": "2022 - 2024, en pausa" },
+        "name": { "en": "Visual Arts", "pt": "Artes Visuais", "es": "Artes Visuales" },
         "ocupation": "Uninter"
-    },
-    {
-        "photo": "assets/efg.jpg",
-        "date": { "en": "Feb 2018 - Dec 2020", "pt": "Fev 2018 - Dez 2020" },
-        "name": {
-            "en": "Technical Course in Business Administration and High School",
-            "pt": "Curso Técnico em Administração integrado ao Ensino Médio"
-        },
-        "ocupation": "EFG - Cataguases"
     }
 ]
