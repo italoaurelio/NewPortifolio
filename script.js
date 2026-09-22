@@ -357,6 +357,11 @@ function checkLive() {
             if (!r.ok || !(r.headers.get("content-type") || "").includes("json")) throw new Error("sem api");
             const data = await r.json();
             liveState = data.systems || {};
+            // o servidor não alcançou (code 0)? pode ser firewall barrando fora do Brasil:
+            // o navegador do visitante confere antes de acusar "fora do ar"
+            const unreachable = Object.keys(LIVE_URLS).filter(id => !liveState[id] || liveState[id].code === 0);
+            const retry = await Promise.all(unreachable.map(id => pingFromBrowser(LIVE_URLS[id])));
+            unreachable.forEach((id, i) => { liveState[id] = retry[i]; });
         } catch (e) {
             const ids = Object.keys(LIVE_URLS);
             const res = await Promise.all(ids.map(id => pingFromBrowser(LIVE_URLS[id])));
